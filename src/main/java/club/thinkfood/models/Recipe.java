@@ -27,12 +27,12 @@ public class Recipe {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users recipeCreator;
+    private User recipeCreator;
 
     @Column
     private long rating;
 
-    public Recipes(long id, String title, long prep_time, String image, String description, Users recipeCreator, long rating) {
+    public Recipe(long id, String title, long prep_time, String image, String description, User recipeCreator, long rating) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
@@ -42,20 +42,20 @@ public class Recipe {
         this.rating = rating;
     }
 
-    public Recipes(String title, String description) {
+    public Recipe(String title, String description) {
         this.title = title;
         this.description = description;
     }
 
-    public Recipes() {
+    public Recipe() {
     }
 
 
-    public Users getRecipeCreator() {
+    public User getRecipeCreator() {
         return recipeCreator;
     }
 
-    public void setRecipeCreator(Users recipeCreator) {
+    public void setRecipeCreator(User recipeCreator) {
         this.recipeCreator = recipeCreator;
     }
 

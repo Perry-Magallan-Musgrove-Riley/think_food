@@ -37,7 +37,7 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipeCreator")
     private List<Recipe> myRecipes;
 
-    public User(long id, String first_name, String last_name, String email, String username, String password, Users recipeCreator, int isAdmin, List<Recipe> myRecipes) {
+    public User(long id, String first_name, String last_name, String email, String username, String password, User recipeCreator, int isAdmin, List<Recipe> myRecipes) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
