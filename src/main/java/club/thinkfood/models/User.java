@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class Users {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,14 +24,14 @@ public class Users {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipeCreator")
     private List<Recipe> myRecipes;
 
-    public Users(Users copy) {
+    public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         email = copy.email;
         username = copy.username;
         password = copy.password;
     }
 
-    public Users() {}
+    public User() {}
 
     public List<Recipe> getMyRecipes() {
         return myRecipes;
