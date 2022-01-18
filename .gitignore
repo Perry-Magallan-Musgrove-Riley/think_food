@@ -35,4 +35,9 @@ build/
 ### Application Properties ###
 src/main/resources/application.properties
 
-keys.js
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+src/main/resources/keys.js
+

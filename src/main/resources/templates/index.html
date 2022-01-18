@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
     <title>Food For Thought</title>
 </head>
 <body>
   <div id="homeHeader"></div>
+  <form action="">
+    <button id="rando">Randomize a recipe for me :)</button>
+</form>
   <div class="card-deck">
     <div class="card">
       <div class="card-body">
@@ -35,5 +39,16 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" th:src="@{/js/keys.js}"></script>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+
+
 </body>
 </html>

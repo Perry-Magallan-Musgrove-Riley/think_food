@@ -1,10 +1,12 @@
 package club.thinkfood.models;
 
+
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
-@Table(name="recipes")
+@Table(name = "recipes")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,36 +16,46 @@ public class Recipe {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false, length = 1000)
-    private String body;
+    @Column(nullable = false)
+    private long prep_time;
 
-    @Column(nullable = true, length = 100)
+    @Column(nullable = true)
     private String image;
 
-    public Recipe(long id, String title, String body, String image, User recipeCreator) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-        this.image = image;
-        this.recipeCreator = recipeCreator;
-    }
-
-    public Recipe(String title, String body) {
-        this.title = title;
-        this.body = body;
-    }
-
-    public Recipe() {}
+    @Column(nullable = false, length = 5000)
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private User recipeCreator;
+    @JoinColumn(name = "user_id")
+    private Users recipeCreator;
 
-    public User getRecipeCreator() {
+    @Column
+    private long rating;
+
+    public Recipes(long id, String title, long prep_time, String image, String description, Users recipeCreator, long rating) {
+        this.id = id;
+        this.title = title;
+        this.prep_time = prep_time;
+        this.image = image;
+        this.description = description;
+        this.recipeCreator = recipeCreator;
+        this.rating = rating;
+    }
+
+    public Recipes(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+    public Recipes() {
+    }
+
+
+    public Users getRecipeCreator() {
         return recipeCreator;
     }
 
-    public void setRecipeCreator(User recipeCreator) {
+    public void setRecipeCreator(Users recipeCreator) {
         this.recipeCreator = recipeCreator;
     }
 
@@ -63,12 +75,12 @@ public class Recipe {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImage() {
@@ -77,6 +89,22 @@ public class Recipe {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public long getPrep_time() {
+        return prep_time;
+    }
+
+    public void setPrep_time(long prep_time) {
+        this.prep_time = prep_time;
+    }
+
+    public long getRating() {
+        return rating;
+    }
+
+    public void setRating(long rating) {
+        this.rating = rating;
     }
 }
 

@@ -13,16 +13,41 @@ public class User {
     private long id;
 
     @Column(nullable = false, length = 100)
-    private String username;
+    private String first_name;
+
+    @Column(nullable = false, length = 100)
+    private String last_name;
 
     @Column(nullable = false, length = 100)
     private String email;
 
     @Column(nullable = false, length = 100)
+    private String username;
+
+    @Column(nullable = false, length = 100)
     private String password;
+
+    @OneToOne
+    @JoinColumn(name = "img_id")
+    private User recipeCreator;
+
+    @Column(nullable = false)
+    private int isAdmin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipeCreator")
     private List<Recipe> myRecipes;
+
+    public User(long id, String first_name, String last_name, String email, String username, String password, Users recipeCreator, int isAdmin, List<Recipe> myRecipes) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.recipeCreator = recipeCreator;
+        this.isAdmin = isAdmin;
+        this.myRecipes = myRecipes;
+    }
 
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -71,6 +96,38 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public User getRecipeCreator() {
+        return recipeCreator;
+    }
+
+    public void setRecipeCreator(User recipeCreator) {
+        this.recipeCreator = recipeCreator;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
 
