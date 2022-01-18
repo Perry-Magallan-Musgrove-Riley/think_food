@@ -1,7 +1,6 @@
 package club.thinkfood.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -21,7 +20,7 @@ public class Recipe {
     @Column(nullable = true, length = 100)
     private String image;
 
-    public Recipe(long id, String title, String body, String image, Users recipeCreator) {
+    public Recipe(long id, String title, String body, String image, User recipeCreator) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -38,13 +37,13 @@ public class Recipe {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private club.thinkfood.models.Users recipeCreator;
+    private User recipeCreator;
 
-    public club.thinkfood.models.Users getRecipeCreator() {
+    public User getRecipeCreator() {
         return recipeCreator;
     }
 
-    public void setRecipeCreator(club.thinkfood.models.Users recipeCreator) {
+    public void setRecipeCreator(User recipeCreator) {
         this.recipeCreator = recipeCreator;
     }
 
