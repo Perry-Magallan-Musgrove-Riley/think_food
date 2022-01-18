@@ -12,12 +12,13 @@ public class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String HomePage(){
-        return "Welcome to Think food!";
+        return "/index";
     }
 
-    @PostMapping("/index")
+    @PostMapping("/")
     public String SignUp(){
-        return "redirect:/index";
+        //later setup authentication
+        return "redirect:/users/sign-up";
     }
 
 }
