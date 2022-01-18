@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class Users {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,15 +29,15 @@ public class Users {
 
     @OneToOne
     @JoinColumn(name = "img_id")
-    private Users recipeCreator;
+    private User recipeCreator;
 
     @Column(nullable = false)
     private int isAdmin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipeCreator")
-    private List<Recipes> myRecipes;
+    private List<Recipe> myRecipes;
 
-    public Users(long id, String first_name, String last_name, String email, String username, String password, Users recipeCreator, int isAdmin, List<Recipes> myRecipes) {
+    public User(long id, String first_name, String last_name, String email, String username, String password, Users recipeCreator, int isAdmin, List<Recipe> myRecipes) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -49,20 +49,20 @@ public class Users {
         this.myRecipes = myRecipes;
     }
 
-    public Users(Users copy) {
+    public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         email = copy.email;
         username = copy.username;
         password = copy.password;
     }
 
-    public Users() {}
+    public User() {}
 
-    public List<Recipes> getMyRecipes() {
+    public List<Recipe> getMyRecipes() {
         return myRecipes;
     }
 
-    public void setMyRecipes(List<Recipes> myRecipes) {
+    public void setMyRecipes(List<Recipe> myRecipes) {
         this.myRecipes = myRecipes;
     }
 
@@ -114,11 +114,11 @@ public class Users {
         this.last_name = last_name;
     }
 
-    public Users getRecipeCreator() {
+    public User getRecipeCreator() {
         return recipeCreator;
     }
 
-    public void setRecipeCreator(Users recipeCreator) {
+    public void setRecipeCreator(User recipeCreator) {
         this.recipeCreator = recipeCreator;
     }
 
