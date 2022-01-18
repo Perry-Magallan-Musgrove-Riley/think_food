@@ -39,5 +39,7 @@ src/main/resources/application.properties
 # Editor-based HTTP Client requests
 /httpRequests/
 
+
 src/main/resources/static/js/keys.js
+
 
