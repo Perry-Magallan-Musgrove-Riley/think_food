@@ -36,7 +36,5 @@ build/
 src/main/resources/application.properties
 
 # Editor-based HTTP Client requests
-/httpRequests/
-
 src/main/resources/keys.js
 
