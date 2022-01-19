@@ -28,23 +28,22 @@ public class User {
     private String password;
 
     @OneToOne
-    @JoinColumn(name = "img_id")
-    private User recipeCreator;
+    private Image img;
 
     @Column(nullable = false)
     private int isAdmin;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipeCreator")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
 
-    public User(long id, String first_name, String last_name, String email, String username, String password, User recipeCreator, int isAdmin, List<Recipe> myRecipes) {
+    public User(long id, String first_name, String last_name, String email, String username, String password, Image img, int isAdmin, List<Recipe> myRecipes) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.recipeCreator = recipeCreator;
+        this.img = img;
         this.isAdmin = isAdmin;
         this.myRecipes = myRecipes;
     }
@@ -114,12 +113,12 @@ public class User {
         this.last_name = last_name;
     }
 
-    public User getRecipeCreator() {
-        return recipeCreator;
+    public Image getImg() {
+        return img;
     }
 
-    public void setRecipeCreator(User recipeCreator) {
-        this.recipeCreator = recipeCreator;
+    public void setImg(Image img) {
+        this.img = img;
     }
 
     public int getIsAdmin() {
