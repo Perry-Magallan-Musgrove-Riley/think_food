@@ -18,21 +18,27 @@ public class Recipe {
     @Column(nullable = false)
     private long prep_time;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
-    private List<Image> images;
-
     @Column(nullable = false, length = 5000)
     private String description;
-
-    @ManyToOne
-    private User chef;
 
     @Column
     private long rating;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+    private List<Image> images;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private List<Ingredient> ingredients;
+
+    @ManyToOne
+    private User chef;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
     private List<Category> categories;
+
+    @ManyToMany(mappedBy = "recipes")
+    private List<User> chefs;
 
     public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
         this.id = id;
