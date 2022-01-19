@@ -5,11 +5,33 @@
     <title>Food For Thought</title>
 </head>
 <body>
-  <div id="homeHeader">
-    <div class="container-fluid">
-      <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish-2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish-3.png}">
-    </div>
-  </div>
+<!--<div>-->
+<!--  <form th:action="@{/index}" th:method="get" th:object="recipe">-->
+<!--<input type="text" name="search" id="search" th:value="${search}"/>-->
+<!--    <input type="submit" value="search"/>-->
+<!--    <div th:if="${not #lists.isEmpty(search)}">-->
+<!--      <h2>Recipe List</h2>-->
+<!--      <table class="table table-striped">-->
+<!--        <tr>-->
+<!--          <th>Id</th>-->
+<!--          <th>Title</th>-->
+<!--          <th>Prep Time</th>-->
+<!--          <th>Description</th>-->
+<!--          <th>Rating</th>-->
+<!--        </tr>-->
+<!--        <tr th:each="recipe : ${search}">-->
+<!--          <td th:text="${recipe.id}"><a href="/recipe/${recipe.recipe_id}">Recipe ID</a></td>-->
+<!--          <td th:text="${chefs.username}">Title</td>-->
+<!--          <td th:text="${recipe.prep_time}">Prep Time</td>-->
+<!--          <td th:text="${recipe.description}">Description</td>-->
+<!--          <td th:text="${recipe.rating}">Rating</td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+  <div id="homeHeader"></div>
   <form action="">
     <button id="rando">Randomize a recipe for me :)</button>
 </form>
@@ -42,11 +64,5 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
 </body>
 </html>
