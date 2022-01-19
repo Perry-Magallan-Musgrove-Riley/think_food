@@ -9,7 +9,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     @Column(nullable = false, length = 100)
@@ -35,6 +34,10 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "users_recipes", joinColumns = {@JoinColumn(name = "chef_id")}, inverseJoinColumns = {@JoinColumn(name = "recipe_id")})
+    private List<Recipe> recipes;
 
     public User(long id, String first_name, String last_name, String email, String username, String password, Image img, int isAdmin, List<Recipe> myRecipes) {
         this.id = id;
