@@ -14,8 +14,7 @@
     </div>
   </div>
 
-  <div id="homeHeader"></div>
-  <div>
+  <div class="recipeBody">
     <form th:action="@{/recipe-search}" th:method="get" th:object="${recipe}">
       <input type="text" name="search" id="search" th:value="${search}"/>
       <input type="submit" value="search"/>

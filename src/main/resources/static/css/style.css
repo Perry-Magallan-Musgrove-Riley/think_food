@@ -13,14 +13,14 @@
 
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
 .dish2{
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
@@ -38,7 +38,7 @@
 .dish3{
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
@@ -50,4 +50,10 @@
 }
 .container-fluid{
     position: fixed;
+
+}
+
+.recipeBody{
+    z-index: 900;
+
 }
