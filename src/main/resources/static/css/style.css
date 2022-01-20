@@ -52,8 +52,10 @@
 .container-fluid{
     position: fixed;
 
+
 }
 
 .recipeBody{
     z-index: 900;
+
 }
