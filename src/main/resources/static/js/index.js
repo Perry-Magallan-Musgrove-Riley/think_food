@@ -1,5 +1,5 @@
-const client = filestack.init(filestackKey);
-client.picker().open();
+// const client = filestack.init(filestackKey);
+// client.picker().open();
 
 $("#rando").click(function(e) {
     e.preventDefault();
