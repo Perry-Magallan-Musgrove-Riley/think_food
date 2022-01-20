@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:include="partials/head.html :: head">
-    <meta charset="UTF-8">
-    <title>Profile</title>
+	<meta charset="UTF-8">
+	<title>Profile</title>
 </head>
-<body>
+<body class="profile-body">
+  
     <div th:include="partials/navbar.html :: navbar">
 
-    </div>
-    <h1>Welcome to your profile page <span th:text="${name}"></span>!</h1>
+<h1>Hello, <span th:text="${name}"> here is your profile</span>!</h1>
+
+<div class="card-deck row">
+	<div class="card border border-primary d-flex flex-column justify-content-between col-md-4">
+		<div class="card-body">
+
+			<img src="ImageFilePath" style="height:150px; border-radius: 50%; border: 10px solid navajowhite;"
+			     alt="This is the user profile picture">
+			<!--Need to add the filepath for the profile images after uploading in the edit page and selecting a file-->
+
+			<a href="/edit" class="card-link">Edit Profile</a>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">About Me</h5>
+			<p>Add in the pathing to grab about me info from edit page.</p>
+		</div>
+	</div>
+</div>
+
+<div>
+	<div class="card-deck row">
+		<div class="card d-flex flex-column justify-content-between col-md-8">
+			<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a recipe">
+			<h5 class="card-title">Name of Dish</h5>
+			<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
+
+			<div class="card-body rotate-border">
+				<div>
+				<h6 class="card-comments mb-2 text-muted">Comments</h6>
+				<p class="card-text">Comments body: </p>
+				<a href="#" class="card-link">Link to Ingredients</a>
+				<a href="#" class="card-link">Link for video of recipe</a>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a 2nd recipe">
+			<h5 class="card-title">Name of Dish</h5>
+			<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
+
+			<div class="card-body rotate-border">
+				<div>
+				<h6 class="card-comments mb-2 text-muted">Comments</h6>
+				<p class="card-text">Comments body: </p>
+				<a href="#" class="card-link">Link to ingredients</a>
+				<a href="#" class="card-link">Link for video of recipe</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
 </body>
 </html>
