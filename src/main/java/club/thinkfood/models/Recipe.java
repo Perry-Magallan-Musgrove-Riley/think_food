@@ -35,8 +35,11 @@ public class Recipe {
     @ManyToOne
     private User chef;
 
-    @Value("${spoonacular.api}")
+    @Value(("${spoonacularApi}"))
     private String spoonacularApiKey;
+
+    @Value(("${filestackKey}"))
+    private String filestackKey;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
