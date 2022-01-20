@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Page</title>
+</head>
+<body>
+
+<h1>Edit Page</h1>
+<form th:action="@{/edit}" method="post">
+	<form class="md-form">
+		<div class="file-field">
+			<div class="btn btn-primary btn-sm float-left">
+				<span>Choose file</span>
+				<input type="file">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text" placeholder="Upload your file">
+			</div>
+		</div>
+	</form>
+
+	<label name="userAboutMe">About Me:</label>
+	<textarea th:value="${userToEdit.getPassword()}" name="postBody" placeholder="Edit your About Me"></textarea>
+
+	<input type="hidden" th:value="${userToEdit.getId()}">
+	<input type="hidden" th:value="${userUser.getById()}">
+	<button>Submit edit</button>
+</form>
+
+</body>
+</html>

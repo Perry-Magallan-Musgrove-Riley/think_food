@@ -12,3 +12,13 @@
         height: 100vh;
     }
 }
+
+.profile-body{
+    background-color: darkorange;
+}
+
+.rotate-border>div{
+    border-top: 3px solid black;
+    position: absolute;
+    margin: auto;
+}
