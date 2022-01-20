@@ -5,17 +5,14 @@
     <title>Food For Thought</title>
 </head>
 <body>
-
+  <div th:include="partials/navbar.html :: navbar"></div>
   <div id="homeHeader">
     <div class="container-fluid">
       <div class="dish-row row">
         <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish3.png}">
       </div>
     </div>
-
   </div>
-
-
 
   <div id="homeHeader"></div>
   <div>
@@ -43,8 +40,11 @@
       </div>
     </form>
   </div>
+  
   <form action="">
-    <button id="rando">Randomize a recipe for me :)</button>
+    <button id="rando">Randomize a recipe for me :)</button><br>
+    <h3>Don't know what to eat? Let us help you decide</h3>
+    <button id="questionnaire">Help me decide what to eat!</button>
 </form>
   <div class="card-deck">
     <div class="card">
