@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS thnk_food_db;
-
-CREATE DATABASE IF NOT EXISTS thnk_food_db;
 
 USE thnk_food_db;
 
