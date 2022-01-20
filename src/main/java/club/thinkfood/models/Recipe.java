@@ -48,9 +48,6 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
-    @Value("${spoonacular.api}")
-    private String spoonacularApiKey;
-
     public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
         this.id = id;
         this.title = title;
