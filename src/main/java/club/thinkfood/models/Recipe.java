@@ -10,7 +10,6 @@ import java.util.List;
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     @Column(nullable = false, length = 100)
@@ -19,26 +18,35 @@ public class Recipe {
     @Column(nullable = false)
     private long prep_time;
 
-    @Column(nullable = true)
-    private String image;
-
     @Column(nullable = false, length = 5000)
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User recipeCreator;
 
     @Column
     private long rating;
 
-    public Recipe(long id, String title, long prep_time, String image, String description, User recipeCreator, long rating) {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+    private List<Image> images;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private List<Ingredient> ingredients;
+
+    @ManyToOne
+    private User chef;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
+    private List<Category> categories;
+
+    @ManyToMany(mappedBy = "recipes")
+    private List<User> chefs;
+
+    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
-        this.image = image;
+        this.images = images;
         this.description = description;
-        this.recipeCreator = recipeCreator;
+        this.chef = chef;
         this.rating = rating;
     }
 
@@ -51,12 +59,12 @@ public class Recipe {
     }
 
 
-    public User getRecipeCreator() {
-        return recipeCreator;
+    public User getUser() {
+        return chef;
     }
 
-    public void setRecipeCreator(User recipeCreator) {
-        this.recipeCreator = recipeCreator;
+    public void setUser(User user) {
+        this.chef = user;
     }
 
     public long getId() {
@@ -83,12 +91,12 @@ public class Recipe {
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
+    public List<Image> getImage() {
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(List<Image> images) {
+        this.images = images;
     }
 
     public long getPrep_time() {
