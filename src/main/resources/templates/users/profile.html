@@ -5,6 +5,8 @@
 	<title>Profile</title>
 </head>
 <body class="profile-body">
+  
+    <div th:include="partials/navbar.html :: navbar">
 
 <h1>Hello, <span th:text="${name}"> here is your profile</span>!</h1>
 
@@ -60,6 +62,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 </body>
