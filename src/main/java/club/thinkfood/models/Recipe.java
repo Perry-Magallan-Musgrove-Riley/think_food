@@ -35,15 +35,18 @@ public class Recipe {
     @ManyToOne
     private User chef;
 
+    @Value(("${spoonacularApi}"))
+    private String spoonacularApiKey;
+
+    @Value(("${filestackKey}"))
+    private String filestackKey;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
     private List<Category> categories;
 
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
-
-    @Value("${spoonacular.api}")
-    private String spoonacularApiKey;
 
     public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
         this.id = id;

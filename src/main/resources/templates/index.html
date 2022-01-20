@@ -19,27 +19,10 @@
       <input type="text" name="search" id="search" th:value="${search}"/>
       <input type="submit" value="search"/>
       <div th:if="${not #lists.isEmpty(search)}">
-        <h2>Recipe List</h2>
-        <table class="table table-striped">
-          <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Prep Time</th>
-            <th>Description</th>
-            <th>Rating</th>
-          </tr>
-          <tr th:each="recipe : ${search}">
-            <td th:text="${recipe.id}"><a href="/recipe/${recipe.recipe_id}">Recipe ID</a></td>
-            <td th:text="${chefs.username}">Title</td>
-            <td th:text="${recipe.prep_time}">Prep Time</td>
-            <td th:text="${recipe.description}">Description</td>
-            <td th:text="${recipe.rating}">Rating</td>
-          </tr>
-        </table>
       </div>
     </form>
   </div>
-  
+
   <form action="">
     <button id="rando">Randomize a recipe for me :)</button><br>
 </form>
