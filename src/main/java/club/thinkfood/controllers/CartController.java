@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CartController {
 
-    @GetMapping("/users/order")
+    @GetMapping("/users/cart")
     public String getOrder(){
-        return "/users/order";
+        return "/users/cart";
     }
 
 }
