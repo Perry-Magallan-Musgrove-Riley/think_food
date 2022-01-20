@@ -13,28 +13,17 @@
 
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
 .dish2{
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
-HEAD
-@media only screen and (min-width: 767px) {
-    #homeHeader {
-        background-image: url("https://video-private-assets.canva.com/VAE1QG6K8P8/v/cb657fd504.gif?exp=1642547460000&cf-ck=stixQrRmFdZjGkFr9KbG-hvVze9-yTcAO7T86RAXFoU&cf-sig=aDPvuZb7auqzFUE3S39r1ECAadoz3MBladASAMb991M&cf-sig-kid=CO7cCjZ_YiI=&sig=hBT5E7WOvH7wr8tz_F6q2cCLMtiYrcprE5Axff5ofsQ&sig-kid=GzFgFdhXD-Q=");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-attachment: fixed;
-        height: 100vh;
-    }
-}
 
 .profile-body{
     background-color: darkorange;
@@ -50,7 +39,7 @@ HEAD
 .dish3{
     height: 200px;
     width: 200px;
-    z-index: 999;
+    z-index: 500;
 
 }
 
@@ -62,5 +51,11 @@ HEAD
 }
 .container-fluid{
     position: fixed;
+
+
+}
+
+.recipeBody{
+    z-index: 900;
 
 }

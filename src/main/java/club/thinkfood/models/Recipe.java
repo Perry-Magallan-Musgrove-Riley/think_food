@@ -35,6 +35,9 @@ public class Recipe {
     @ManyToOne
     private User chef;
 
+    @Value("${spoonacular.api}")
+    private String spoonacularApiKey;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
     private List<Category> categories;
