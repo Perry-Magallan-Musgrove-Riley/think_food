@@ -5,6 +5,15 @@
     <title>Food For Thought</title>
 </head>
 <body>
+
+  <div id="homeHeader">
+    <div class="container-fluid">
+      <div class="dish-row row">
+        <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish3.png}">
+      </div>
+    </div>
+  </div>
+
 <!--<div>-->
 <!--  <form th:action="@{/index}" th:method="get" th:object="recipe">-->
 <!--<input type="text" name="search" id="search" th:value="${search}"/>-->
@@ -32,6 +41,7 @@
 <!--</div>-->
 
   <div id="homeHeader"></div>
+
   <form action="">
     <button id="rando">Randomize a recipe for me :)</button>
 </form>
