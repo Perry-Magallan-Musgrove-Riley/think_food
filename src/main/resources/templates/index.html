@@ -14,20 +14,15 @@
     </div>
   </div>
 
-  <div id="homeHeader"></div>
-  <div>
-    <form th:action="@{/recipe-search/{search}}" th:method="post" >
   <div class="recipeBody">
     <form th:action="@{/recipe-search}" th:method="get" th:object="${recipe}">
       <input type="text" name="search" id="search" th:value="${search}"/>
       <input type="submit" value="search"/>
       <div th:if="${not #lists.isEmpty(search)}">
+      </div>
     </form>
   </div>
 
-
-  </div>
-  
   <form action="">
     <button id="rando">Randomize a recipe for me :)</button><br>
 </form>
