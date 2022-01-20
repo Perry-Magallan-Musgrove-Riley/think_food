@@ -21,11 +21,11 @@
 	</form>
 
 	<label name="userAboutMe">About Me:</label>
-	<textarea th:value="${userToEdit.getPassword()}" name="postBody" placeholder="Edit your About Me"></textarea>
+	<textarea name="aboutMe" placeholder="Edit your About Me"></textarea>
 
-	<input type="hidden" th:value="${userToEdit.getId()}">
-	<input type="hidden" th:value="${userUser.getById()}">
-	<button>Submit edit</button>
+<!--	<input type="hidden" th:value="${userToEdit.getId()}">-->
+<!--	<input type="hidden" th:value="${userUser.getById()}">-->
+	<button th:action="@{/profile}" th:method="post">Submit edit</button>
 </form>
 
 </body>
