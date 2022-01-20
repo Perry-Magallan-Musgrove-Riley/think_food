@@ -1,5 +1,7 @@
 package club.thinkfood.models;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,9 @@ public class Image {
 
     @ManyToOne
     private Recipe img;
+
+    @Value("${filestack.api}")
+    private String filestackApiKey;
 
     public Image(long id, String img_name) {
         this.id = id;

@@ -32,5 +32,14 @@ public class HomeController {
         return "redirect:/recipe-search/" + search;
     }
 
+    @GetMapping("/questionnaire")
+    public String getQuestionnaire(){
+        return "questionnaire";
+    }
+
+    @PostMapping("/questionnaire")
+    public String Questionnaire(){
+        return "redirect:/questionnaire";
+    }
 
 }

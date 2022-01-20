@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+	<meta charset="UTF-8">
+	<title>Ingredients</title>
+</head>
+<body>
+
+<nav th:include="partials/navbar.html :: navbar"></nav>
+
+<div>
+
+	<div class="card-deck row">
+		<div class="card d-flex flex-column col-md-4">
+			<h3 class="card-title">Name of Dish</h3>
+			<img src="filePathForApiRecipe" style="height: 150px;" alt="This is the picture of a recipe">
+			<h5 class="card-userName">Created By: *Username</h5>
+		</div>
+
+		<div>
+			<table class="table table-striped">
+				<tr>
+					<th>Recipe Id</th>
+					<th>Dish Name</th>
+					<th>Recipe</th>
+					<th>Quantity</th>
+					<th>Measurements</th>
+				</tr>
+				<tr th:each="recipe : ${ingredient}">
+					<td th:text="${ingredient.id}">Recipe ID</td>
+					<td th:text="${ingredient.name}">Dish Name</td>
+					<td th:text="${recipe.recipe}">Recipe:</td>
+					<td th:text="${ingredient.quantity}">Quantity:</td>
+					<td th:text="${ingredient.measurement}">Measurements:</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</div>
+
+</body>
+</html>
