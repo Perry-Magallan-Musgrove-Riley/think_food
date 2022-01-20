@@ -20,4 +20,15 @@ public class HomeController {
         return "redirect:/users/sign-up";
     }
 
+
+    @GetMapping("/questionnaire")
+    public String getQuestionnaire(){
+        return "questionnaire";
+    }
+
+    @PostMapping("/questionnaire")
+    public String Questionnaire(){
+        return "redirect:/questionnaire";
+    }
+
 }
