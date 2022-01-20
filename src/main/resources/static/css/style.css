@@ -10,15 +10,33 @@
 }
 
 .dish1{
-    height: 250px;
-    width: 250px;
+
+    height: 200px;
+    width: 200px;
     z-index: 999;
+
 }
 
 .dish2{
+    height: 200px;
+    width: 200px;
     z-index: 999;
+
 }
 
 .dish3{
+    height: 200px;
+    width: 200px;
     z-index: 999;
+
+}
+
+.dish-row{
+    padding-top: 250px;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.container-fluid{
+    position: fixed;
 }
