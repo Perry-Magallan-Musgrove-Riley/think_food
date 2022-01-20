@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+	<meta charset="UTF-8">
+	<title>Recipes Page</title>
+</head>
+<body>
+
+<nav th:include="partials/navbar.html :: navbar"></nav>
+
+<div>
+	<div class="card-deck row">
+		<div class="card d-flex flex-column justify-content-between col-md-8">
+			<img src="filePathForApiRecipe" style="height: 150px;" alt="This is the picture of a recipe">
+			<h5 class="card-title">Name of Dish</h5>
+			<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
+
+			<div class="card-body rotate-border">
+				<div>
+					<h6 class="card-comments mb-2 text-muted">Comments</h6>
+					<p class="card-text">Comments body: </p>
+					<a href="#" class="card-link">Link to Ingredients</a>
+					<a href="#" class="card-link">Link for video of recipe</a>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<img src="filePathForApiRecipe" style="height: 150px;" alt="This is the picture of a 2nd recipe">
+			<h5 class="card-title">Name of Dish</h5>
+			<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
+
+			<div class="card-body rotate-border">
+				<div>
+					<h6 class="card-comments mb-2 text-muted">Comments</h6>
+					<p class="card-text">Comments body: </p>
+					<a href="#" class="card-link">Link to ingredients</a>
+					<a href="#" class="card-link">Link for video of recipe</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="card">
+			<img src="filePathForApiRecipe" style="height: 150px;" alt="This is the picture of a 3rd recipe">
+			<h5 class="card-title">Name of Dish</h5>
+			<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
+
+			<div class="card-body rotate-border">
+				<div>
+					<h6 class="card-comments mb-2 text-muted">Comments</h6>
+					<p class="card-text">Comments body: </p>
+					<a href="#" class="card-link">Link to ingredients</a>
+					<a href="#" class="card-link">Link for video of recipe</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
