@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Questionnaire Page</title>
 </head>
 <body>
+    <form th:action="@{/questionnaire}" th:method="post">
     <h2>Think Food Questionnaire</h2>
-    <form>
         <div class="question1">
             <h4>WHAT TYPE OF FOOD ARE YOU LOOKING FOR?</h4>
                 <input type="radio" name="foodType" id="foodType">
