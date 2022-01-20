@@ -1,6 +1,8 @@
 package club.thinkfood.models;
 
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -39,6 +41,9 @@ public class Recipe {
 
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
+
+    @Value("${spoonacular.api}")
+    private String spoonacularApiKey;
 
     public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
         this.id = id;
