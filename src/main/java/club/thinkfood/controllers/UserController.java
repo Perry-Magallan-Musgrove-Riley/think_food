@@ -32,5 +32,15 @@ public class UserController {
         return "redirect:/login";
     }
 
+    @GetMapping("/resetPassword")
+    public String resetPassword(){
+        return "users/resetPassword";
+    }
+
+    @PostMapping("/resetPassword")
+    public String resetSuccess(){
+        return "redirect:/login";
+    }
+
 
 }
