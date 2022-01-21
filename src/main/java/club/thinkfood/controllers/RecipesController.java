@@ -18,4 +18,44 @@ public class RecipesController {
         return "redirect:/users/ingredients";
     }
 
+    @GetMapping("/vegetarian")
+    public String getVeggies(){
+        return "categories/vegetarian";
+    }
+
+    @PostMapping("/vegetarian")
+    public String veggiesPage(){
+        return "redirect: categories/vegetarian";
+    }
+
+    @GetMapping("/glutenFree")
+    public String getGluten(){
+        return "categories/glutenFree";
+    }
+
+    @PostMapping("/glutenFree")
+    public String noGlutenPage(){
+        return "redirect: categories/glutenFree";
+    }
+
+    @GetMapping("/keto")
+    public String getKetoKool(){
+        return "categories/keto";
+    }
+
+    @PostMapping("/keto")
+    public String ketoKool(){
+        return "redirect: categories/keto";
+    }
+
+    @GetMapping("/lactoVeg")
+    public String noEggVeg(){
+        return "categories/lactoVeg";
+    }
+
+    @PostMapping("/lactoVeg")
+    public String getNoEggVeg(){
+        return "redirect: categories/lactoVeg";
+    }
+
 }
