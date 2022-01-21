@@ -5,8 +5,9 @@
 	<title>Login</title>
 </head>
 <body>
-<div id="homeHeader"></div>
 <div th:include="partials/navbar.html :: navbar"></div>
+<div id="homeHeader"></div>
+
 
 <h1>Log In</h1>
 <div th:if="${param.error}">
