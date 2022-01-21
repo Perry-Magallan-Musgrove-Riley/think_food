@@ -39,7 +39,9 @@
 	</div>
 </div><br>
 
-<button type="submit" name="addToCart" th:action="@{/order}" th:method="post" class="btn btn-primary btn-lg">Add to Cart</button>
+<form th:action="@{/order}" th:method="get">
+<button type="submit" name="addToCart" class="btn btn-primary btn-lg">Add to Cart</button>
+</form>
 
 </body>
 </html>
