@@ -33,12 +33,14 @@ public class UserController {
     }
 
     @GetMapping("/resetPassword")
-    public String resetPassword(){
+    public String resetPassword(Model model){
+        model.addAttribute("loginUser", new User());
         return "users/resetPassword";
     }
 
     @PostMapping("/resetPassword")
-    public String resetSuccess(){
+    public String resetSuccess(@ModelAttribute User loginUser){
+        userDao.save(loginUser);
         return "redirect:/login";
     }
 
