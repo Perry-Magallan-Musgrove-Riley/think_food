@@ -6,7 +6,7 @@
 </head>
 <body>
   <div class="container">
-    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+    <form th:action="@{/login}" method="POST" th:object="${user}">
       <h1>Create an account</h1>
       <div class="form-group">
         <label for="username">Username</label>
@@ -20,8 +20,16 @@
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" th:field="*{password}">
       </div>
+      <h5>Sign up, and we'll get you started by logging in once more and then head over to your new profile!</h5>
       <button type="submit" class="btn btn-primary">Sign me up!</button>
     </form>
+
+    <form th:action="@{/questionnaire}" method="get">
+      <h5>Do you have diet preferences?</h5>
+      <button type="submit" class="btn btn-primary">Fill out diets here!</button>
+
+    </form>
+
   </div>
 
 </body>
