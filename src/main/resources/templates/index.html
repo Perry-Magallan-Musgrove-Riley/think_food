@@ -15,9 +15,9 @@
   </div>
 
   <div class="recipeBody">
-    <form th:action="@{/recipe-search/{search}}" th:method="get" th:object="${recipe}">
+    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
       <input type="text" name="search" id="search" th:value="${search}"/>
-      <input type="submit" value="search"/>
+      <input type="submit" id="submitSearch" value="search"/>
       <div th:if="${not #lists.isEmpty(search)}">
       </div>
     </form>
