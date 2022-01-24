@@ -6,6 +6,7 @@ import club.thinkfood.models.Recipe;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,9 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    @Value(("${spoonacular.api}"))
+    private String spoonacularApiKey;
+
     private final RecipeRepository recipeDao;
     private final UserRepository userDao;
 
@@ -25,7 +29,8 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String HomePage(){
+    public String HomePage(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "index";
     }
 
