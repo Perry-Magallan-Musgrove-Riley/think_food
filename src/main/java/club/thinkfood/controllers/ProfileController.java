@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class ProfileController {
 
+
     @GetMapping("/profile/{name}")
     public String profile(@PathVariable String name, Model model) {
         model.addAttribute("name", name);
         return "/users/profile";
     }
+
 
 }
