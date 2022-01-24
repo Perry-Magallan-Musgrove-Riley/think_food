@@ -58,4 +58,14 @@ public class RecipesController {
         return "redirect: categories/lactoVeg";
     }
 
+    @GetMapping("/vegan")
+    public String vegans(){
+        return "categories/vegan";
+    }
+
+    @PostMapping("/vegan")
+    public String trueVegan(){
+        return "redirect: categories/vegan";
+    }
+
 }
