@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS thnk_food_db;
+CREATE DATABASE IF NOT EXISTS think_food_db;
 
 USE think_food_db;
 
