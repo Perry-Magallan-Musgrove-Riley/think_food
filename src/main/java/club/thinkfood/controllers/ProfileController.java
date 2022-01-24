@@ -16,14 +16,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ProfileController {
 
+
     private UserRepository userDao;
     private RecipeRepository recipeDao;
+
 
     @GetMapping("/profile/{name}")
     public String profile(@PathVariable String name, Model model) {
         model.addAttribute("name", name);
         return "/users/profile";
     }
+
 
     @GetMapping("/create")
     public String viewCreatePost(Model model){
@@ -46,5 +49,6 @@ public class ProfileController {
         recipeDao.save(newRecipe);
         return "redirect:/profile";
     }
+
 
 }
