@@ -10,8 +10,7 @@ $("#rando").click(function(e) {
 
 $("#submitSearch").click(function (e){
     e.preventDefault();
-    // $.get("https://api.spoonacular.com/recipes/random?apiKey=" + spoonacularApiKey).done(function (data){
-        $.get("https://api.spoonacular.com/recipes/random?apiKey=9a977cea6b7849609902f4f01ac80b0c").done(function (data){
+    $.get("https://api.spoonacular.com/recipes/random?apiKey=" + spoonacularApiKey).done(function (data){
             console.log(data);
     })
 })
