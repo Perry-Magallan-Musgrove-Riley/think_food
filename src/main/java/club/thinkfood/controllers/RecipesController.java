@@ -68,4 +68,56 @@ public class RecipesController {
         return "redirect: categories/vegan";
     }
 
+    @GetMapping("/ovoVeg")
+    public String ovoVeg(){
+        return "categories/ovoVeg";
+    }
+
+    @PostMapping("/ovoVeg")
+    public String theRealOvo(){
+        return "redirect: categories/ovoVeg";
+    }
+
+    @GetMapping("/pesce")
+    public String peskyPesce(){
+        return "categories/pesce";
+    }
+
+
+    @PostMapping("/pesce")
+    public String pescePeaople(){
+        return "redirect: categories/pesce";
+    }
+
+    @GetMapping("/paleo")
+    public String paleoPage(){
+        return "categories/paleo";
+    }
+
+    @PostMapping("/paleo")
+    public String paleLeo(){
+        return "redirect: categories/paleo";
+    }
+
+    @GetMapping("/primal")
+    public String primalFood(){
+        return "categories/primal";
+    }
+
+    @PostMapping("/primal")
+    public String primalFoodie(){
+        return "redirect: categories/primal";
+    }
+
+    @GetMapping("/whole30")
+    public String wholeFoodies(){
+        return "categories/whole30";
+    }
+
+    @PostMapping("/whole30")
+    public String wholeFoods(){
+        return "redirect: categories/whole30";
+    }
+
+
 }

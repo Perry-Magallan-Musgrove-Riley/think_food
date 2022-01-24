@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
     <title>Search Page</title>
 </head>
 <body>
+<div th:include="partials/navbar.html :: navbar"></div>
+
 <h1>Search Results Page</h1>
 <div>
     <h2>Recipe List</h2>
