@@ -3,6 +3,7 @@ package club.thinkfood.controllers;
 import club.thinkfood.models.User;
 import club.thinkfood.repositories.UserRepository;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,9 @@ public class UserController {
     private UserRepository userDao;
 //    private PasswordEncoder passwordEncoder;
 
+    @Value(("${filestack.api}"))
+    private String filestack;
+
     public UserController(UserRepository userDao) {
         this.userDao = userDao;
     }
@@ -21,6 +25,7 @@ public class UserController {
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("filestack", filestack);
         return "users/sign-up";
     }
 
