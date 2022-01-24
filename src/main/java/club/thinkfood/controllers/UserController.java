@@ -3,6 +3,7 @@ package club.thinkfood.controllers;
 import club.thinkfood.models.User;
 import club.thinkfood.repositories.UserRepository;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
