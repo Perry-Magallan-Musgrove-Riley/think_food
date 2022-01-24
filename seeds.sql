@@ -1,5 +1,9 @@
 DROP DATABASE IF EXISTS think_food_db;
+
 CREATE DATABASE IF NOT EXISTS think_food_db;
+
+CREATE DATABASE IF NOT EXISTS think_food_db;
+
 USE think_food_db;
 
 
@@ -8,3 +12,6 @@ VALUES (1, 'Sweet potato casserole', 90, 'some words that make it sound deliciou
 
 INSERT INTO  recipes(id, title, prep_time, description, rating)
 VALUES (2, 'Grilled chicken', 60, 'some words that make it sound scrump-dida-lumptious', 7);
+
+# INSERT INTO  recipes(title, prep_time, description, chef, rating)
+# VALUES (2, 'Grilled chicken', 60, 'some words that make it sound scrump-dida-lumptious', 7);
