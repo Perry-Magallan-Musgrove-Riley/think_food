@@ -1,6 +1,7 @@
 package club.thinkfood.controllers;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HomeController {
 
+    @Value(("${spoonacular.api}"))
+    private String spoonacularApiKey;
+
     @GetMapping("/")
-    public String HomePage(){
+    public String HomePage(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "index";
     }
 

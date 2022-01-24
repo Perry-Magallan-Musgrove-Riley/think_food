@@ -1,12 +1,16 @@
 package club.thinkfood.controllers;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RecipesController {
+
+//    @Value(("${spoonacular.api}"))
+//    private String spoonacularApiKey;
 
     @GetMapping("/recipe")
     public String AllRecipes(){

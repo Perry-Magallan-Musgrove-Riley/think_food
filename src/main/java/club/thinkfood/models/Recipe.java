@@ -35,8 +35,6 @@ public class Recipe {
     @ManyToOne
     private User chef;
 
-    @Value(("${spoonacularApi}"))
-    private String spoonacularApiKey;
 
     @Value(("${filestackKey}"))
     private String filestackKey;
