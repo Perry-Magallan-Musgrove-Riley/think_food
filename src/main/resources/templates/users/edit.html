@@ -11,9 +11,9 @@
 <form th:action="@{/edit}" method="post">
 	<form class="md-form">
 		<div class="file-field">
-			<div class="btn btn-primary btn-sm float-left">
+			<div class="btn btn-primary btn-sm float-left" id="profilePic">
 				<span>Choose file</span>
-				<input type="file">
+<!--				<input type="file">-->
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text" placeholder="Upload your file">
@@ -28,6 +28,18 @@
 <!--	<input type="hidden" th:value="${userUser.getById()}">-->
 	<button th:action="@{/profile}" th:method="post">Submit edit</button>
 </form>
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+		const filekey = /*[[${filestack}]]*/ 'default';
+		console.log(filekey);
+		const client = filestack.init(filekey);
+		document.getElementById("profilePic").addEventListener('click', () => {client.picker().open();});
+
+	/*]]>*/
+
+</script>
 
 </body>
 </html>
