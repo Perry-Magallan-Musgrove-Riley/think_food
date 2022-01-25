@@ -6,6 +6,7 @@ import club.thinkfood.models.User;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +38,10 @@ public class ProfileController {
     @PostMapping("/users/create")
     public String createPost(@ModelAttribute Recipe newRecipe){
 
-//        User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         newRecipe.setUser(userDao.findUserById(1L));
-//        newRecipe.setUser(recipeCreator);
+        newRecipe.setUser(recipeCreator);
 
 //        String emailSubject = newRecipe.getUser().getUsername() + ", your recipe has been created!";
 //
