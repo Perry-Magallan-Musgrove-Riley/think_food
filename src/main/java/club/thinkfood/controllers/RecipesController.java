@@ -47,7 +47,8 @@ public class RecipesController {
     }
 
     @GetMapping("/keto")
-    public String getKetoKool(){
+    public String getKetoKool(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/keto";
     }
 
@@ -57,7 +58,8 @@ public class RecipesController {
     }
 
     @GetMapping("/lactoVeg")
-    public String noEggVeg(){
+    public String noEggVeg(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/lactoVeg";
     }
 
