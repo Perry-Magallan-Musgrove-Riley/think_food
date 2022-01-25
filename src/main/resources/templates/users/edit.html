@@ -12,8 +12,9 @@
 	<form class="md-form">
 		<div class="file-field">
 			<div class="btn btn-primary btn-sm float-left" id="profilePic">
-				<span>Choose file</span>
-<!--				<input type="file">-->
+<!--				<span>Choose file</span>-->
+				<input type="text">
+
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text" placeholder="Upload your file">
@@ -35,7 +36,14 @@
 		const filekey = /*[[${filestack}]]*/ 'default';
 		console.log(filekey);
 		const client = filestack.init(filekey);
-		document.getElementById("profilePic").addEventListener('click', () => {client.picker().open();});
+
+		document.getElementById("profilePic").addEventListener('click', () => {
+			client.picker({
+				accept: 'image/*',
+				onFileUploadFinished: function (file) {
+					console.log(file.url);
+				}
+			}).open();});
 
 	/*]]>*/
 
