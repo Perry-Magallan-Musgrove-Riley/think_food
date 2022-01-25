@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @Value(("${spoonacularapi}"))
+    @Value(("${spoonacular.api}"))
     private String spoonacularApiKey;
 
     private final RecipeRepository recipeDao;
