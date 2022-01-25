@@ -35,8 +35,10 @@ public class RecipesController {
     }
 
     @GetMapping("/glutenFree")
-    public String getGluten(){
+    public String getGluten(Model model) {
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/glutenFree";
+
     }
 
     @PostMapping("/glutenFree")
