@@ -9,4 +9,5 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
     User findUserById(long id);
     List<Recipe> findUserByUsernameIsLike(User chef);
+    User findByUsername(String username);
 }

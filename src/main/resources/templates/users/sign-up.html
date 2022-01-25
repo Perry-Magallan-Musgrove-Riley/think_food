@@ -38,10 +38,11 @@
       <button type="submit" class="btn btn-primary">Sign me up!</button>
     </form>
 
-    <form th:action="@{/questionnaire}" method="get">
-      <h5>Do you have diet preferences?</h5>
-      <button type="submit" class="btn btn-primary">Fill out diets here!</button>
-    </form>
+<!--Commented out so it does not link to login page, since questionnaire is not viewable from visitors? can change in SecurityConfiguration(line 63) to make ok to view by all if wanted-->
+<!--    <form th:action="@{/questionnaire}" method="get">-->
+<!--      <h5>Do you have diet preferences?</h5>-->
+<!--      <button type="submit" class="btn btn-primary">Fill out diets here!</button>-->
+<!--    </form>-->
   </div>
 
 
