@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminController {
 
 //    Should we change this to LoginController vs. adminController for naming purposes??
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "users/login";
-    }
+//    @GetMapping("/login")
+//    public String showLoginForm() {
+//        return "users/login";
+//    }
 
 }
