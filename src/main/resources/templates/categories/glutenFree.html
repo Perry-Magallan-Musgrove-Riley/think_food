@@ -8,9 +8,39 @@
 <div th:include="partials/navbar.html :: navbar"></div>
     <form th:action="@{/glutenFree}" method="post">
         <h4>EHHHH GLUTEN!!!</h4>
-
+        <form action="">
+            <button id="glutenFree">Give me Gluten Free!</button><br>
+        </form>
 </form>
 
 
 </body>
+<script th:inline="javascript">
+    const spoonkey = /*[[${spoonkey}]]*/ 'default';
+    console.log(spoonkey);
+    const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
+    const options = {
+        method: "GET",
+    };
+    const spoon = function(e) {
+        e.preventDefault();
+        fetch(url, options).then(response => response.json())
+            .then(response =>{
+                var glutenFreeArr = [];
+                var iterator = 0;
+                do{
+                    // console.log(response.recipes[0].glutenFree);
+                    if(response.recipes[iterator].glutenFree === true){
+                        glutenFreeArr.push(response.recipes[iterator])
+                    }
+                    iterator++;
+                }while(glutenFreeArr.length < 20)
+                return glutenFreeArr;
+            })
+            .then(response => console.log(response))
+    }
+
+    document.getElementById("glutenFree").addEventListener('click', spoon);
+    /*]]>*/
+</script>
 </html>

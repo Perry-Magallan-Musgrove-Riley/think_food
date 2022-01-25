@@ -1,12 +1,17 @@
 package club.thinkfood.controllers;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RecipesController {
+
+    @Value(("${spoonacular.api}"))
+    private String spoonacularApiKey;
 
     @GetMapping("/recipe")
     public String AllRecipes(){
@@ -19,7 +24,8 @@ public class RecipesController {
     }
 
     @GetMapping("/vegetarian")
-    public String getVeggies(){
+    public String getVeggies(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/vegetarian";
     }
 
@@ -29,8 +35,10 @@ public class RecipesController {
     }
 
     @GetMapping("/glutenFree")
-    public String getGluten(){
+    public String getGluten(Model model) {
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/glutenFree";
+
     }
 
     @PostMapping("/glutenFree")
