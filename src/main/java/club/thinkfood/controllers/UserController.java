@@ -2,8 +2,7 @@ package club.thinkfood.controllers;
 
 import club.thinkfood.models.User;
 import club.thinkfood.repositories.UserRepository;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
     private UserRepository userDao;
-//    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/sign-up")
@@ -30,13 +30,13 @@ public class UserController {
 
         String username = user.getUsername();
         String email = user.getEmail();
-        String password = user.getPassword();
-//        String hash = passwordEncoder.encode(user.getPassword());
+//        String password = user.getPassword();
+        String hash = passwordEncoder.encode(user.getPassword());
 
-//        user.setPassword(hash);
+        user.setPassword(hash);
         user.setUsername(username);
         user.setEmail(email);
-        user.setPassword(password);
+//        user.setPassword(password);
 
         userDao.save(user);
 
