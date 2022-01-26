@@ -3,7 +3,7 @@
     //Search Functionality
     $("#submitSearch").click(function (e){
         e.preventDefault();
-        $.get("https://api.spoonacular.com/recipes/random?apiKey=" + spoonkey).done(function (data){
+        $.get("https://api.spoonacular.com/recipes/random?number=20&apiKey=" + spoonkey).done(function (data){
                 console.log(data);
         })
     })
