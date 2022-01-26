@@ -22,9 +22,9 @@ public class ProfileController {
     private RecipeRepository recipeDao;
 
 
-    @GetMapping("/profile/{name}")
-    public String profile(@PathVariable String name, Model model) {
-        model.addAttribute("name", name);
+    @GetMapping("/profile/{username}")
+    public String profile(@PathVariable String username, Model model) {
+        model.addAttribute("username", username);
         return "/users/profile";
     }
 
