@@ -95,7 +95,7 @@ public class RecipesController {
 
 
     @PostMapping("/pesce")
-    public String pescePeaople(){
+    public String pescePeople(){
         return "redirect: categories/pesce";
     }
 
@@ -110,7 +110,8 @@ public class RecipesController {
     }
 
     @GetMapping("/primal")
-    public String primalFood(){
+    public String primalFood(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/primal";
     }
 
