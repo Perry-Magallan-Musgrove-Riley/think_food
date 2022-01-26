@@ -14,13 +14,14 @@
 </form>
 
 
+<script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>
 
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
     console.log(spoonkey);
     const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
     const options = {
-        method: "GET",
+        method: "GET"
     };
     const spoon = function(e) {
         e.preventDefault();
