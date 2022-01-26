@@ -1,7 +1,9 @@
 package club.thinkfood.controllers;
 
 import club.thinkfood.models.User;
+import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
+import club.thinkfood.services.EmailService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private UserRepository userDao;
     private PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
+    private RecipeRepository recipeDao;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
+        this.emailService = emailService;
+        this.recipeDao =recipeDao;
     }
 
     @GetMapping("/sign-up")
@@ -28,29 +34,29 @@ public class UserController {
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
 
+
         String username = user.getUsername();
         String email = user.getEmail();
-//        String password = user.getPassword();
         String hash = passwordEncoder.encode(user.getPassword());
 
         user.setPassword(hash);
         user.setUsername(username);
         user.setEmail(email);
-//        user.setPassword(password);
 
+        emailService.prepareAndSend(user, "Sign up confirmed", "Thank you for being a user.");
         userDao.save(user);
 
         return "redirect:/login";
     }
 
     @GetMapping("/resetPassword")
-    public String resetPassword(Model model){
+    public String resetPassword(Model model) {
         model.addAttribute("loginUser", new User());
         return "users/resetPassword";
     }
 
     @PostMapping("/resetPassword")
-    public String resetSuccess(@ModelAttribute User loginUser){
+    public String resetSuccess(@ModelAttribute User loginUser) {
         userDao.save(loginUser);
         return "redirect:/login";
     }

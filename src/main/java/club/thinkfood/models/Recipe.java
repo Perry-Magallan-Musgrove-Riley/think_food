@@ -63,6 +63,9 @@ public class Recipe {
     public Recipe() {
     }
 
+    public Recipe(User chef) {
+        this.chef = chef;
+    }
 
     public User getUser() {
         return chef;
@@ -118,6 +121,14 @@ public class Recipe {
 
     public void setRating(long rating) {
         this.rating = rating;
+    }
+
+    public User getChef() {
+        return chef;
+    }
+
+    public void setChef(User chef) {
+        this.chef = chef;
     }
 }
 
