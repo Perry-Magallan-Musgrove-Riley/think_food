@@ -10,19 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AdminController {
-
-//    Should we change this to LoginController vs. adminController for naming purposes??
+public class LoginController {
     @GetMapping("/login")
     public String showLoginForm(Model model, String username) {
         model.addAttribute("username", username);
         return "users/login";
     }
-
-//    @PostMapping("/login")
-//    public String goProfile(@PathVariable String username){
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        return "redirect:/users/profile";
-//    }
-
 }
