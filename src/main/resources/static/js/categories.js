@@ -38,27 +38,27 @@
     document.getElementById("glutenFree").addEventListener('click', gluten);
 
 
-    //Primal
-    const primalUrl = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
-    const primal = function(e) {
-        e.preventDefault();
-        fetch(primalUrl, options).then(response => response.json())
-            .then(response => {
-                var primalArr = [];
-                var iterator = 0;
-                for (var i = 0; i < response.recipes.length; i++) {
-                    if (response.recipes[i].diets !== undefined) {
-                        for (var j = 0; j < response.recipes[i].diets.length; j++) {
-                            //set the hard coded string as a variable based on the category for filter
-                            if (response.recipes[i].diets.includes("primal")) {
-                                console.log(response.recipes[i]);
-                                primalArr.push(response.recipes[i])
-                            }
-                        }
-                    }
-
-                }
-            })
-    }
+    // //Primal
+    // const primalUrl = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
+    // const primal = function(e) {
+    //     e.preventDefault();
+    //     fetch(primalUrl, options).then(response => response.json())
+    //         .then(response => {
+    //             var primalArr = [];
+    //             var iterator = 0;
+    //             for (var i = 0; i < response.recipes.length; i++) {
+    //                 if (response.recipes[i].diets !== undefined) {
+    //                     for (var j = 0; j < response.recipes[i].diets.length; j++) {
+    //                         //set the hard coded string as a variable based on the category for filter
+    //                         if (response.recipes[i].diets.includes("primal")) {
+    //                             console.log(response.recipes[i]);
+    //                             primalArr.push(response.recipes[i])
+    //                         }
+    //                     }
+    //                 }
+    //
+    //             }
+    //         })
+    // }
 
 })();
