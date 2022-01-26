@@ -31,7 +31,7 @@ public class HomeController {
     @GetMapping("/")
     public String HomePage(Model model){
         model.addAttribute("spoonkey", spoonacularApiKey);
-        return "index";
+        return "home";
     }
 
     @PostMapping("/")
