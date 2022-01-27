@@ -5,6 +5,7 @@ import club.thinkfood.models.Image;
 import club.thinkfood.models.User;
 import club.thinkfood.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,15 +22,17 @@ public class EditController {
     private String filestack;
 
     @GetMapping("/edit")
-    public String editProfile(Model model){
-        model.addAttribute("filestack", filestack);
+    public String editProfile(){
         return "/users/edit";
     }
 
     @PostMapping("/edit")
-    public String saveEdits(@ModelAttribute User user, @RequestParam(name = "imgPath") String imgPath, Model model){
-        model.addAttribute("imgPath", imgPath);
-        userDao.save(user);
+    public String saveEdits(@ModelAttribute User user, @ModelAttribute Image image, @RequestParam(name = "imgPath") String imgPath, Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+
+//        currentUser.setImg(image.getId());
+        userDao.save(currentUser);
         return "redirect:/users/profile";
     }
 

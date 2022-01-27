@@ -26,7 +26,7 @@ public class Recipe {
     @Column
     private long rating;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
@@ -34,9 +34,6 @@ public class Recipe {
 
     @ManyToOne
     private User chef;
-
-    @Value(("${filestackKey}"))
-    private String filestackKey;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
