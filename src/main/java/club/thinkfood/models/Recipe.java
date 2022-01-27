@@ -55,6 +55,15 @@ public class Recipe {
         this.rating = rating;
     }
 
+    public Recipe(long id, String title, long prep_time, String description, long rating, List<Image> images) {
+        this.id = id;
+        this.title = title;
+        this.prep_time = prep_time;
+        this.description = description;
+        this.rating = rating;
+        this.images = images;
+    }
+
     public Recipe(String title, String description) {
         this.title = title;
         this.description = description;

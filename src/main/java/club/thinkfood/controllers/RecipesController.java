@@ -1,20 +1,32 @@
 package club.thinkfood.controllers;
 
 
+import club.thinkfood.models.Recipe;
+import club.thinkfood.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class RecipesController {
+
+    private RecipeRepository recipeDao;
+
+    public RecipesController(RecipeRepository recipeDao) {
+        this.recipeDao = recipeDao;
+    }
 
     @Value(("${spoonacular.api}"))
     private String spoonacularApiKey;
 
     @GetMapping("/recipe")
-    public String AllRecipes(){
+    public String AllRecipes(Model model){
+        List<Recipe> recipes = recipeDao.findAll();
+        model.addAttribute("recipes", recipes);
         return "/users/recipe";
     }
 
