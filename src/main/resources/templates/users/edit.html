@@ -15,7 +15,7 @@
 				<span>Choose file</span>
 			</div>
 			<div class="file-path-wrapper">
-				<input class="file-path validate" type="text" placeholder="Upload your file">
+				<input class="file-path validate" id="imgPath" type="text" placeholder="Upload your file">
 			</div>
 		</div>
 	</form>
@@ -39,7 +39,8 @@
 			client.picker({
 				accept: 'image/*',
 				onFileUploadFinished: function (file) {
-					console.log(file.url);
+					let imgPath = document.getElementById("imgPath");
+					imgPath.value = file.url;
 				}
 			}).open();});
 
