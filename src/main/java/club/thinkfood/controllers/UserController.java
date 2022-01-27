@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
-    private UserRepository userDao;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userDao;
+    private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
-    private RecipeRepository recipeDao;
+    private final RecipeRepository recipeDao;
 
-    public UserController(PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao, UserRepository userDao,) {
+    public UserController(PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao, UserRepository userDao) {
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
-        this.recipeDao =recipeDao;
+        this.recipeDao = recipeDao;
         this.userDao = userDao;
     }
 
