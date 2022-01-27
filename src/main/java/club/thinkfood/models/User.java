@@ -11,10 +11,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String first_name;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String last_name;
 
     @Column(nullable = false, length = 100)
@@ -29,8 +29,11 @@ public class User {
     @OneToOne
     private Image img;
 
-    @Column(nullable = false)
+    @Column
     private int isAdmin;
+
+    @Column(length = 5000)
+    private String bio;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;

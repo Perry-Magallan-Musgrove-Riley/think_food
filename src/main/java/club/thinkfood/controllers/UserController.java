@@ -13,16 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
+
     private UserRepository userDao;
     private PasswordEncoder passwordEncoder;
     private final EmailService emailService;
     private RecipeRepository recipeDao;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao) {
-        this.userDao = userDao;
+    public UserController(PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao, UserRepository userDao,) {
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
         this.recipeDao =recipeDao;
+        this.userDao = userDao;
     }
 
     @GetMapping("/sign-up")
@@ -33,8 +34,6 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
-
-
         String username = user.getUsername();
         String email = user.getEmail();
         String hash = passwordEncoder.encode(user.getPassword());
