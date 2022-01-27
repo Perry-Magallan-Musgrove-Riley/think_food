@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/profile/{username}") // user's home page, it can be any URL
+                .defaultSuccessUrl("/profile") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
@@ -58,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/edit", // only authenticated users can edit there profile info
                         "/ingredients", // only authenticated users can see ingredients
                         "/recipes", // only authenticated users can see recipes
-                        "/profile/{name}", // only authenticated users can see profile page
+                        "/profile", // only authenticated users can see profile page
                         "/order", // only authenticated users can see orders
                         "/questionnaire" // only authenticated users can see questionnaire
                 )

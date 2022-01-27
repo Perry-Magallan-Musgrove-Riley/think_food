@@ -27,6 +27,9 @@ public class Recipe {
     @Column
     private long rating;
 
+    @Column
+    private String timeStamp;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
 
@@ -43,7 +46,7 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
-    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
+    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, String timeStamp) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
@@ -51,6 +54,7 @@ public class Recipe {
         this.description = description;
         this.chef = chef;
         this.rating = rating;
+        this.timeStamp = timeStamp;
     }
 
     public Recipe(long id, String title, long prep_time, String description, long rating, List<Image> images) {
@@ -135,6 +139,14 @@ public class Recipe {
 
     public void setChef(User chef) {
         this.chef = chef;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
 
