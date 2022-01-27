@@ -60,5 +60,11 @@ public class UserController {
         return "redirect:/login";
     }
 
+//    @GetMapping("users/profile")
+//    public String toProfile(Model model, User){
+//        model.getAttribute()
+//        return "/profile/{username}";
+//    }
+
 
 }

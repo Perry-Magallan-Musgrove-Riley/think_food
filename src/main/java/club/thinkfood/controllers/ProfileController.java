@@ -21,8 +21,8 @@ public class ProfileController {
         this.recipeDao = recipeDao;
     }
 
-    @GetMapping("/profile/{username}")
-    public String profile(@PathVariable String username, Model model) {
+    @GetMapping("/profile")
+    public String profile(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userDao.findByUsername(loggedInUser.getUsername());
         model.addAttribute("username", currentUser.getUsername());
@@ -30,16 +30,17 @@ public class ProfileController {
         return "/users/profile";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/recipes/create")
     public String viewCreatePost(Model model){
-//        model.addAttribute("newRecipe", new Recipe());
-        return "users/create";
+        model.addAttribute("newRecipe", new Recipe());
+        return "recipes/create";
     }
 
-    @PostMapping("/users/create")
+    @PostMapping("/recipes/create")
     public String createPost(@ModelAttribute Recipe newRecipe){
+        System.out.println("The post mapping worked. This is line 41.");
         User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newRecipe.setUser(userDao.findUserById(1L));
+        newRecipe.setUser(recipeCreator);
         recipeDao.save(newRecipe);
         return "redirect:/profile";
     }

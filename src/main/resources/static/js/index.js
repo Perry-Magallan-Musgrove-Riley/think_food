@@ -19,6 +19,5 @@
             .then(response => console.log(response.recipes[0]))
     }
     document.getElementById("rando").addEventListener('click', spoon);
-
-
 })();
+
