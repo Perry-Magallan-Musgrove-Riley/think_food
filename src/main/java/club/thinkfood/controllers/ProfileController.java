@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ProfileController {
 
-    private UserRepository userDao;
-    private RecipeRepository recipeDao;
+    private final UserRepository userDao;
+    private final RecipeRepository recipeDao;
 
     public ProfileController(UserRepository userDao, RecipeRepository recipeDao) {
         this.userDao = userDao;
@@ -26,6 +26,7 @@ public class ProfileController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userDao.findByUsername(loggedInUser.getUsername());
         model.addAttribute("username", currentUser.getUsername());
+        model.addAttribute("bio", currentUser.getBio());
         return "/users/profile";
     }
 
