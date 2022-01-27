@@ -137,14 +137,26 @@ public class RecipesController {
     }
 
     @GetMapping("/lunch")
-    public String wholeFoodies(Model model){
+    public String lunchLounge(Model model){
         model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/lunch";
     }
 
     @PostMapping("/lunch")
-    public String wholeFoods(){
+    public String lunchLauncher(){
         return "redirect: categories/lunch";
+    }
+
+
+    @GetMapping("/dinner")
+    public String dinnerDiner(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "categories/dinner";
+    }
+
+    @PostMapping("/dinner")
+    public String dinnerLauncher(){
+        return "redirect: categories/dinner";
     }
 
 
