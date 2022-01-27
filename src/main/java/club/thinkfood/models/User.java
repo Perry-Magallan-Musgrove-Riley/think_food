@@ -26,14 +26,14 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @OneToOne
-    private Image img;
-
     @Column
     private int isAdmin;
 
     @Column(length = 5000)
     private String bio;
+
+    @OneToOne
+    private Image img;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
@@ -141,9 +141,7 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-    public String getBio() {
-        return bio;
-    }
+    public String getBio() {return bio;}
 
     public void setBio(String bio) {
         this.bio = bio;

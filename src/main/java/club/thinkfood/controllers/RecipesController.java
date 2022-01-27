@@ -58,30 +58,31 @@ public class RecipesController {
         return "redirect: categories/glutenFree";
     }
 
-    @GetMapping("/keto")
-    public String getKetoKool(Model model){
+    @GetMapping("/healthFoods")
+    public String healthyHelper(Model model){
         model.addAttribute("spoonkey", spoonacularApiKey);
-        return "categories/keto";
+        return "categories/healthFoods";
     }
 
-    @PostMapping("/keto")
-    public String ketoKool(){
-        return "redirect: categories/keto";
+    @PostMapping("/healthFoods")
+    public String homeOfHealth(){
+        return "redirect: categories/healthFoods";
     }
 
-    @GetMapping("/lactoVeg")
-    public String noEggVeg(Model model){
+    @GetMapping("/breakfast")
+    public String breakfastBar(Model model){
         model.addAttribute("spoonkey", spoonacularApiKey);
-        return "categories/lactoVeg";
+        return "categories/breakfast";
     }
 
-    @PostMapping("/lactoVeg")
-    public String getNoEggVeg(){
-        return "redirect: categories/lactoVeg";
+    @PostMapping("/breakfast")
+    public String bringTheBreakfast(){
+        return "redirect: categories/breakfast";
     }
 
     @GetMapping("/vegan")
-    public String vegans(){
+    public String vegans(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/vegan";
     }
 
@@ -90,18 +91,20 @@ public class RecipesController {
         return "redirect: categories/vegan";
     }
 
-    @GetMapping("/ovoVeg")
-    public String ovoVeg(){
-        return "categories/ovoVeg";
+    @GetMapping("/popularFoods")
+    public String cheap(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "categories/popularFoods";
     }
 
-    @PostMapping("/ovoVeg")
-    public String theRealOvo(){
-        return "redirect: categories/ovoVeg";
+    @PostMapping("/popularFoods")
+    public String cheapFood(){
+        return "redirect: categories/popularFoods";
     }
 
     @GetMapping("/pesce")
-    public String peskyPesce(){
+    public String peskyPesce(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
         return "categories/pesce";
     }
 
@@ -111,14 +114,15 @@ public class RecipesController {
         return "redirect: categories/pesce";
     }
 
-    @GetMapping("/paleo")
-    public String paleoPage(){
-        return "categories/paleo";
+    @GetMapping("/dairyFree")
+    public String dairyDonts(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "categories/dairyFree";
     }
 
-    @PostMapping("/paleo")
-    public String paleLeo(){
-        return "redirect: categories/paleo";
+    @PostMapping("/dairyFree")
+    public String dairy(){
+        return "redirect: categories/dairyFree";
     }
 
     @GetMapping("/primal")
@@ -132,14 +136,27 @@ public class RecipesController {
         return "redirect: categories/primal";
     }
 
-    @GetMapping("/whole30")
-    public String wholeFoodies(){
-        return "categories/whole30";
+    @GetMapping("/lunch")
+    public String lunchLounge(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "categories/lunch";
     }
 
-    @PostMapping("/whole30")
-    public String wholeFoods(){
-        return "redirect: categories/whole30";
+    @PostMapping("/lunch")
+    public String lunchLauncher(){
+        return "redirect: categories/lunch";
+    }
+
+
+    @GetMapping("/dinner")
+    public String dinnerDiner(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "categories/dinner";
+    }
+
+    @PostMapping("/dinner")
+    public String dinnerLauncher(){
+        return "redirect: categories/dinner";
     }
 
 

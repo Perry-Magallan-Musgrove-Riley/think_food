@@ -6,14 +6,12 @@
 </head>
 <body>
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/keto}" method="post">
-            <h4>Keto Kool Krew</h4>
-
+        <form th:action="@{/healthFoods}" method="post">
+            <h4>Home of Health</h4>
+        <form action="">
+            <button id="health">Healthy Helper!</button><br>
         </form>
-    <form action="">
-        <button id="keto">Keep Me Keto</button><br>
     </form>
-
 
 
 </body>
@@ -29,24 +27,20 @@
         e.preventDefault();
         fetch(url, options).then(response => response.json())
             .then(response =>{
-                var ketoArr = [];
+                var healthArr = [];
                 var iterator = 0;
-                let diets = [];
-                do{
-                    console.log(response.recipes[iterator].diets.includes('ketogenic'));
-
-                        if (response.recipes[iterator].diets.includes('ketogenic')) {
-                            ketoArr.push(response.recipes[iterator])
-                        }
-
+                for(var i = 0; i < response.recipes.length; i++){
+                    if(response.recipes[iterator].veryHealthy){
+                        healthArr.push(response.recipes[iterator])
+                    }
                     iterator++;
-                }while(ketoArr.length < 20)
-                return ketoArr;
+                }
+                console.log(healthArr);
             })
             .then(response => console.log(response))
     }
 
-    document.getElementById("keto").addEventListener('click', spoon);
+    document.getElementById("health").addEventListener('click', spoon);
     /*]]>*/
 </script>
 </html>

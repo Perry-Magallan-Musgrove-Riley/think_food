@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "recipes")
 public class Recipe {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -29,7 +30,7 @@ public class Recipe {
     @Column
     private String timeStamp;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
@@ -37,9 +38,6 @@ public class Recipe {
 
     @ManyToOne
     private User chef;
-
-    @Value(("${filestackKey}"))
-    private String filestackKey;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
@@ -73,8 +71,7 @@ public class Recipe {
         this.description = description;
     }
 
-    public Recipe() {
-    }
+    public Recipe() {}
 
     public Recipe(User chef) {
         this.chef = chef;

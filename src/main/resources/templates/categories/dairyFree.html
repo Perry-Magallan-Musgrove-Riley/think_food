@@ -2,47 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
-    <title>Pescatarian</title>
+    <title>Dairy Free Page</title>
 </head>
 <body>
+
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/pesce}" method="post">
-            <h4>Pesky Pescatarian</h4>
+        <form th:action="@{/dairyFree}" method="post">
+            <h4>Dairy Free Diet!</h4>
             <form action="">
-                <button id="pesce">Push Por Pesca!</button><br>
+                <button id="dairy">Denounce Dairy!</button><br>
             </form>
 
     </form>
+
+
     <script th:inline="javascript">
+        /*<![CDATA[*/
         const spoonkey = /*[[${spoonkey}]]*/ 'default';
         console.log(spoonkey);
         const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
         const options = {
-            method: "GET"
+            method: "GET",
         };
         const spoon = function(e) {
             e.preventDefault();
             fetch(url, options).then(response => response.json())
-                .then(response =>{
-                    var pesceArr = [];
+                .then(response => {
+                    var dairyArr = [];
                     var iterator = 0;
-                    for(var i = 0; i < response.recipes.length; i++){
-                        if(response.recipes[i].diets !== undefined) {
+
+                    for (var i = 0; i < response.recipes.length; i++) {
+                        if (response.recipes[i].diets !== undefined) {
                             for (var j = 0; j < response.recipes[i].diets.length; j++) {
                                 //set the hard coded string as a variable based on the category for filter
-                                if (response.recipes[i].diets.includes("pescatarian")) {
+                                if (response.recipes[i].diets.includes("dairy free")) {
                                     // console.log(response.recipes[i]);
-                                    pesceArr.push(response.recipes[i])
+                                    dairyArr.push(response.recipes[i])
                                 }
                             }
                         }
+
                     }
-                    console.log(pesceArr);
+                    console.log(dairyArr);
                 })
                 .then(response => console.log(response))
         }
-        document.getElementById("pesce").addEventListener('click', spoon);
-        /*]]>*/
+        document.getElementById("dairy").addEventListener('click', spoon);
     </script>
 
 </body>
