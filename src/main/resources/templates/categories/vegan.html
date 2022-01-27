@@ -6,10 +6,45 @@
 </head>
 <body>
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/vegans}" method="post">
+        <form th:action="@{/vegan}" method="post">
             <h4>The True Veggie Lovers</h4>
+            <form action="">
+                <button id="vegan">Vegan Variety</button><br>
+            </form>
 
     </form>
+
+    <script th:inline="javascript">
+        const spoonkey = /*[[${spoonkey}]]*/ 'default';
+        console.log(spoonkey);
+        const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
+        const options = {
+            method: "GET"
+        };
+        const spoon = function(e) {
+            e.preventDefault();
+            fetch(url, options).then(response => response.json())
+                .then(response =>{
+                    var veganArr = [];
+                    var iterator = 0;
+                    for(var i = 0; i < response.recipes.length; i++){
+                        if(response.recipes[i].diets !== undefined) {
+                            for (var j = 0; j < response.recipes[i].diets.length; j++) {
+                                //set the hard coded string as a variable based on the category for filter
+                                if (response.recipes[i].diets.includes("vegan")) {
+                                    // console.log(response.recipes[i]);
+                                    veganArr.push(response.recipes[i])
+                                }
+                            }
+                        }
+                    }
+                    console.log(veganArr);
+                })
+                .then(response => console.log(response))
+        }
+        document.getElementById("vegan").addEventListener('click', spoon);
+        /*]]>*/
+    </script>
 
 </body>
 </html>
