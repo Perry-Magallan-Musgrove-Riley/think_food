@@ -141,9 +141,7 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-    public String getBio() {
-        return bio;
-    }
+    public String getBio() {return bio;}
 
     public void setBio(String bio) {
         this.bio = bio;

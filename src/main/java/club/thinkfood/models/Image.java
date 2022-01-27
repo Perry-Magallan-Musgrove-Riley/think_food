@@ -3,6 +3,7 @@ package club.thinkfood.models;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "images")
@@ -14,17 +15,14 @@ public class Image {
     private long id;
 
     @Column(nullable = false)
-    private String img_name;
+    private String img_path;
 
     @ManyToOne
-    private Recipe img;
+    private Recipe recipe;
 
-    @Value("${filestack.api}")
-    private String filestackApiKey;
-
-    public Image(long id, String img_name) {
+    public Image(long id, String path) {
         this.id = id;
-        this.img_name = img_name;
+        this.img_path = img_path;
     }
 
     public Image() {
@@ -39,11 +37,11 @@ public class Image {
         this.id = id;
     }
 
-    public String getImg_name() {
-        return img_name;
+    public String getImg_path() {
+        return img_path;
     }
 
-    public void setImg_name(String img_name) {
-        this.img_name = img_name;
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
     }
 }
