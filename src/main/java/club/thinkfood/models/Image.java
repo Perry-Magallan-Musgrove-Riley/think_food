@@ -11,7 +11,6 @@ public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     @Column(nullable = false)
@@ -25,23 +24,15 @@ public class Image {
         this.img_path = img_path;
     }
 
-    public Image() {
+    public Image() {}
 
-    }
-
-    public long getId() {
-        return id;
-    }
+    public long getId() {return id;}
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public String getImg_path() {
-        return img_path;
-    }
+    public String getImg_path() {return img_path;}
 
-    public void setImg_path(String img_path) {
-        this.img_path = img_path;
-    }
+    public void setImg_path(String img_path) {this.img_path = img_path;}
 }

@@ -26,14 +26,14 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @OneToOne
-    private Image img;
-
     @Column
     private int isAdmin;
 
     @Column(length = 5000)
     private String bio;
+
+    @OneToOne
+    private Image img;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;

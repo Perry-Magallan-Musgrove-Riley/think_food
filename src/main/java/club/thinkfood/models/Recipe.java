@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "recipes")
 public class Recipe {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -66,8 +67,7 @@ public class Recipe {
         this.description = description;
     }
 
-    public Recipe() {
-    }
+    public Recipe() {}
 
     public Recipe(User chef) {
         this.chef = chef;
