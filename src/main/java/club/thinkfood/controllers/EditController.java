@@ -10,10 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EditController {
@@ -27,7 +24,6 @@ public class EditController {
         this.imageDao = imageDao;
         this.passwordEncoder = passwordEncoder;
     }
-
 
     @Value(("${filestack.api}"))
     private String filestack;
@@ -44,32 +40,23 @@ public class EditController {
         System.out.println("model.addAttribute(\"filestack\", filestack) = " + model.addAttribute("filestack", filestack));
         model.addAttribute("image", new Image());
         System.out.println("model.addAttribute(\"image\", new Image()) = " + model.addAttribute("image", new Image()));
+        model.addAttribute("user", new User());
         return "/users/edit";
     }
 
     @PostMapping("/edit")
-    public String saveProfilePicture(@ModelAttribute Image image, @ModelAttribute User user){
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+    public String editProfileImage(@ModelAttribute Image image){
 
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User persistUser = userDao.findByUsername(loggedInUser.getUsername());
 
         String imgPath = image.getImg_path();
-        String username = currentUser.getUsername();
-        System.out.println(username);
-        String email = currentUser.getEmail();
-        System.out.println(email);
-        String hash = passwordEncoder.encode(currentUser.getPassword());
-        System.out.println(hash);
-
         image.setImg_path(imgPath);
-        user.setImg(image);
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(hash);
-
         imageDao.save(image);
-        userDao.save(user);
-        return "/users/profile";
-    }
 
+        persistUser.setImg(image);
+        userDao.save(persistUser);
+        return "redirect:/";
+
+    }
 }

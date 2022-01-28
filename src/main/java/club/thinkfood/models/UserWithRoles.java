@@ -1,4 +1,4 @@
-package club.thinkfood.repositories;
+package club.thinkfood.models;
 
 import club.thinkfood.models.User;
 import org.springframework.security.core.GrantedAuthority;

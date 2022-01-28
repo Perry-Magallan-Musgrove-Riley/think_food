@@ -24,10 +24,10 @@ public class ProfileController {
     @GetMapping("/profile")
     public String profile(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+        User currentUser = userDao.findUserById(loggedInUser.getId());
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
-        model.addAttribute("profileImg", currentUser.getImg());
+        model.addAttribute("profileImg", currentUser.getImg().getImg_path());
         return "/users/profile";
     }
 

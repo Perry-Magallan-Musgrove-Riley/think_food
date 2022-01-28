@@ -2,7 +2,7 @@ package club.thinkfood.services;
 
 import club.thinkfood.models.User;
 import club.thinkfood.repositories.UserRepository;
-import club.thinkfood.repositories.UserWithRoles;
+import club.thinkfood.models.UserWithRoles;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
