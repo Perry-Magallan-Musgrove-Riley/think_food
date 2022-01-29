@@ -42,8 +42,14 @@ public class ProfileController {
         System.out.println("The post mapping worked. This is line 41.");
         User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newRecipe.setUser(recipeCreator);
-        recipeDao.save(newRecipe);
-        return "redirect:/profile";
+
+        if (newRecipe.getTitle().isEmpty()|| newRecipe.getDescription().isEmpty()){
+            return "redirect:/profile";
+        } else {
+            recipeDao.save(newRecipe);
+            return "redirect:/profile";
+        }
+
     }
 
 
