@@ -1,9 +1,11 @@
 package club.thinkfood.models;
 
 
-import org.springframework.beans.factory.annotation.Value;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -27,8 +29,8 @@ public class Recipe {
     @Column
     private long rating;
 
-    @Column
-    private String timeStamp;
+    @CreationTimestamp
+    private LocalDateTime timeStamp;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
@@ -46,7 +48,7 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
-    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, String timeStamp) {
+    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, LocalDateTime timeStamp) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
@@ -141,12 +143,11 @@ public class Recipe {
         this.chef = chef;
     }
 
-    public String getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimeStamp() {
     }
 }
 
