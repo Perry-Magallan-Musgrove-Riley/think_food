@@ -26,11 +26,15 @@
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].glutenFree === true){
-                        glutenFreeArr.push(response.recipes[iterator])
+                        if (glutenFreeArr.includes(response.recipes[i]) === false) glutenFreeArr.push(response.recipes[i]);
                     }
                     iterator++;
                 }while(glutenFreeArr.length < 20)
+                for(var k=0; k <glutenFreeArr.length; k++){
+                    $(".card-body"+[k]).html("<div><h3>" + glutenFreeArr[k].title + "</h3></div><br>" + "<div><p>"+ glutenFreeArr[k].instructions + "</p></div>");
+                }
                 return glutenFreeArr;
+
             })
             .then(response => console.log(response))
     }

@@ -24,7 +24,7 @@
     </form>
   </div>
 
-  <form action="">
+  <form th:action="@{/singleRecipe}">
     <button id="rando">Randomize a recipe for me :)</button><br>
 </form>
   <form th:action="@{questionnaire}" method="get">
@@ -85,8 +85,6 @@ const spoonkey = /*[[${spoonkey}]]*/ 'default';
               }
             })
             .then(response => console.log(response))
-
-
   </script>
 </body>
 </html>
