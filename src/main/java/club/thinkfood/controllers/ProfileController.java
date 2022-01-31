@@ -47,5 +47,12 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
+    @PostMapping("recipes/delete/{id}")
+    public String deleteRecipe(@PathVariable long id){
 
+        long deleteRecipeId = id;
+        recipeDao.deleteById(deleteRecipeId);
+
+        return "/users/recipe";
+    }
 }
