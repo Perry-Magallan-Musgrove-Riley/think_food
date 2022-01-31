@@ -32,7 +32,7 @@ public class User {
     @Column(length = 5000)
     private String bio;
 
-    @OneToOne
+    @ManyToOne
     private Image img;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
@@ -146,5 +146,7 @@ public class User {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+
 }
 

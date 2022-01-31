@@ -8,25 +8,26 @@
 	<div th:include="partials/navbar.html :: navbar"></div>
 
 	<div class="container">
+		<!-- Profile pic -->
 		<h1 class="my-3">Hello, <span th:text="${username}"></span> here is your profile!</h1>
 		<div class="row my-4">
 			<div id="profileImg" class="d-flex flex-column justify-content-between col-md-2">
 				<img th:src="${profileImg}"
-					 style="height:200px; border-radius: 50%; border: 10px solid navajowhite;"
+					 style="height: 150px; border-radius: 50%; border: 10px solid navajowhite;"
 					 alt="This is the user profile picture"
 				/>
 				<a href="/edit" class="link text-center">Edit Profile Image</a>
 			</div>
-
+			<!-- Bio -->
 			<div id="aboutMe" class="card col">
 				<div class="card-body">
 					<h5 class="card-title text-center">About Me</h5>
 					<p th:text="${bio}">Add in the pathing to grab about me info from edit page.</p>
 				</div>
-				<a href="/edit" class="link text-center">Edit About Me</a>
+				<a href="/edit/bio" class="link text-center">Edit About Me</a>
 			</div>
 		</div>
-
+		<!-- Recipe buttons -->
 		<div class="row mb-4">
 			<div class="col d-flex justify-content-center mt-5">
 				<form th:action="@{/recipe}" method="get">
@@ -40,7 +41,7 @@
 				</form>
 			</div>
 		</div>
-
+		<!-- Recipe cards -->
 		<div class="card-deck row">
 			<div class="card d-flex flex-column justify-content-between col-md-8">
 				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a recipe">

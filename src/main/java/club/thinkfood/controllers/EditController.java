@@ -29,7 +29,8 @@ public class EditController {
     private String filestack;
 
     @GetMapping("/edit")
-    public String editProfile(Model model){
+    public String showEditProfileImage(Model model){
+
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userDao.findByUsername(loggedInUser.getUsername());
         System.out.println("currentUser = " + currentUser);
@@ -48,15 +49,39 @@ public class EditController {
     public String editProfileImage(@ModelAttribute Image image){
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User persistUser = userDao.findByUsername(loggedInUser.getUsername());
+        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
 
         String imgPath = image.getImg_path();
         image.setImg_path(imgPath);
         imageDao.save(image);
 
-        persistUser.setImg(image);
-        userDao.save(persistUser);
+        currentUser.setImg(image);
+        userDao.save(currentUser);
         return "redirect:/profile";
 
     }
+
+//    @GetMapping("/edit/bio")
+//    public String showEditProfileBio(Model model){
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+//        System.out.println("currentUser = " + currentUser);
+//
+//        model.addAttribute("aboutMe", currentUser.getBio());
+//        return "/users/edit-bio";
+//    }
+
+//    @PostMapping
+//    public String editProfileBio(@ModelAttribute User user) {
+//
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+//
+//        String bio = user.getBio();
+//        currentUser.setBio(bio);
+//
+//        userDao.save(currentUser);
+//
+//        return "redirect:/profile";
+//    }
 }

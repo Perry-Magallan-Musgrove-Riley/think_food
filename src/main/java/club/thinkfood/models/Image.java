@@ -19,6 +19,9 @@ public class Image {
     @ManyToOne
     private Recipe recipe;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+    private List<User> user;
+
     public Image(long id, String path) {
         this.id = id;
         this.img_path = img_path;
