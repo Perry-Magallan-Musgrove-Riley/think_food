@@ -1,6 +1,8 @@
 package club.thinkfood.controllers;
 
+import club.thinkfood.models.Image;
 import club.thinkfood.models.User;
+import club.thinkfood.repositories.ImageRepository;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
 import club.thinkfood.services.EmailService;
@@ -18,17 +20,20 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
     private final RecipeRepository recipeDao;
+    private final ImageRepository imageDao;
 
-    public UserController(PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao, UserRepository userDao) {
+    public UserController(PasswordEncoder passwordEncoder, EmailService emailService, RecipeRepository recipeDao, UserRepository userDao, ImageRepository imageDao) {
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
         this.recipeDao = recipeDao;
         this.userDao = userDao;
+        this.imageDao = imageDao;
     }
 
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("image", new Image());
         return "users/sign-up";
     }
 
@@ -37,10 +42,12 @@ public class UserController {
         String username = user.getUsername();
         String email = user.getEmail();
         String hash = passwordEncoder.encode(user.getPassword());
+        Image defaultImg = imageDao.findImageById(1);
 
         user.setPassword(hash);
         user.setUsername(username);
         user.setEmail(email);
+        user.setImg(defaultImg);
 
         emailService.prepareAndSend(user, "Sign up confirmed", "Thank you for being a user.");
         userDao.save(user);
