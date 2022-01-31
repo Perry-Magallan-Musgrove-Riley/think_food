@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body th:style="'background-color : orange'">
+
+<nav th:include="partials/navbar.html :: navbar"></nav>
+
+<form action="/recipes/edit" method="post">
+    <label for="recipeTitle">Title of Recipe:</label>
+    <input id="recipeTitle" name="recipeTitle" th:value="${recipeToEdit.getTitle()}">Hold info about recipe TITLE
+    <br>
+
+    <label for="recipeBody">Body of Recipe</label>
+    <input id="recipeBody" name="recipeBody" th:value="${recipeToEdit.getDescription()}">Hold info about recipe Description
+    <br>
+    <label for="recipePrepTime">Prep Time of Recipe</label>
+    <input id="recipePrepTime" name="recipePrepTime" th:value="${recipeToEdit.getPrep_time()}">Hold info about recipe Prep Time
+
+    <input type="hidden" name="recipeId" th:value="${recipeToEdit.getId()}">
+
+    <br>
+    <button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Submit edit</button>
+</form>
+</body>
+</html>

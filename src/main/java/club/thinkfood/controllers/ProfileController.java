@@ -47,12 +47,34 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/recipes/edit/{id}")
+    public String editRecipe(@PathVariable long id, Model model) {
+        Recipe editRecipe = recipeDao.getById(id);
+
+        model.addAttribute("recipeToEdit", editRecipe);
+        return "/recipes/editRecipe";
+    }
+
+//    @PostMapping("/recipes/editRecipe")
+//    public String saveEditRecipe(@RequestParam(name = "recipeTitle") String recipeTitle, @RequestParam(name = "recipeDescription") String recipeDescription, @RequestParam(name = "recipePrepTime") long recipePrepTime, @RequestParam(name = "recipeId") long recipeID) {
+//
+//        Recipe recipeToEdit = recipeDao.getById(recipeID);
+//        recipeToEdit.setTitle(recipeTitle);
+//        recipeToEdit.setDescription(recipeDescription);
+//        recipeToEdit.setPrep_time(recipePrepTime);
+//
+//
+//        recipeDao.save(recipeToEdit);
+//
+//        return "/users/recipe";
+//    }
+
     @PostMapping("recipes/delete/{id}")
     public String deleteRecipe(@PathVariable long id){
 
         long deleteRecipeId = id;
         recipeDao.deleteById(deleteRecipeId);
 
-        return "/users/recipe";
+        return "redirect:/users/recipe";
     }
 }
