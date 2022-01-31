@@ -61,7 +61,7 @@
     </div>
   </div>
 
-<!--  <script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/-->
+
 <script th:inline="javascript">
 const spoonkey = /*[[${spoonkey}]]*/ 'default';
   console.log(spoonkey);
@@ -69,8 +69,6 @@ const spoonkey = /*[[${spoonkey}]]*/ 'default';
   const options = {
     method: "GET",
   };
-  // $(url).done(function(e){
-  //   e.preventDefault();
     fetch(url, options).then(response => response.json())
             .then(response =>{
               var popularArr = [];
@@ -90,6 +88,5 @@ const spoonkey = /*[[${spoonkey}]]*/ 'default';
 
 
   </script>
-<!--  <script type="text/javascript" src="/js/homeCards.js"></script>-->
 </body>
 </html>
