@@ -43,13 +43,8 @@ public class ProfileController {
         User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newRecipe.setUser(recipeCreator);
 
-        if (newRecipe.getTitle().isEmpty()|| newRecipe.getDescription().isEmpty()){
-            return "redirect:/profile";
-        } else {
             recipeDao.save(newRecipe);
-            return "redirect:/profile";
-        }
-
+        return "redirect:/profile";
     }
 
 

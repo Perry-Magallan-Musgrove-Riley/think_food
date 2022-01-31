@@ -18,11 +18,13 @@
 			<span class="card-subtitle mb-2 text-muted" th:text="${recipe.rating}"></span>
 			<br>
 				<div>
-					<h5>Prep_time: </h5>
-					<span th:text="${recipe.prep_time}"></span>
+					<h5>Description: </h5>
+					<span th:text="${recipe.description}"
+					<h5>Prep Time: </h5>
+					<span th:text="${recipe.prep_time}"></span> minutes
 					<br>
 					<h6 class="card-comments mb-2 text-muted">Comments</h6>
-					<p class="card-text" th:text="${recipe.description}">Comments body: </p>
+					<p class="card-text" th:text="${}">Comments body: </p>
 					<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>
 					<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>
 					<h6>Recipe submitted on:</h6>
