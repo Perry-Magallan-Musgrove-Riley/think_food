@@ -1,14 +1,15 @@
 'use strict';
-$(document).ready(function (e){
-
-    // time stamp function
+$(document).ready(function (e) {
     e.preventDefault();
-    document.getElementById('timeStamp').addEventListener('click', function (e){
-        e.preventDefault();
-        let timeStamp = new Date().toString().valueOf();
-        console.log(timeStamp);
-    });
 
-
+    // var containsCharacters = 'not empty';
+    // var titleInput = document.getElementById('recipeTitle');
+    // var descrilptionInput = document.getElementById('recipeDescription');
+    // titleInput.addEventListener('keyup', function (e) {
+    //     e.preventDefault();
+    //     if (containsCharacters === true){
+    //         return
+    //     }
+    //         })
 })
 
