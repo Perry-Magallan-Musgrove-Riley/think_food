@@ -160,4 +160,16 @@ public class RecipesController {
     }
 
 
+    @GetMapping("/singleRecipe")
+    public String singleDish(Model model){
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "singleRecipe";
+    }
+
+    @PostMapping("/singleRecipe")
+    public String singlePlate(){
+        return "redirect: singleRecipe";
+    }
+
+
 }
