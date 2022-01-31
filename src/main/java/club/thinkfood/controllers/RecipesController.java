@@ -27,7 +27,8 @@ public class RecipesController {
     public String AllRecipes(Model model){
         List<Recipe> recipes = recipeDao.findAll();
         model.addAttribute("recipes", recipes);
-        return "/users/recipe";
+        return
+                ;
     }
 
     @PostMapping("/recipe")
