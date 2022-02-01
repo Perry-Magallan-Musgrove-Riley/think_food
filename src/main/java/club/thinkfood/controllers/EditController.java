@@ -57,7 +57,7 @@ public class EditController {
 
         currentUser.setImg(image);
         userDao.save(currentUser);
-        return "redirect:profile";
+        return "redirect:/profile";
 
     }
 
