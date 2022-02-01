@@ -26,6 +26,10 @@ public class RecipesController {
     @GetMapping("/recipe")
     public String AllRecipes(Model model){
         List<Recipe> recipes = recipeDao.findAll();
+
+        //find a way to format timestamp before binding to model attribute
+
+
         model.addAttribute("recipes", recipes);
         return "/users/recipe";
     }
