@@ -12,8 +12,7 @@
             <form action="">
                 <button id="dairy">Denounce Dairy!</button><br>
             </form>
-
-    </form>
+        </form>
 
 
     <script th:inline="javascript">
@@ -37,13 +36,16 @@
                                 //set the hard coded string as a variable based on the category for filter
                                 if (response.recipes[i].diets.includes("dairy free")) {
                                     // console.log(response.recipes[i]);
-                                    dairyArr.push(response.recipes[i])
+                                    if (dairyArr.includes(response.recipes[iterator]) === false) dairyArr.push(response.recipes[iterator]);
                                 }
                             }
                         }
 
                     }
                     console.log(dairyArr);
+                    for(var k=0; k <dairyArr.length; k++){
+                        $(".card-body"+[k]).html("<div><h3>" + dairyArr[k].title + "</h3></div><br>"+ "<div><img alt='recipeImg' src="+ dairyArr[k].image+"></div>" + "<div><p>"+ dairyArr[k].instructions + "</p></div>");
+                    }
                 })
                 .then(response => console.log(response))
         }
