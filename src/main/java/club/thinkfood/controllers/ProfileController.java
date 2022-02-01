@@ -52,7 +52,7 @@ public class ProfileController {
         Recipe editRecipe = recipeDao.getById(id);
 
         model.addAttribute("recipeToEdit", editRecipe);
-        return "/recipes/editRecipe";
+        return "recipes/editRecipe";
     }
 
     @PostMapping("/recipes/edit")

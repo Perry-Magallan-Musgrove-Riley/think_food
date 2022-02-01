@@ -42,7 +42,7 @@ public class EditController {
         model.addAttribute("image", new Image());
         System.out.println("model.addAttribute(\"image\", new Image()) = " + model.addAttribute("image", new Image()));
         model.addAttribute("user", new User());
-        return "/users/edit";
+        return "users/edit";
     }
 
     @PostMapping("/edit")
