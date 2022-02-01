@@ -31,7 +31,7 @@ public class RecipesController {
 
 
         model.addAttribute("recipes", recipes);
-        return "/users/recipe";
+        return "users/recipe";
     }
 
     @PostMapping("/recipe")
