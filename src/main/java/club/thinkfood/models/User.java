@@ -11,26 +11,29 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String first_name;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String last_name;
 
     @Column(nullable = false, length = 100)
     private String email;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     private String username;
 
     @Column(nullable = false, length = 100)
     private String password;
 
-    @OneToOne
-    private Image img;
-
-    @Column(nullable = false)
+    @Column
     private int isAdmin;
+
+    @Column(length = 5000)
+    private String bio;
+
+    @ManyToOne
+    private Image img;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
@@ -49,6 +52,12 @@ public class User {
         this.img = img;
         this.isAdmin = isAdmin;
         this.myRecipes = myRecipes;
+    }
+
+    public User(String email, String username, String password) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
     public User(User copy) {
@@ -131,5 +140,13 @@ public class User {
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
+
+    public String getBio() {return bio;}
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+
 }
 

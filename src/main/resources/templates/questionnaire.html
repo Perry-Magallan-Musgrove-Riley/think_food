@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
     <title>Questionnaire Page</title>
 </head>
 <body>
+<div th:include="partials/navbar.html :: navbar"></div>
+
     <form th:action="@{/questionnaire}" th:method="post">
     <h2>Think Food Questionnaire</h2>
         <div class="question1">
@@ -47,8 +49,8 @@
                 <label for="veggie">Vegetarian</label><br>
                 <input type="checkbox" name="pesky" id="pesky">
                 <label for="pesky">Pescetarian</label><br>
-                <input type="checkbox" name="vegan" id="vegan">
-                <label for="vegan">Vegan</label><br>
+                <input type="checkbox" name="vegan1" id="vegan1">
+                <label for="vegan1">Vegan</label><br>
         </div>
         <br>
         <div class="question5">

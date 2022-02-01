@@ -18,7 +18,7 @@
                         <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/profile/{name}}">Profile</a>
+                        <a class="nav-link" th:href="@{/profile}">Profile</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -28,23 +28,25 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" th:href="@{/vegetarian}">Vegetarian</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" th:href="@{/glutenFree}">Gluten Free</a>
+                            <a class="dropdown-item" th:href="@{glutenFree}">Gluten Free</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" th:href="@{/keto}">Ketogenic</a>
+                            <a class="dropdown-item" th:href="@{/healthFoods}">Health Foods</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Lacto-Vegetarian</a>
+                            <a class="dropdown-item" th:href="@{vegan}">Vegan</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Vegan</a>
+                            <a class="dropdown-item" th:href="@{popularFoods}">Poppin' Plates</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Ovo-Vegetarian</a>
+                            <a class="dropdown-item" th:href="@{pesce}">Pescetarian</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Pescetarian</a>
+                            <a class="dropdown-item" th:href="@{dairyFree}">Dairy Free</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Paleo</a>
+                            <a class="dropdown-item" th:href="@{primal}">Primal</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Primal</a>
+                            <a class="dropdown-item" th:href="@{breakfast}">Breakfast</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Whole30</a>
+                            <a class="dropdown-item" th:href="@{lunch}">Lunch</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{dinner}">Dinner</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -53,9 +55,12 @@
                     <li class="nav-item me-auto">
                         <a class="nav-link" th:href="@{/login}">Login</a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" th:href="@{/posts}" tabindex="-1"> All Posts</a>-->
-<!--                    </li>-->
+
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" th:method="post">
+                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                        </form>
+                    </li>
 
                 </ul>
             </div>

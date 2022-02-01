@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>Breakfast</title>
+</head>
+<body>
+    <div th:include="partials/navbar.html :: navbar"></div>
+        <form th:action="@{/breakfast}" method="post">
+            <h4>Breakfast</h4>
+    </form>
+    <form action="">
+        <button id="breakfast">Breakfast Button</button><br>
+    </form>
+    <div class="card-deck">
+        <div class="card col-4">
+            <div class="card-body0">
+                <h5 class="card-title"></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+            </div>
+        </div>
+        <div class="card col-4">
+            <div class="card-body1">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+            </div>
+        </div>
+        <div class="card col-4">
+            <div class="card-body2">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+            </div>
+        </div>
+        <div class="card col-4">
+            <div class="card-body3">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+            </div>
+        </div>
+<!--        <div class="card">-->
+<!--            <div class="card-body4">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <div class="card-body5">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <div class="card-body6">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <div class="card-body7">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <div class="card-body8">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <div class="card-body9">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>-->
+<!--                <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+
+
+
+
+<script th:inline="javascript">
+    const spoonkey = /*[[${spoonkey}]]*/ 'default';
+    console.log(spoonkey);
+    const url = "https://api.spoonacular.com/recipes/random?number=100&tag=vegetarian&apiKey=" + spoonkey;
+    const options = {
+        method: "GET",
+    };
+    const spoon = function(e) {
+        e.preventDefault();
+        fetch(url, options).then(response => response.json())
+            .then(response =>{
+                var breakfastArr = [];
+                var iterator = 0;
+                for(var i = 0; i < response.recipes.length; i++){
+                    if(response.recipes[i].dishTypes !== undefined) {
+                        for (var j = 0; j < response.recipes[i].dishTypes.length; j++) {
+                            //set the hard coded string as a variable based on the category for filter
+                            if (response.recipes[i].dishTypes.includes("breakfast")) {
+                                // console.log(response.recipes[i]);
+                                // The following line eliminates duplicate elements from the array
+                                if (breakfastArr.includes(response.recipes[i]) === false) breakfastArr.push(response.recipes[i]);
+                                // breakfastArr.push(response.recipes[i])
+                            }
+                        }
+                    }
+                }
+                console.log(breakfastArr);
+                for(var k=0; k <breakfastArr.length; k++){
+                    $(".card-body"+[k]).html("<div><h3>" + breakfastArr[k].title + "</h3></div><br>" + "<div><p>"+ breakfastArr[k].instructions + "</p></div>");
+                }
+            })
+            .then(response => console.log(response))
+    }
+
+    document.getElementById("breakfast").addEventListener('click', spoon);
+    /*]]>*/
+</script>
+</body>
+</html>

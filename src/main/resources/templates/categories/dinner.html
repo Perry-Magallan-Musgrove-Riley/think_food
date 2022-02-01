@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
-    <title>No Gluten</title>
+    <title>Dinner</title>
 </head>
 <body>
 <div th:include="partials/navbar.html :: navbar"></div>
-    <form th:action="@{/glutenFree}" method="post">
-        <h4>EHHHH GLUTEN!!!</h4>
-        <form action="">
-            <button id="glutenFree">Give me Gluten Free!</button><br>
-        </form>
+<form th:action="@{/dinner}" method="post">
+    <h4>Dinner Dishes</h4>
+</form>
+<form action="">
+    <button id="dinner">Dinner Generator</button><br>
 </form>
 <div class="card-deck">
     <div class="card col-4">
@@ -51,38 +51,40 @@
     </div>
 </div>
 
-<!--<script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>-->
-
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
     console.log(spoonkey);
-    const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
+    const url = "https://api.spoonacular.com/recipes/random?number=100&tag=vegetarian&apiKey=" + spoonkey;
     const options = {
-        method: "GET"
+        method: "GET",
     };
     const spoon = function(e) {
         e.preventDefault();
         fetch(url, options).then(response => response.json())
             .then(response =>{
-                var glutenFreeArr = [];
+                var dinnerArr = [];
                 var iterator = 0;
-                do{
-                    // console.log(response.recipes[0].glutenFree);
-                    if(response.recipes[iterator].glutenFree === true){
-                        if (glutenFreeArr.includes(response.recipes[iterator]) === false) glutenFreeArr.push(response.recipes[iterator]);
+                for(var i = 0; i < response.recipes.length; i++){
+                    if(response.recipes[i].dishTypes !== undefined) {
+                        for (var j = 0; j < response.recipes[i].dishTypes.length; j++) {
+                            //set the hard coded string as a variable based on the category for filter
+                            if (response.recipes[i].dishTypes.includes("dinner")) {
+                                // console.log(response.recipes[i]);
+                                if (dinnerArr.includes(response.recipes[i]) === false) dinnerArr.push(response.recipes[i]);
+                            }
+                        }
                     }
-                    iterator++;
-                }while(glutenFreeArr.length < 20)
-                for(var k=0; k <glutenFreeArr.length; k++){
-                    $(".card-body"+[k]).html("<div><h3>" + glutenFreeArr[k].title + "</h3></div><br>" + "<div><p>"+ glutenFreeArr[k].instructions + "</p></div>");
                 }
-                return glutenFreeArr;
+                console.log(dinnerArr);
+                for(var k=0; k <dinnerArr.length; k++){
+                    $(".card-body"+[k]).html("<div><h3>" + dinnerArr[k].title + "</h3></div><br>" + "<div><p>"+ dinnerArr[k].instructions + "</p></div>");
+                }
             })
             .then(response => console.log(response))
     }
-
-    document.getElementById("glutenFree").addEventListener('click', spoon);
+    document.getElementById("dinner").addEventListener('click', spoon);
     /*]]>*/
 </script>
+
 </body>
 </html>

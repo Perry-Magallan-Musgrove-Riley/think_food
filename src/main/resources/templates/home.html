@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+  <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>Food For Thought</title>
+
+</head>
+<body>
+  <div th:include="partials/navbar.html :: navbar"></div>
+  <div id="homeHeader">
+    <div class="container-fluid">
+      <div class="dish-row row">
+        <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish3.png}">
+      </div>
+    </div>
+  </div>
+
+  <div class="recipeBody">
+    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
+      <input type="text" name="search" id="search" th:value="${search}"/>
+      <input type="submit" id="submitSearch" value="search"/>
+      <div th:if="${not #lists.isEmpty(search)}">
+      </div>
+    </form>
+  </div>
+
+
+  <form th:action="@{singleRecipe}" th:method="get">
+    <button id="rando">Randomize a recipe for me :)</button><br>
+</form>
+  <form th:action="@{questionnaire}" method="get">
+    <h5>Don't know what to eat? Let us help you decide</h5>
+    <button id="questionnaire">Help me decide what to eat!</button>
+  </form>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body0">
+        <h5 class="card-title"></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body1">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body2">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+
+
+<!--  <script th:inline="javascript">-->
+<!--    /*<![CDATA[*/-->
+<!--    const spoonkey = /*[[${spoonkey}]]*/ 'default';-->
+<!--    console.log(spoonkey);-->
+<!--    const url = "https://api.spoonacular.com/recipes/random?apiKey=" + spoonkey;-->
+<!--    const options = {-->
+<!--      method: "GET",-->
+<!--      };-->
+<!--    fetch(url, options).then(response => response.json())-->
+<!--            .then(response => console.log(response.recipes[0]))-->
+
+
+
+
+<!--    // $(document).ready(function() {-->
+<!--    //   $("#rando").click(function(e) {-->
+<!--    //     e.preventDefault();-->
+<!--    //     $.get("https://api.spoonacular.com/recipes/random?apiKey=" + spoonkey).done(function (data, status) {-->
+<!--    //       console.log(data)-->
+<!--    //     })-->
+<!--    //   })-->
+<!--    // })-->
+<!--    /*]]>*/-->
+
+<!--<script th:inline="javascript">-->
+<!--const spoonkey = /*[[${spoonkey}]]*/ 'default';-->
+<!--  console.log(spoonkey);-->
+<!--  const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;-->
+<!--  const options = {-->
+<!--    method: "GET",-->
+<!--  };-->
+<!--    fetch(url, options).then(response => response.json())-->
+<!--            .then(response =>{-->
+<!--              var popularArr = [];-->
+<!--              var iterator = 0;-->
+<!--              for(var i = 0; i < response.recipes.length; i++){-->
+<!--                if(response.recipes[iterator].veryPopular){-->
+<!--                  popularArr.push(response.recipes[iterator])-->
+<!--                }-->
+<!--                iterator++;-->
+<!--              }-->
+<!--              console.log(popularArr);-->
+<!--              for(var j=0; j <3; j++){-->
+<!--                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "<div><p>"+ popularArr[j].instructions + "</p></div>");-->
+<!--              }-->
+<!--            })-->
+<!--            .then(response => console.log(response))-->
+<!--  </script>-->
+</body>
+</html>

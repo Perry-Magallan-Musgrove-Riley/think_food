@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body th:style="'background-color : orange'">
+
+<!--All comments below: Trying to implement to the save feature to profile after new Recipe is created.-->
+
+<div th:include="partials/navbar.html :: navbar"></div>
+
+<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}">
+	<h3>Create your own recipe with this form!</h3><br>
+	<label for="recipeTitle">Recipe title: </label>
+	<input type="text" id="recipeTitle" th:field="*{title}"required><br>
+
+	<label for="recipeDescription">Recipe Description: </label>
+	<textarea  id="recipeDescription" th:field="*{description}"required></textarea><br>
+
+	<label for="recipePrepTime">Recipe Prep Time: </label>
+	<input type="number" id="recipePrepTime" th:field="*{prep_time}"required> minutes<br>
+
+
+
+<!--	<fieldset>-->
+<!--		<legend>Prep-Time:</legend>-->
+<!--		<br>-->
+<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="quickness">-->
+<!--		<label for="quickness">30 minutes</label><br>-->
+<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="medTime">-->
+<!--		<label for="medTime">1 hour</label><br>-->
+<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="longTime">-->
+<!--		<label for="longTime">1 and 1/2 hours</label><br>-->
+<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="advancedTime">-->
+<!--		<label for="advancedTime">Over 1.5 hours</label><br>-->
+<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="allTime">-->
+<!--		<label for="allTime">No rush</label><br>-->
+<!--	</fieldset>-->
+
+		<div class="file-field">
+			<div class="float-left">
+				<span>Paste video URL here:</span>
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text" placeholder="Upload your file">
+			</div>
+		</div>
+	<!--id="timeStamp"-->
+	<br>
+		<button type="submit"  class="btn btn-primary bg-success">Submit New Post Here</button>
+</form>
+<!--<input type="submit" id="timeStamp">-->
+<script th:src="@{/js/profile}"></script>
+</body>
+</html>

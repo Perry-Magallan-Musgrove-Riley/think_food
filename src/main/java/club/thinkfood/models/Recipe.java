@@ -1,15 +1,18 @@
 package club.thinkfood.models;
 
 
-import org.springframework.beans.factory.annotation.Value;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
 @Entity
 @Table(name = "recipes")
 public class Recipe {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,7 +29,12 @@ public class Recipe {
     @Column
     private long rating;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Formats.DateTime(pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreationTimestamp
+    private LocalDateTime timeStamp;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
@@ -35,10 +43,6 @@ public class Recipe {
     @ManyToOne
     private User chef;
 
-
-    @Value(("${filestackKey}"))
-    private String filestackKey;
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipes_categories", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "cat_id")})
     private List<Category> categories;
@@ -46,7 +50,7 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
-    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating) {
+    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, LocalDateTime timeStamp) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
@@ -54,6 +58,16 @@ public class Recipe {
         this.description = description;
         this.chef = chef;
         this.rating = rating;
+        this.timeStamp = timeStamp;
+    }
+
+    public Recipe(long id, String title, long prep_time, String description, long rating, List<Image> images) {
+        this.id = id;
+        this.title = title;
+        this.prep_time = prep_time;
+        this.description = description;
+        this.rating = rating;
+        this.images = images;
     }
 
     public Recipe(String title, String description) {
@@ -61,9 +75,11 @@ public class Recipe {
         this.description = description;
     }
 
-    public Recipe() {
-    }
+    public Recipe() {}
 
+    public Recipe(User chef) {
+        this.chef = chef;
+    }
 
     public User getUser() {
         return chef;
@@ -119,6 +135,21 @@ public class Recipe {
 
     public void setRating(long rating) {
         this.rating = rating;
+    }
+
+    public User getChef() {
+        return chef;
+    }
+
+    public void setChef(User chef) {
+        this.chef = chef;
+    }
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp() {
     }
 }
 

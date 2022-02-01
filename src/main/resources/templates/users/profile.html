@@ -7,44 +7,53 @@
 <body class="profile-body">
 	<div th:include="partials/navbar.html :: navbar"></div>
 
-	<h1>Hello, <span th:text="${name}"></span> here is your profile!</h1>
-
-	<div class="card-deck row">
-		<div class="card border border-primary d-flex flex-column justify-content-between col-md-4">
-			<div class="card-body">
-
-				<img src="ImageFilePath" style="height:150px; border-radius: 50%; border: 10px solid navajowhite;"
-					 alt="This is the user profile picture">
-				<!--Need to add the filepath for the profile images after uploading in the edit page and selecting a file-->
-
-				<a href="/edit" class="card-link">Edit Profile</a>
+	<div class="container">
+		<!-- Profile pic -->
+		<h1 class="my-3">Hello, <span th:text="${username}"></span> here is your profile!</h1>
+		<div class="row my-4">
+			<div id="profileImg" class="d-flex flex-column justify-content-between col-md-2">
+				<img th:src="${profileImg}"
+					 style="height: 150px; border-radius: 50%; border: 10px solid navajowhite;"
+					 alt="This is the user profile picture"
+				/>
+				<a href="/edit" class="link text-center">Edit Profile Image</a>
+			</div>
+			<!-- Bio -->
+			<div id="aboutMe" class="card col">
+				<div class="card-body">
+					<h5 class="card-title text-center">About Me</h5>
+					<p th:text="${bio}">Add in the pathing to grab about me info from edit page.</p>
+				</div>
+				<a href="/edit/bio" class="link text-center">Edit About Me</a>
 			</div>
 		</div>
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">About Me</h5>
-				<p>Add in the pathing to grab about me info from edit page.</p>
+		<!-- Recipe buttons -->
+		<div class="row mb-4">
+			<div class="col d-flex justify-content-center mt-5">
+				<form th:action="@{/recipe}" method="get">
+					<button type="submit" >I want to see all the recipes!</button>
+				</form>
+			</div>
+
+			<div class="col d-flex justify-content-center mt-5">
+				<form th:action="@{/recipes/create}" method="get">
+					<button type="submit" >I want to make my own Recipe!</button>
+				</form>
 			</div>
 		</div>
-	</div>
-<!--Button to show all recipes. Only a temporary placement move where desired? No previous way to get to all the recipes-->
-	<form th:action="@{/recipe}" method="get">
-		<button type="submit" >I want to see all the recipes!</button>
-	</form>
-
-	<div>
+		<!-- Recipe cards -->
 		<div class="card-deck row">
 			<div class="card d-flex flex-column justify-content-between col-md-8">
 				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a recipe">
-				<h5 class="card-title">Name of Dish</h5>
+				<h5 class="card-title">Name of Dish${recipe.getTitle}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
 
 				<div class="card-body rotate-border">
 					<div>
-					<h6 class="card-comments mb-2 text-muted">Comments</h6>
-					<p class="card-text">Comments body: </p>
-					<a href="#" class="card-link">Link to Ingredients</a>
-					<a href="#" class="card-link">Link for video of recipe</a>
+						<h6 class="card-comments mb-2 text-muted">Comments</h6>
+						<p class="card-text">Comments body: </p>
+						<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>
+						<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>
 					</div>
 				</div>
 			</div>
@@ -52,21 +61,16 @@
 				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a 2nd recipe">
 				<h5 class="card-title">Name of Dish</h5>
 				<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
-
 				<div class="card-body rotate-border">
 					<div>
-					<h6 class="card-comments mb-2 text-muted">Comments</h6>
-					<p class="card-text">Comments body: </p>
-					<a href="#" class="card-link">Link to ingredients</a>
-					<a href="#" class="card-link">Link for video of recipe</a>
+						<h6 class="card-comments mb-2 text-muted">Comments</h6>
+						<p class="card-text">Comments body: </p>
+						<a th:href="@{/ingredients}" class="card-link">Link to ingredients</a>
+						<a href="https://www.youtube.com/watch?v=5h974fXFFHE&ab_channel=SAMTHECOOKINGGUY" class="card-link" target="_blank">Link for video of recipe</a>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>

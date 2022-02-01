@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>Primal</title>
+</head>
+<body>
+
+    <div th:include="partials/navbar.html :: navbar"></div>
+        <form th:action="@{/primal}" method="post">
+            <h4>Primal Foodie!</h4>
+            <form action="">
+                <button id="primal">Let's Get Primal</button><br>
+            </form>
+    </form>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const spoonkey = /*[[${spoonkey}]]*/ 'default';
+    console.log(spoonkey);
+    const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
+    const options = {
+        method: "GET",
+    };
+    const spoon = function(e) {
+        e.preventDefault();
+        fetch(url, options).then(response => response.json())
+            .then(response =>{
+                var primalArr = [];
+                var iterator = 0;
+
+//Keep this here for Alex
+                // console.log(response);
+                // console.log(response.recipes[iterator]);
+                // console.log(response.recipes[iterator].diets[iterator]);
+                // primalArr.push(response.recipes[0]);
+                // primalArr.push(response.recipes[1]);
+                // console.log(primalArr);
+                // console.log(primalArr[0]);
+                // console.log(primalArr[1]);
+                // console.log(primalArr[0].diets[0]);
+                for(var i = 0; i < response.recipes.length; i++){
+                    if(response.recipes[i].diets !== undefined) {
+                        for (var j = 0; j < response.recipes[i].diets.length; j++) {
+                            //set the hard coded string as a variable based on the category for filter
+                            if (response.recipes[i].diets.includes("primal")) {
+                                // console.log(response.recipes[i]);
+                                primalArr.push(response.recipes[i])
+                            }
+                        }
+                    }
+
+                }
+
+
+                console.log(primalArr);
+                // do{
+                //     console.log(response.recipes[iterator].diets.includes("primal"));
+                //     if(response.recipes[iterator].diets.includes("primal")){
+                //         primalArr.push(response.recipes[iterator])
+                //         console.log(response.recipes[iterator]);
+                //         console.log(primalArr[iterator]);
+                //     }
+                //     // i++;
+                //     iterator++;
+                //
+                // }while(primalArr.length < 20)
+                //
+                // return primalArr;
+            })
+            .then(response => console.log(response))
+    }
+
+
+    // for(var i = 0; i < response.recipes.length; i++){
+    //     if(response.recipes[i].diets.includes("primal") && response.recipes[i].diets !== undefined) {
+    //
+    //         console.log(response.recipes[i]);
+    //         primalArr.push(response.recipes[i])
+    //     }
+    // }
+    document.getElementById("primal").addEventListener('click', spoon);
+     /*]]>*/
+</script>
+</body>
+</html>
