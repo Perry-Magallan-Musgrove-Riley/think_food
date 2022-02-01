@@ -28,7 +28,7 @@ public class ProfileController {
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
-        return "/users/profile";
+        return "users/profile";
     }
 
     @GetMapping("/recipes/create")
