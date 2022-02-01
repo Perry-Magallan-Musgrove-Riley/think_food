@@ -55,19 +55,19 @@ public class ProfileController {
         return "/recipes/editRecipe";
     }
 
-//    @PostMapping("/recipes/editRecipe")
-//    public String saveEditRecipe(@RequestParam(name = "recipeTitle") String recipeTitle, @RequestParam(name = "recipeDescription") String recipeDescription, @RequestParam(name = "recipePrepTime") long recipePrepTime, @RequestParam(name = "recipeId") long recipeID) {
-//
-//        Recipe recipeToEdit = recipeDao.getById(recipeID);
-//        recipeToEdit.setTitle(recipeTitle);
-//        recipeToEdit.setDescription(recipeDescription);
-//        recipeToEdit.setPrep_time(recipePrepTime);
-//
-//
-//        recipeDao.save(recipeToEdit);
-//
-//        return "/users/recipe";
-//    }
+    @PostMapping("/recipes/edit")
+    public String saveEditRecipe(@RequestParam(name = "recipeTitle") String recipeTitle, @RequestParam(name = "recipeDescription") String recipeDescription, @RequestParam(name = "recipePrepTime") long recipePrepTime, @RequestParam(name = "recipeId") long id) {
+
+        Recipe recipeToEdit = recipeDao.getById(id);
+        recipeToEdit.setTitle(recipeTitle);
+        recipeToEdit.setDescription(recipeDescription);
+        recipeToEdit.setPrep_time(recipePrepTime);
+
+
+        recipeDao.save(recipeToEdit);
+
+        return "redirect:/recipe";
+    }
 
     @PostMapping("recipes/delete/{id}")
     public String deleteRecipe(@PathVariable long id){
@@ -75,6 +75,6 @@ public class ProfileController {
         long deleteRecipeId = id;
         recipeDao.deleteById(deleteRecipeId);
 
-        return "redirect:/users/recipe";
+        return "redirect:/recipe";
     }
 }

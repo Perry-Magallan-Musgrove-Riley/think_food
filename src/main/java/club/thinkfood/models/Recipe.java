@@ -29,8 +29,6 @@ public class Recipe {
     @Column
     private long rating;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Formats.DateTime(pattern = "yyyy-MM-dd HH:mm:ss")
     @CreationTimestamp
     private LocalDateTime timeStamp;
 

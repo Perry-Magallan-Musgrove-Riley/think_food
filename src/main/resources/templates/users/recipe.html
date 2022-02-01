@@ -28,7 +28,7 @@
 					<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>
 					<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>
 					<h6>Recipe submitted on:</h6>
-					<span th:text="${recipe.timeStamp}"></span>
+					<span th:text="${#temporals.format(recipe.timeStamp, 'E dd-MM-yyyy hh:mm a')}"></span>
 					<br>
 					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
 						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit</button>
