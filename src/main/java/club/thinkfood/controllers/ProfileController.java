@@ -27,7 +27,7 @@ public class ProfileController {
         User currentUser = userDao.findUserById(loggedInUser.getId());
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
-//        model.addAttribute("profileImg", currentUser.getImg().getImg_path());
+        model.addAttribute("profileImg", currentUser.getImg().getImg_path());
         return "/users/profile";
     }
 
