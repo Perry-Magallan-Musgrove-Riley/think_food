@@ -20,6 +20,9 @@
 </div>
 </form>
 
+<!--<script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>-->
+
+
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
     console.log(spoonkey);
@@ -43,6 +46,8 @@
             }
         })
         .then(response => console.log(response))
+
+    console.log("minor change for dokku push")
 </script>
 </body>
 </html>

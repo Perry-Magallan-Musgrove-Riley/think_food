@@ -14,11 +14,12 @@
         method: "GET"
     };
     const spoon = function(e) {
-        e.preventDefault();
+        // e.preventDefault();
         fetch(url, options).then(response => response.json())
             .then(response => console.log(response.recipes[0]))
     }
     document.getElementById("rando").addEventListener('click', spoon);
+
 })();
 
 
