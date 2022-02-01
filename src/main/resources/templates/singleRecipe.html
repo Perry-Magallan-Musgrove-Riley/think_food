@@ -6,6 +6,7 @@
 </head>
 <body>
 <div th:include="partials/navbar.html :: navbar"></div>
+<form th:action="@{/singleRecipe}" method="post">
 <div class="card-deck">
     <div class="card col-4">
         <div class="card-body0">
@@ -17,7 +18,7 @@
         </div>
     </div>
 </div>
-
+</form>
 
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
