@@ -13,3 +13,5 @@ VALUES (2, 'Grilled chicken', 60, 'some words that make it sound scrump-dida-lum
 
 INSERT INTO  recipes(id, title, prep_time, description, rating)
 VALUES (3, 'Smoked Salmon', 60, 'You better act like you know', 7);
+
+INSERT INTO images(img_path) values('https://cdn.filestackcontent.com/vTGVLn4tQoWBvgTCndPM');
