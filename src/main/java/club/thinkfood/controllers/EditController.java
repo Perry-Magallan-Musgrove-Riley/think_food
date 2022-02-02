@@ -15,37 +15,35 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class EditController {
 
+    @Value(("${filestack.api}"))
+    private String filestack;
+
     private final UserRepository userDao;
     private final ImageRepository imageDao;
     private final PasswordEncoder passwordEncoder;
 
     public EditController(UserRepository userDao, ImageRepository imageDao, PasswordEncoder passwordEncoder) {
+
         this.userDao = userDao;
         this.imageDao = imageDao;
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Value(("${filestack.api}"))
-    private String filestack;
-
-    @GetMapping("/edit")
-    public String showEditProfileImage(Model model){
+    @GetMapping("/edit-picture")
+    public String showEditProfileImage(Model model) {
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userDao.findByUsername(loggedInUser.getUsername());
-        System.out.println("currentUser = " + currentUser);
 
         model.addAttribute("username", currentUser.getUsername());
-        System.out.println("model.addAttribute(\"username\", currentUser.getUsername()) = " + model.addAttribute("username", currentUser.getUsername()));
         model.addAttribute("filestack", filestack);
-        System.out.println("model.addAttribute(\"filestack\", filestack) = " + model.addAttribute("filestack", filestack));
         model.addAttribute("image", new Image());
-        System.out.println("model.addAttribute(\"image\", new Image()) = " + model.addAttribute("image", new Image()));
         model.addAttribute("user", new User());
-        return "users/edit";
+
+        return "users/edit-picture";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/edit-picture")
     public String editProfileImage(@ModelAttribute Image image){
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -61,27 +59,30 @@ public class EditController {
 
     }
 
-//    @GetMapping("/edit/bio")
-//    public String showEditProfileBio(Model model){
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
-//        System.out.println("currentUser = " + currentUser);
-//
-//        model.addAttribute("aboutMe", currentUser.getBio());
-//        return "/users/edit-bio";
-//    }
+    @GetMapping("edit-bio")
+    public String showEditBio(Model model) {
 
-//    @PostMapping
-//    public String editProfileBio(@ModelAttribute User user) {
-//
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
-//
-//        String bio = user.getBio();
-//        currentUser.setBio(bio);
-//
-//        userDao.save(currentUser);
-//
-//        return "redirect:/profile";
-//    }
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+
+        model.addAttribute("username", currentUser.getUsername());
+        model.addAttribute("user", new User());
+        model.addAttribute("bio", currentUser.getBio());
+
+        return "users/edit-bio";
+    }
+
+    @PostMapping("edit-bio")
+    public String editProfileBio(@ModelAttribute User user) {
+
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
+
+        String bio = user.getBio();
+        currentUser.setBio(bio);
+        userDao.save(currentUser);
+
+        return "redirect:/profile";
+
+    }
 }

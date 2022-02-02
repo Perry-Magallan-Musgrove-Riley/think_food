@@ -32,11 +32,11 @@ public class User {
     @Column(length = 5000)
     private String bio;
 
-    @ManyToOne
-    private Image img;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
+
+    @ManyToOne
+    private Image img;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "users_recipes", joinColumns = {@JoinColumn(name = "chef_id")}, inverseJoinColumns = {@JoinColumn(name = "recipe_id")})
@@ -146,7 +146,5 @@ public class User {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
-
 }
 

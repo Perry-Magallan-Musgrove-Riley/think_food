@@ -6,66 +6,68 @@
 </head>
 <body>
 <div th:include="partials/navbar.html :: navbar"></div>
-
+<div class="container">
     <form th:action="@{/questionnaire}" th:method="post">
     <h2>Think Food Questionnaire</h2>
-        <div class="question1">
-            <h4>WHAT TYPE OF FOOD ARE YOU LOOKING FOR?</h4>
-                <input type="radio" name="foodType" id="foodType">
-                <label for="foodType">Main Course</label><br>
-                <input type="radio" name="foodType2" id="foodType2">
-                <label for="foodType2">Appetizer</label><br>
-                <input type="radio" name="foodType3" id="foodType3">
-                <label for="foodType3">Dessert</label><br>
-                <input type="radio" name="foodType4" id="foodType4">
-                <label for="foodType4">Side Dish</label>
-            </div>
-        <br>
-        <div class="question2">
-            <h4>ARE YOU LACTOSE INTOLERANT?</h4>
-                <input type="radio" name="lactoseTrue" id="lactoseTrue">
-                <label for="lactoseTrue">Yes (No dairy for me!!)</label><br>
-                <input type="radio" name="lactoseFalse" id="lactoseFalse">
-                <label for="lactoseFalse">No (Bring on the cows!)</label>
-        </div>
-        <br>
-        <div class="question3">
-            <h4>HOW MUCH TIME DO YOU HAVE TO EAT?</h4>
-                <input type="radio" name="quickness" id="quickness">
-                <label for="quickness">30 minutes</label><br>
-                <input type="radio" name="medTime" id="medTime">
-                <label for="medTime">1 hour</label><br>
-                <input type="radio" name="longTime" id="longTime">
-                <label for="longTime">1 and 1/2 hours</label><br>
-                <input type="radio" name="allTime" id="allTime">
-                <label for="allTime">No rush</label><br>
-        </div>
-        <br>
-        <div class="question4">
-            <h4>DO YOU HAVE ANY DIETARY RESTRICTIONS?</h4>
-                <input type="checkbox" name="gluten" id="gluten">
-                <label for="gluten">Gluten Free</label><br>
-                <input type="checkbox" name="veggie" id="veggie">
-                <label for="veggie">Vegetarian</label><br>
-                <input type="checkbox" name="pesky" id="pesky">
-                <label for="pesky">Pescetarian</label><br>
-                <input type="checkbox" name="vegan1" id="vegan1">
-                <label for="vegan1">Vegan</label><br>
-        </div>
-        <br>
-        <div class="question5">
-            <h4>WHICH OF THESE IS THE MOST APPEALING TO YOU?</h4>
-                <input type="radio" name="popular" id="popular">
-                <label for="popular">Most popular dish</label><br>
-                <input type="radio" name="health" id="health">
-                <label for="health">Something healthy</label><br>
-                <input type="radio" name="price" id="price">
-                <label for="price">Cheap</label>
-        </div>
-        <br>
-        <hr>
+    <div class="question1">
+        <h4>WHAT TYPE OF FOOD ARE YOU LOOKING FOR?</h4>
+        <input type="radio" name="foodType" id="foodType">
+        <label for="foodType">Main Course</label><br>
+        <input type="radio" name="foodType2" id="foodType2">
+        <label for="foodType2">Appetizer</label><br>
+        <input type="radio" name="foodType3" id="foodType3">
+        <label for="foodType3">Dessert</label><br>
+        <input type="radio" name="foodType4" id="foodType4">
+        <label for="foodType4">Side Dish</label>
+    </div>
+    <br>
+    <div class="question2">
+        <h4>ARE YOU LACTOSE INTOLERANT?</h4>
+        <input type="radio" name="lactoseTrue" id="lactoseTrue">
+        <label for="lactoseTrue">Yes (No dairy for me!!)</label><br>
+        <input type="radio" name="lactoseFalse" id="lactoseFalse">
+        <label for="lactoseFalse">No (Bring on the cows!)</label>
+    </div>
+    <br>
+    <div class="question3">
+        <h4>HOW MUCH TIME DO YOU HAVE TO EAT?</h4>
+        <input type="radio" name="quickness" id="quickness">
+        <label for="quickness">30 minutes</label><br>
+        <input type="radio" name="medTime" id="medTime">
+        <label for="medTime">1 hour</label><br>
+        <input type="radio" name="longTime" id="longTime">
+        <label for="longTime">1 and 1/2 hours</label><br>
+        <input type="radio" name="allTime" id="allTime">
+        <label for="allTime">No rush</label><br>
+    </div>
+    <br>
+    <div class="question4">
+        <h4>DO YOU HAVE ANY DIETARY RESTRICTIONS?</h4>
+        <input type="checkbox" name="gluten" id="gluten">
+        <label for="gluten">Gluten Free</label><br>
+        <input type="checkbox" name="veggie" id="veggie">
+        <label for="veggie">Vegetarian</label><br>
+        <input type="checkbox" name="pesky" id="pesky">
+        <label for="pesky">Pescetarian</label><br>
+        <input type="checkbox" name="vegan1" id="vegan1">
+        <label for="vegan1">Vegan</label><br>
+    </div>
+    <br>
+    <div class="question5">
+        <h4>WHICH OF THESE IS THE MOST APPEALING TO YOU?</h4>
+        <input type="radio" name="popular" id="popular">
+        <label for="popular">Most popular dish</label><br>
+        <input type="radio" name="health" id="health">
+        <label for="health">Something healthy</label><br>
+        <input type="radio" name="price" id="price">
+        <label for="price">Cheap</label>
+    </div>
+    <br>
+    <hr>
     <button id="suggestDish">Suggest Meals for Me!</button>
     </form>
+</div>
+
 
 </body>
 </html>

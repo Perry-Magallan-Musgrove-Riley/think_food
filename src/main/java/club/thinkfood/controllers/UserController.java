@@ -32,13 +32,16 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
+
         model.addAttribute("user", new User());
         model.addAttribute("image", new Image());
+
         return "users/sign-up";
     }
 
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
+
         String username = user.getUsername();
         String email = user.getEmail();
         String hash = passwordEncoder.encode(user.getPassword());
@@ -57,13 +60,17 @@ public class UserController {
 
     @GetMapping("/resetPassword")
     public String resetPassword(Model model) {
+
         model.addAttribute("loginUser", new User());
+
         return "users/resetPassword";
     }
 
     @PostMapping("/resetPassword")
     public String resetSuccess(@ModelAttribute User loginUser) {
+
         userDao.save(loginUser);
+
         return "redirect:/login";
     }
 

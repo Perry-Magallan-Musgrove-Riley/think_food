@@ -9,11 +9,6 @@ import java.util.List;
 
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
-//    List<Recipe> findAllByTitle(String title);
-
-//    List<Recipe> findRecipesByChefIsLike(User chef);
-
-//    List<Recipe>  findRecipesByDescriptionIsLike(String description);
 
     List<Recipe> findRecipesByTitleContains(String title);
 }

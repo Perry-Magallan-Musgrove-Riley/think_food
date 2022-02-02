@@ -10,19 +10,28 @@
   <div id="homeHeader">
     <div class="container-fluid">
       <div class="dish-row row">
+        <div class="searchForm container">
+          <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
+            <input type="text" name="search" id="search" th:value="${search}"/>
+            <input type="submit" id="submitSearch" value="search"/>
+            <div th:if="${not #lists.isEmpty(search)}">
+            </div>
+          </form>
+        </div>
         <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish3.png}">
       </div>
     </div>
   </div>
 
-  <div class="recipeBody">
-    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
-      <input type="text" name="search" id="search" th:value="${search}"/>
-      <input type="submit" id="submitSearch" value="search"/>
-      <div th:if="${not #lists.isEmpty(search)}">
-      </div>
-    </form>
-  </div>
+<!--  <div class="recipeBody container">-->
+<!--    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">-->
+<!--      <input type="text" name="search" id="search" th:value="${search}"/>-->
+<!--      <input type="submit" id="submitSearch" value="search"/>-->
+<!--      <div th:if="${not #lists.isEmpty(search)}">-->
+<!--      </div>-->
+<!--    </form>-->
+<!--    </div>-->
+
 
 
   <form th:action="@{singleRecipe}" th:method="get">
@@ -61,6 +70,7 @@
       </div>
     </div>
   </div>
+</div>
 
 <!--  <script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>-->
 

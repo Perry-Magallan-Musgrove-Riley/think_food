@@ -9,19 +9,31 @@
     z-index: 0;
 }
 
+.searchForm {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
+}
+
 .dish1{
 
     height: 200px;
     width: 200px;
-    z-index: 1;
+    /*z-index: 0;*/
 
 }
 
 .dish2{
     height: 200px;
     width: 200px;
-    z-index: 1;
+    z-index: 0;
 
+}
+
+.dish3{
+    height: 200px;
+    width: 200px;
+    /*z-index: -1;*/
 }
 
 .profile-body{
@@ -33,13 +45,6 @@
     border-top: 3px solid black;
     position: absolute;
     margin: auto;
-}
-
-.dish3{
-    height: 200px;
-    width: 200px;
-    z-index: 1;
-
 }
 
 .dish-row{
@@ -54,6 +59,6 @@
 }
 
 .recipeBody{
-    z-index: 900;
+    z-index: 1;
 
 }
