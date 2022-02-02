@@ -19,7 +19,7 @@
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
     console.log(spoonkey);
-    const url = "https://api.spoonacular.com/recipes/random?number=100&tag=vegetarian&apiKey=" + spoonkey;
+    const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
     const options = {
         method: "GET",
     };
