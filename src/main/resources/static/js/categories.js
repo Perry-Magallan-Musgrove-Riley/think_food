@@ -6,10 +6,43 @@
     };
 
     //Vegetarian
-    const vegUrl = "https://api.spoonacular.com/recipes/random?number=20&tags=vegetarian&apiKey=" + spoonkey;
+    const vegUrl = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
     const veggie = function(e) {
         e.preventDefault();
         fetch(vegUrl, options).then(response => response.json())
+            .then(response =>{
+                var vegArr = [];
+                var iterator = 0;
+                // for(var i = 0; i < response.recipes.length; i++){
+                //     if(response.recipes[i].diets !== undefined) {
+                //         for (var j = 0; j < response.recipes[i].diets.length; j++) {
+                //             //set the hard coded string as a variable based on the category for filter
+                //             if (response.recipes[i].diets.includes("vegetarian")) {
+                //                 // console.log(response.recipes[i]);
+                //                 if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                //             }
+                //         }
+                //     }
+                // }
+                do{
+                    // console.log(response.recipes[0].glutenFree);
+                    if(response.recipes[iterator].vegetarian === true){
+                        if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                    }
+                    iterator++;
+                }while(vegArr.length < 20)
+                console.log(vegArr);
+                var emptyString="";
+                for(var k=0; k <vegArr.length; k++){
+                    emptyString+="<div class='card col-4'>"
+                    emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
+                    emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
+                    emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
+                    emptyString+="</div>"
+
+                }
+                $("#recipe-cards").html(emptyString);
+            })
             .then(response => console.log(response))
     }
 
@@ -26,7 +59,7 @@
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].glutenFree === true){
-                        if (glutenFreeArr.includes(response.recipes[i]) === false) glutenFreeArr.push(response.recipes[i]);
+                        if (glutenFreeArr.includes(response.recipes[iterator]) === false) glutenFreeArr.push(response.recipes[iterator]);
                     }
                     iterator++;
                 }while(glutenFreeArr.length < 20)
