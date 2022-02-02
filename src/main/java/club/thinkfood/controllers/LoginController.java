@@ -13,13 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
 
     @GetMapping("/login")
-
-    public String showLoginForm(Model model, String username) {
-
-        model.addAttribute("username", username);
-
-        return "users/login";
-
     public String showLoginPage(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -27,6 +20,5 @@ public class LoginController {
             return "users/login";
         }
         return "redirect:/profile";
-
     }
 }
