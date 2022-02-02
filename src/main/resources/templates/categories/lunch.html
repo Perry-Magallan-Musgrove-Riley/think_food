@@ -50,15 +50,18 @@
                     console.log(lunchArr);
                     var emptyString="";
                     for(var k=0; k <lunchArr.length; k++){
-                            emptyString+="<div class='card col-4'>"
-                            emptyString+="<div class='card-title'><h3>" + lunchArr[k].title + "</h3></div><br>"
-                            emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ lunchArr[k].image +"></div>"
-                            emptyString+="<div class='card-body'><p>" + lunchArr[k].instructions + "</p></div>"
-                            emptyString+="<form th:action='@{/order}' method='get'>"
-                            emptyString+="<button type='submit'>Add to cart</button>"
-                            emptyString+="</form>"
-                            emptyString+="</div>"
-                        }
+                        emptyString+="<div class='card col-4'>"
+                        emptyString+="<div class='card-title'><h3>" + lunchArr[k].title + "</h3></div><br>"
+                        emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ lunchArr[k].image +"></div>"
+                        emptyString+="<div class='card-body'><p>" + lunchArr[k].instructions + "</p></div>"
+                        emptyString+="<form th:action='@{/order}' method='get'>"
+                        emptyString+="<button type='submit'>Add to cart</button>"
+                        emptyString+="</form>"
+                        emptyString+="<form th:action='@{/profile}' method='get'>"
+                        emptyString+="<button type='submit'>Save Recipe</button>"
+                        emptyString+="</form>"
+                        emptyString+="</div>"
+                    }
                         $("#recipe-cards").html(emptyString);
 
                 })
