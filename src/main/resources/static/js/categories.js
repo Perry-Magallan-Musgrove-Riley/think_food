@@ -13,17 +13,6 @@
             .then(response =>{
                 var vegArr = [];
                 var iterator = 0;
-                // for(var i = 0; i < response.recipes.length; i++){
-                //     if(response.recipes[i].diets !== undefined) {
-                //         for (var j = 0; j < response.recipes[i].diets.length; j++) {
-                //             //set the hard coded string as a variable based on the category for filter
-                //             if (response.recipes[i].diets.includes("vegetarian")) {
-                //                 // console.log(response.recipes[i]);
-                //                 if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
-                //             }
-                //         }
-                //     }
-                // }
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].vegetarian === true){
@@ -40,6 +29,9 @@
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+="<form th:action='@{/order}' method='get'>"
                     emptyString+="<button type='submit'>Add to cart</button>"
+                    emptyString+="</form>"
+                    emptyString+="<form th:action='@{/profile}' method='get'>"
+                    emptyString+="<button type='submit'>Save Recipe</button>"
                     emptyString+="</form>"
                     emptyString+="</div>"
 

@@ -16,6 +16,12 @@
 
     </div>
 
+    <form action="order" method="get">
+        Test form is here
+        <input name="test" id="test" type="hidden" value="test">
+        <button type="submit">submit</button>
+    </form>
+
 
     <script th:inline="javascript">
         const spoonkey = /*[[${spoonkey}]]*/ 'default';
@@ -29,6 +35,7 @@
             fetch(url, options).then(response => response.json())
                 .then(response =>{
                     var popularArr = [];
+                    var popularIngredients = [];
                     var iterator = 0;
                     for(var i = 0; i < response.recipes.length; i++){
                         if(response.recipes[iterator].veryPopular){
@@ -37,15 +44,28 @@
                         iterator++;
                     }
                     console.log(popularArr);
+
+
                     var emptyString="";
                     for(var k=0; k <popularArr.length; k++){
+                        var emptyIngredients = "";
+                        emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
+                            for(var j=0; j<popularArr[k].extendedIngredients.length; j++){
 
+                                emptyIngredients+="<div class='babyCard'>"
+                                emptyIngredients+="<div>" + popularArr[k].extendedIngredients[j].original + "</div>"
+                                emptyIngredients+="<input type='hidden' name='ingredients' value='"+popularArr[k].extendedIngredients[j].original+"'/>"
+                                emptyIngredients+="</div>"
+                            }
+                        emptyIngredients+="</form>"
                         emptyString+="<div class='card col-4'>"
                         emptyString+="<div class='card-title'><h3>" + popularArr[k].title + "</h3></div><br>"
                         emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
                         emptyString+="<div class='card-body'><p>" + popularArr[k].instructions + "</p></div>"
-                        emptyString+="<form th:action='@{/order}' method='get'>"
-                        emptyString+="<button type='submit'>Add to cart</button>"
+                        emptyString+=emptyIngredients
+                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                        emptyString+="<form action='/profile' method='post'>"
+                        emptyString+="<button type='submit'>Save Recipe</button>"
                         emptyString+="</form>"
                         emptyString+="</div>"
 
