@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ProfileController {
 
@@ -31,6 +33,12 @@ public class ProfileController {
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
 
+        List<Recipe> userRecipes = userDao.findUserById(loggedInUser.getId()).getMyRecipes();
+
+        model.addAttribute("username", currentUser.getUsername());
+        model.addAttribute("bio", currentUser.getBio());
+        model.addAttribute("profileImg", currentUser.getImg().getImg_path());
+        model.addAttribute("userRecipes", userRecipes);
         return "users/profile";
     }
 

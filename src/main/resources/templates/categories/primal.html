@@ -13,7 +13,9 @@
                 <button id="primal">Let's Get Primal</button><br>
             </form>
     </form>
+    <div id="recipe-cards" class="d-flex flex-wrap">
 
+    </div>
 
 <script th:inline="javascript">
     /*<![CDATA[*/
@@ -46,7 +48,7 @@
                             //set the hard coded string as a variable based on the category for filter
                             if (response.recipes[i].diets.includes("primal")) {
                                 // console.log(response.recipes[i]);
-                                primalArr.push(response.recipes[i])
+                                if (primalArr.includes(response.recipes[i]) === false) primalArr.push(response.recipes[i]);
                             }
                         }
                     }
@@ -55,19 +57,20 @@
 
 
                 console.log(primalArr);
-                // do{
-                //     console.log(response.recipes[iterator].diets.includes("primal"));
-                //     if(response.recipes[iterator].diets.includes("primal")){
-                //         primalArr.push(response.recipes[iterator])
-                //         console.log(response.recipes[iterator]);
-                //         console.log(primalArr[iterator]);
-                //     }
-                //     // i++;
-                //     iterator++;
-                //
-                // }while(primalArr.length < 20)
-                //
-                // return primalArr;
+                var emptyString="";
+                for(var k=0; k <primalArr.length; k++){
+
+                    emptyString+="<div class='card col-4'>"
+                    emptyString+="<div class='card-title'><h3>" + primalArr[k].title + "</h3></div><br>"
+                    emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ primalArr[k].image +"></div>"
+                    emptyString+="<div class='card-body'><p>" + primalArr[k].instructions + "</p></div>"
+                    emptyString+="<form th:action='@{/order}' method='get'>"
+                    emptyString+="<button type='submit'>Add to cart</button>"
+                    emptyString+="</form>"
+                    emptyString+="</div>"
+
+                }
+                $("#recipe-cards").html(emptyString);
             })
             .then(response => console.log(response))
     }
