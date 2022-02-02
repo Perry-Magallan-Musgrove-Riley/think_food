@@ -38,6 +38,9 @@
                     emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
                     emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
+                    emptyString+="<form th:action='@{/order}' method='get'>"
+                    emptyString+="<button type='submit'>Add to cart</button>"
+                    emptyString+="</form>"
                     emptyString+="</div>"
 
                 }
@@ -49,6 +52,7 @@
     document.getElementById("veggie").addEventListener('click', veggie);
 
     //Gluten Free
+    //Function is in the html for this category
     const gFUrl = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
     const gluten = function(e) {
         e.preventDefault();
