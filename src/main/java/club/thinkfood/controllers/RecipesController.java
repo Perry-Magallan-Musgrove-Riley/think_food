@@ -2,8 +2,11 @@ package club.thinkfood.controllers;
 
 
 import club.thinkfood.models.Recipe;
+import club.thinkfood.models.User;
 import club.thinkfood.repositories.RecipeRepository;
+import club.thinkfood.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +18,11 @@ import java.util.List;
 public class RecipesController {
 
     private RecipeRepository recipeDao;
+    private UserRepository userDao;
 
-    public RecipesController(RecipeRepository recipeDao) {
+    public RecipesController(RecipeRepository recipeDao, UserRepository userDao) {
         this.recipeDao = recipeDao;
+        this.userDao = userDao;
     }
 
     @Value(("${spoonacular.api}"))

@@ -22,7 +22,7 @@ public class Image {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
     private List<User> user;
 
-    public Image(long id, String path) {
+    public Image(long id, String img_path) {
         this.id = id;
         this.img_path = img_path;
     }
