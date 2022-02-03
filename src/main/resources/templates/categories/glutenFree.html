@@ -37,15 +37,24 @@
                 }while(glutenFreeArr.length < 20)
                 var emptyString="";
                 for(var k=0; k <glutenFreeArr.length; k++){
+                    var emptyIngredients = "";
+                    emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
+                    for(var g=0; j<glutenFreeArr[g].extendedIngredients.length; g++){
+
+                        emptyIngredients+="<div class='babyCard'>"
+                        emptyIngredients+="<div>" + glutenFreeArr[k].extendedIngredients[g].original + "</div>"
+                        emptyIngredients+="<input type='hidden' name='ingredients' value='"+glutenFreeArr[k].extendedIngredients[g].original+"'/>"
+                        emptyIngredients+="</div>"
+                    }
+                    emptyIngredients+="</form>"
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title'><h3>" + glutenFreeArr[k].title + "</h3></div><br>"
                     emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ glutenFreeArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + glutenFreeArr[k].instructions + "</p></div>"
-                    emptyString+="<form th:action='@{/order}' method='get'>"
-                    emptyString+="<button type='submit'>Add to cart</button>"
-                    emptyString+="</form>"
-                    emptyString+="<form th:action='@{/profile}' method='get'>"
+                    emptyString+=emptyIngredients
+                    emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<form action='/profile' method='post'>"
                     emptyString+="<button type='submit'>Save Recipe</button>"
                     emptyString+="</form>"
                     emptyString+="</div>"
