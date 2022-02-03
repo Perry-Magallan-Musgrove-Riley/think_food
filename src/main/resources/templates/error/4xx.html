@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8"/>
+    <title th:text="'Ooops, ' + ${error}"></title>
+</head>
+<body>
+    <div th:include="partials/navbar.html :: navbar"></div>
+    <th:block th:switch="${error}">
+        <div th:case="'Not Found'" class="customError">
+            <img src="../../img/404.png" alt="404 Error Not Found">
+        </div>
+
+        <div th:case="'Forbidden'" class="customError">
+            <img src="../../img/403.png" alt="403 Error Forbidden">
+        </div>
+    </th:block>
+</body>
+</html>

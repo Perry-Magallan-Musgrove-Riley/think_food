@@ -1,12 +1,15 @@
 package club.thinkfood.controllers;
 
-
 import club.thinkfood.models.Recipe;
+import club.thinkfood.models.User;
 import club.thinkfood.repositories.RecipeRepository;
+import club.thinkfood.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -14,23 +17,28 @@ import java.util.List;
 @Controller
 public class RecipesController {
 
-    private RecipeRepository recipeDao;
-
-    public RecipesController(RecipeRepository recipeDao) {
-        this.recipeDao = recipeDao;
-    }
-
     @Value(("${spoonacular.api}"))
     private String spoonacularApiKey;
 
+    private RecipeRepository recipeDao;
+    private UserRepository userDao;
+
+    public RecipesController(RecipeRepository recipeDao, UserRepository userDao) {
+        this.recipeDao = recipeDao;
+        this.userDao = userDao;
+    }
+
     @GetMapping("/recipe")
     public String AllRecipes(Model model){
+
         List<Recipe> recipes = recipeDao.findAll();
 
-        //find a way to format timestamp before binding to model attribute
-
-
         model.addAttribute("recipes", recipes);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User currentUser = userDao.findUserById(id);
+        model.addAttribute("user", user);
+        System.out.println("user.getIsAdmin() = " + user.getIsAdmin());
+
         return "users/recipe";
     }
 
@@ -41,7 +49,9 @@ public class RecipesController {
 
     @GetMapping("/vegetarian")
     public String getVeggies(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/vegetarian";
     }
 
@@ -52,9 +62,10 @@ public class RecipesController {
 
     @GetMapping("/glutenFree")
     public String getGluten(Model model) {
-        model.addAttribute("spoonkey", spoonacularApiKey);
-        return "categories/glutenFree";
 
+        model.addAttribute("spoonkey", spoonacularApiKey);
+
+        return "categories/glutenFree";
     }
 
     @PostMapping("/glutenFree")
@@ -64,7 +75,9 @@ public class RecipesController {
 
     @GetMapping("/healthFoods")
     public String healthyHelper(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/healthFoods";
     }
 
@@ -75,7 +88,9 @@ public class RecipesController {
 
     @GetMapping("/breakfast")
     public String breakfastBar(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/breakfast";
     }
 
@@ -86,7 +101,9 @@ public class RecipesController {
 
     @GetMapping("/vegan")
     public String vegans(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/vegan";
     }
 
@@ -97,7 +114,9 @@ public class RecipesController {
 
     @GetMapping("/popularFoods")
     public String cheap(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/popularFoods";
     }
 
@@ -108,7 +127,9 @@ public class RecipesController {
 
     @GetMapping("/pesce")
     public String peskyPesce(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/pesce";
     }
 
@@ -120,7 +141,9 @@ public class RecipesController {
 
     @GetMapping("/dairyFree")
     public String dairyDonts(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/dairyFree";
     }
 
@@ -131,7 +154,9 @@ public class RecipesController {
 
     @GetMapping("/primal")
     public String primalFood(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/primal";
     }
 
@@ -142,7 +167,9 @@ public class RecipesController {
 
     @GetMapping("/lunch")
     public String lunchLounge(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/lunch";
     }
 
@@ -154,7 +181,9 @@ public class RecipesController {
 
     @GetMapping("/dinner")
     public String dinnerDiner(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "categories/dinner";
     }
 
@@ -166,7 +195,9 @@ public class RecipesController {
 
     @GetMapping("/singleRecipe")
     public String singleDish(Model model){
+
         model.addAttribute("spoonkey", spoonacularApiKey);
+
         return "singleRecipe";
     }
 

@@ -1,13 +1,15 @@
+
 #homeHeader {
-    background-image: url("../img/BANNER-IMG.png");
-    background-size: cover;
+    background-image: url("../img/Banner2.png");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
     background-attachment: fixed;
-    height: 100vh;
+    height: 70vh;
     min-width: 767px;
     z-index: 0;
 }
+
 
 #orderPage{
     background-image: url("../img/Cart-background.png");
@@ -16,19 +18,33 @@
     background-position: center;
     background-attachment: fixed;
 }
+
+#signUpButton {
+    padding-top: 150px;
+    position: fixed;
+    z-index: 0;
+
+}
+
 .dish1{
 
     height: 200px;
     width: 200px;
-    z-index: 1;
+    /*z-index: 0;*/
 
 }
 
 .dish2{
     height: 200px;
     width: 200px;
-    z-index: 1;
+    z-index: 0;
 
+}
+
+.dish3{
+    height: 200px;
+    width: 200px;
+    /*z-index: -1;*/
 }
 
 .profile-body{
@@ -40,13 +56,6 @@
     border-top: 3px solid black;
     position: absolute;
     margin: auto;
-}
-
-.dish3{
-    height: 200px;
-    width: 200px;
-    z-index: 1;
-
 }
 
 .dish-row{
@@ -61,6 +70,11 @@
 }
 
 .recipeBody{
-    z-index: 900;
+    z-index: 100;
+}
 
+.notFound {
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }

@@ -1,11 +1,12 @@
 package club.thinkfood.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +33,11 @@ public class User {
     @Column(length = 5000)
     private String bio;
 
-    @ManyToOne
-    private Image img;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "chef")
     private List<Recipe> myRecipes;
+
+    @ManyToOne
+    private Image img;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "users_recipes", joinColumns = {@JoinColumn(name = "chef_id")}, inverseJoinColumns = {@JoinColumn(name = "recipe_id")})
@@ -61,10 +62,15 @@ public class User {
     }
 
     public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
+        this.id = copy.id; //THIS IS NEEDED AND HAS TO HAVE ALL PARAMETERS FROM CONSTRUCTOR
+        this.first_name = copy.first_name;
+        this.last_name = copy.last_name;
+        this.email = copy.email;
+        this.username = copy.username;
+        this.password = copy.password;
+        this.img = copy.img;
+        this.isAdmin = copy.isAdmin;
+        this.myRecipes = copy.myRecipes;
     }
 
     public User() {}
@@ -146,7 +152,5 @@ public class User {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
-
 }
 

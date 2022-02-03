@@ -8,14 +8,23 @@
 <body>
   <div th:include="partials/navbar.html :: navbar"></div>
   <div id="homeHeader">
-    <div class="container-fluid">
-      <div class="dish-row row">
-        <img class="dish1" alt="dish1" th:src="@{/img/dish-1.png}"><img class="dish2" alt="dish2" th:src="@{/img/dish2.png}"><img class="dish3" alt="dish3" th:src="@{/img/dish3.png}">
-      </div>
-    </div>
+    <form th:action="@{users/sign-up}" method="get" class="d-flex justify-content-center" id="signUpButton">
+      <h5>Create an Account Now!</h5>
+      <button id="signUp">Sign Me Up!!</button>
+    </form>
   </div>
 
-  <div class="recipeBody">
+
+<!--  <div class="recipeBody container">-->
+<!--    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">-->
+<!--      <input type="text" name="search" id="search" th:value="${search}"/>-->
+<!--      <input type="submit" id="submitSearch" value="search"/>-->
+<!--      <div th:if="${not #lists.isEmpty(search)}">-->
+<!--      </div>-->
+<!--    </form>-->
+<!--    </div>-->
+
+  <div class="searchForm container">
     <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
       <input type="text" name="search" id="search" th:value="${search}"/>
       <input type="submit" id="submitSearch" value="search"/>
@@ -23,7 +32,6 @@
       </div>
     </form>
   </div>
-
 
   <form th:action="@{singleRecipe}" th:method="get">
     <button id="rando">Randomize a recipe for me :)</button><br>
@@ -61,6 +69,7 @@
       </div>
     </div>
   </div>
+</div>
 
 <!--  <script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>-->
 

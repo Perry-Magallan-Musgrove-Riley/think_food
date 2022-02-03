@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Bio</title>
 </head>
 <body>
-<label name="userAboutMe">About Me:</label>
-		<textarea th:filed="*{aboutMe}" placeholder="Edit your About Me"></textarea>
+<div th:include="partials/navbar.html :: navbar"></div>
+<form th:action="@{/edit-bio}" method="post" th:object="${user}">
+    <label name="userAboutMe">About Me:</label>
+    <textarea th:filed="*{bio}" name="bio" placeholder="Edit your About Me"></textarea>
+    <button type="submit">Submit Bio</button>
+</form>
+
 
 </body>
 </html>

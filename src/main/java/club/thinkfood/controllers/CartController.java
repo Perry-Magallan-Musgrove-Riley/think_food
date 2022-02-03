@@ -12,7 +12,6 @@ import java.util.List;
 @Controller
 public class CartController {
 
-
     @GetMapping("/order")
     public String getOrder(@RequestParam List<String> ingredients, Model model){
         System.out.println(ingredients.toString());
