@@ -8,6 +8,7 @@
 <body>
   <div th:include="partials/navbar.html :: navbar"></div>
   <div id="homeHeader">
+
     <form th:action="@{users/sign-up}" method="get" class="d-flex justify-content-center" id="signUpButton">
       <h5>Create an Account Now!</h5>
       <button id="signUp">Sign Me Up!!</button>
@@ -35,91 +36,43 @@
 
   <form th:action="@{singleRecipe}" th:method="get">
     <button id="rando">Randomize a recipe for me :)</button><br>
-</form>
-  <form th:action="@{questionnaire}" method="get">
-    <h5>Don't know what to eat? Let us help you decide</h5>
-    <button id="questionnaire">Help me decide what to eat!</button>
   </form>
-  <div class="card-deck">
-    <div class="card">
-      <div class="card-body0">
-        <h5 class="card-title"></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+    <form th:action="@{questionnaire}" method="get">
+      <h5>Don't know what to eat? Let us help you decide</h5>
+      <button id="questionnaire">Help me decide what to eat!</button>
+    </form>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body0">
+          <h5 class="card-title"></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-body1">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      <div class="card">
+        <div class="card-body1">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-body2">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-        <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      <div class="card">
+        <div class="card-body2">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
+          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!--  <script th:inline="javascript">/*<![CDATA[*/const spoonkey = /*[[${spoonkey}]]*/ 'default';/*]]>*/</script>-->
-
-<!--  <script th:inline="javascript">-->
-<!--    /*<![CDATA[*/-->
-<!--    const spoonkey = /*[[${spoonkey}]]*/ 'default';-->
-<!--    console.log(spoonkey);-->
-<!--    const url = "https://api.spoonacular.com/recipes/random?apiKey=" + spoonkey;-->
-<!--    const options = {-->
-<!--      method: "GET",-->
-<!--      };-->
-<!--    fetch(url, options).then(response => response.json())-->
-<!--            .then(response => console.log(response.recipes[0]))-->
 
 
-
-
-<!--     $(document).ready(function() {-->
-<!--       $("#rando").click(function(e) {-->
-<!--         e.preventDefault();-->
-<!--         $.get("https://api.spoonacular.com/recipes/random?apiKey=" + spoonkey).done(function (data, status) {-->
-<!--           console.log(data)-->
-<!--         })-->
-<!--       })-->
-<!--     })-->
-<!--    /*]]>*/-->
-
-<script th:inline="javascript">
-const spoonkey = /*[[${spoonkey}]]*/ 'default';
-  console.log(spoonkey);
-  const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
-  const options = {
-    method: "GET",
-  };
-    fetch(url, options).then(response => response.json())
-            .then(response =>{
-              var popularArr = [];
-              var iterator = 0;
-              for(var i = 0; i < response.recipes.length; i++){
-                if(response.recipes[iterator].veryPopular){
-                  popularArr.push(response.recipes[iterator])
-                }
-                iterator++;
-              }
-              console.log(popularArr);
-              for(var j=0; j <3; j++){
-                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "<div><p>"+ popularArr[j].instructions + "</p></div>");
-              }
-            })
-            .then(response => console.log(response))
-  </script>
+  <script th:inline="javascript">const spoonkey = /*[[${spoonkey}]]*/ 'default';</script>
 </body>
 </html>
