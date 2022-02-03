@@ -41,7 +41,7 @@
                     for(var k=0; k <veganArr.length; k++){
                         var emptyIngredients = "";
                         emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
-                        for(var g=0; j<veganArr[g].extendedIngredients.length; g++){
+                        for(var g=0; g<veganArr[k].extendedIngredients.length; g++){
 
                             emptyIngredients+="<div class='babyCard'>"
                             emptyIngredients+="<div>" + veganArr[k].extendedIngredients[g].original + "</div>"

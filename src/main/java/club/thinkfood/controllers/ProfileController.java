@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ProfileController {
 
@@ -28,8 +30,10 @@ public class ProfileController {
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
+//        model.addAttribute("recipes", recipes);
         return "users/profile";
     }
+
 
     @GetMapping("/recipes/create")
     public String viewCreatePost(Model model){

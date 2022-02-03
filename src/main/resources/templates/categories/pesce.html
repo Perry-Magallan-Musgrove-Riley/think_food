@@ -45,7 +45,7 @@
                     for(var k=0; k <pesceArr.length; k++){
                         var emptyIngredients = "";
                         emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
-                        for(var g=0; j<pesceArr[g].extendedIngredients.length; g++){
+                        for(var g=0; g<pesceArr[k].extendedIngredients.length; g++){
 
                             emptyIngredients+="<div class='babyCard'>"
                             emptyIngredients+="<div>" + pesceArr[k].extendedIngredients[g].original + "</div>"

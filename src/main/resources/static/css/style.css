@@ -9,6 +9,13 @@
     z-index: 0;
 }
 
+#orderPage{
+    background-image: url("../img/Cart-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
 .dish1{
 
     height: 200px;

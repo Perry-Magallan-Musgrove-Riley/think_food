@@ -48,6 +48,11 @@
 				<h5 class="card-title">Name of Dish${recipe.getTitle}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>
 
+				<div class="savedRecipe" th:each="recipe : ${recipes}">
+					"<div class='card-title'><h3>" + popularArr[k].title + "</h3></div><br>"
+
+				</div>
+
 				<div class="card-body rotate-border">
 					<div>
 						<h6 class="card-comments mb-2 text-muted">Comments</h6>
