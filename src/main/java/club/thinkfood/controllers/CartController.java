@@ -2,6 +2,7 @@ package club.thinkfood.controllers;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,8 +14,9 @@ public class CartController {
 
 
     @GetMapping("/order")
-    public String getOrder(@RequestParam List<String> ingredients){
+    public String getOrder(@RequestParam List<String> ingredients, Model model){
         System.out.println(ingredients.toString());
+        model.addAttribute("ingredients", ingredients);
         //Now > can we turn it into a STATIC form with these ingredients that gets passed to this view
         //The view offers the user the form w/ ingredients to confirm > form sends a POST to /order and triggers methods below
         //Methods below will take in said-form and POST the ingredients now to DB?
@@ -29,9 +31,10 @@ public class CartController {
 //    }
 
     @PostMapping("/order")
-    public String Order(@RequestParam(name = "test") String test){
-        System.out.println(test);
-        return "redirect:/";
+    public String Order(@RequestParam List<String> ingredients){
+        System.out.println(ingredients);
+
+        return "redirect:/order";
 
     }
 

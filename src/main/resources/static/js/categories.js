@@ -23,14 +23,24 @@
                 console.log(vegArr);
                 var emptyString="";
                 for(var k=0; k <vegArr.length; k++){
+                    var emptyIngredients = "";
+                    emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
+                    for(var g=0; j<vegArr[g].extendedIngredients.length; g++){
+
+                        emptyIngredients+="<div class='babyCard'>"
+                        emptyIngredients+="<div>" + vegArr[k].extendedIngredients[g].original + "</div>"
+                        emptyIngredients+="<input type='hidden' name='ingredients' value='"+vegArr[k].extendedIngredients[g].original+"'/>"
+                        emptyIngredients+="</div>"
+                    }
+                    emptyIngredients+="</form>"
+
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
                     emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
-                    emptyString+="<form th:action='@{/order}' method='get'>"
-                    emptyString+="<button type='submit'>Add to cart</button>"
-                    emptyString+="</form>"
-                    emptyString+="<form th:action='@{/profile}' method='get'>"
+                    emptyString+=emptyIngredients
+                    emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<form action='/profile' method='post'>"
                     emptyString+="<button type='submit'>Save Recipe</button>"
                     emptyString+="</form>"
                     emptyString+="</div>"
