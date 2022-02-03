@@ -34,11 +34,16 @@ public class ProfileController {
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
+
+//        model.addAttribute("recipes", recipes);
+
         model.addAttribute("userRecipes", userRecipes);
         System.out.println("currentUser = " + currentUser.getIsAdmin());
         System.out.println("loggedInUser = " + loggedInUser.getIsAdmin());
+
         return "users/profile";
     }
+
 
     @GetMapping("/recipes/create")
     public String viewCreatePost(Model model){

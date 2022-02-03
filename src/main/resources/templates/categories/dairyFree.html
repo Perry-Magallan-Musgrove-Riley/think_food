@@ -50,7 +50,7 @@
                     for(var k=0; k <dairyArr.length; k++){
                         var emptyIngredients = "";
                         emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
-                        for(var g=0; j<dairyArr[g].extendedIngredients.length; g++){
+                        for(var g=0; g<dairyArr[k].extendedIngredients.length; g++){
 
                             emptyIngredients+="<div class='babyCard'>"
                             emptyIngredients+="<div>" + dairyArr[k].extendedIngredients[g].original + "</div>"

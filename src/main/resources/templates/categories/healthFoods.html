@@ -43,7 +43,7 @@
                 for(var k=0; k <healthArr.length; k++){
                     var emptyIngredients = "";
                     emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
-                    for(var g=0; j<healthArr[g].extendedIngredients.length; g++){
+                    for(var g=0; g<healthArr[k].extendedIngredients.length; g++){
 
                         emptyIngredients+="<div class='babyCard'>"
                         emptyIngredients+="<div>" + healthArr[k].extendedIngredients[g].original + "</div>"
