@@ -1,18 +1,20 @@
+
 #homeHeader {
-    background-image: url("../img/BANNER-IMG.png");
-    background-size: cover;
+    background-image: url("../img/Banner2.png");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
     background-attachment: fixed;
-    height: 100vh;
+    height: 70vh;
     min-width: 767px;
     z-index: 0;
 }
 
-.searchForm {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 10px;
+#signUpButton {
+    padding-top: 150px;
+    position: fixed;
+    z-index: 0;
+
 }
 
 .dish1{
@@ -59,6 +61,11 @@
 }
 
 .recipeBody{
-    z-index: 1;
+    z-index: 100;
+}
 
+.notFound {
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }

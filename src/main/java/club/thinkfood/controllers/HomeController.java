@@ -23,7 +23,6 @@ public class HomeController {
         this.userDao = userDao;
     }
 
-
     @GetMapping("/")
     public String HomePage(Model model){
         model.addAttribute("spoonkey", spoonacularApiKey);

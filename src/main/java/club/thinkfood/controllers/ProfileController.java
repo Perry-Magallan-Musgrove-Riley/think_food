@@ -29,10 +29,6 @@ public class ProfileController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userDao.findUserById(loggedInUser.getId());
 
-        model.addAttribute("username", currentUser.getUsername());
-        model.addAttribute("bio", currentUser.getBio());
-        model.addAttribute("profileImg", currentUser.getImg().getImg_path());
-
         List<Recipe> userRecipes = userDao.findUserById(loggedInUser.getId()).getMyRecipes();
 
         model.addAttribute("username", currentUser.getUsername());
