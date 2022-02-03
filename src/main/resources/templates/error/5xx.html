@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8"/>
+    <title th:text="'Ooops, ' + ${error}"></title>
+</head>
+<body>
+<div th:include="partials/navbar.html :: navbar"></div>
+<div class="customError">
+    <img src="../../img/500.png" alt="500 Internal Server Error">
+</div>
+
+
+</body>
+</html>
