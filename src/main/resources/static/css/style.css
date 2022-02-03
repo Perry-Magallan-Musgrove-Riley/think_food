@@ -73,7 +73,7 @@
     z-index: 100;
 }
 
-.notFound {
+.customError {
     padding: 0;
     display: flex;
     justify-content: center;
