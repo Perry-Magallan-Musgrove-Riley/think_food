@@ -21,23 +21,14 @@
 	<label for="recipePrepTime">Recipe Prep Time: </label>
 	<input type="number" id="recipePrepTime" th:field="*{prep_time}"required> minutes<br>
 
-
-
-<!--	<fieldset>-->
-<!--		<legend>Prep-Time:</legend>-->
-<!--		<br>-->
-<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="quickness">-->
-<!--		<label for="quickness">30 minutes</label><br>-->
-<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="medTime">-->
-<!--		<label for="medTime">1 hour</label><br>-->
-<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="longTime">-->
-<!--		<label for="longTime">1 and 1/2 hours</label><br>-->
-<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="advancedTime">-->
-<!--		<label for="advancedTime">Over 1.5 hours</label><br>-->
-<!--		<input th:value="*{prep_time}" type="radio" name="prep_time" id="allTime">-->
-<!--		<label for="allTime">No rush</label><br>-->
-<!--	</fieldset>-->
-
+	<div class="file-field">
+		<div class="float-left">
+			<span>Upload picture of recipe here:</span>
+		</div>
+		<div class="file-path-wrapper">
+			<input class="file-path validate" type="file" placeholder="Upload recipe image">
+		</div>
+	</div>
 		<div class="file-field">
 			<div class="float-left">
 				<span>Paste video URL here:</span>
