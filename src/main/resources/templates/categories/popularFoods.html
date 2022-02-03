@@ -16,11 +16,11 @@
 
     </div>
 
-    <form action="order" method="get">
-        Test form is here
-        <input name="test" id="test" type="hidden" value="test">
-        <button type="submit">submit</button>
-    </form>
+<!--    <form action="order" method="get">-->
+<!--        Test form is here-->
+<!--        <input name="test" id="test" type="hidden" value="test">-->
+<!--        <button type="submit">submit</button>-->
+<!--    </form>-->
 
 
     <script th:inline="javascript">
@@ -58,15 +58,15 @@
                                 emptyIngredients+="</div>"
                             }
                         emptyIngredients+="</form>"
+                        emptyString+="<form action='/profile' method='get' id='recipes"+ k+"'/>"
                         emptyString+="<div class='card col-4'>"
                         emptyString+="<div class='card-title'><h3>" + popularArr[k].title + "</h3></div><br>"
                         emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
                         emptyString+="<div class='card-body'><p>" + popularArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
-                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
-                        emptyString+="<form action='/profile' method='post'>"
-                        emptyString+="<button type='submit'>Save Recipe</button>"
                         emptyString+="</form>"
+                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                        emptyString+="<button type='submit' form='recipes" + k + "'>Save Recipe</button>"
                         emptyString+="</div>"
 
                     }

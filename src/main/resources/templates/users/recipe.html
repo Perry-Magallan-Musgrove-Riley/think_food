@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:include="partials/head.html :: head">
 	<meta charset="UTF-8">
 	<title>Recipes Page</title>
@@ -30,13 +30,15 @@
 					<h6>Recipe submitted on:</h6>
 					<span th:text="${#temporals.format(recipe.timeStamp, 'E dd-MM-yyyy hh:mm a')}"></span>
 					<br>
-					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
-						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit</button>
+					<div sec:authorize="isAuthenticated()">
+					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get" ><span th:if="${user.getIsAdmin() == 1}">
+						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit</button></span>
 					</form>
 
-					<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
-						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Delete</button>
+					<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post" ><span th:if="${user.getIsAdmin() == 1}">
+						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Delete</button></span>
 					</form>
+					</div>
 				</div>
 		</div>
 <!--		<br>-->

@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>User Shopping Cart</title>
 </head>
-<body>
+<body id="orderPage">
 <div th:include="partials/navbar.html :: navbar"></div>
     <form th:action="@{/order}" method="post">
         <h4>Shopping Cart</h4>
-<!--            <input type="checkbox" name="ingredient1" th:id="ingredient1">-->
+        <div class="shoppingCart" th:each="ingredient : ${ingredients}">
+            <input type="checkbox" name="ingredient" th:id="ingredient" th:value="ingredient"><span th:text="${ingredient}"></span>
 <!--            <label th:for="ingredient1" th:each="recipe : ${recipes}"></label>-->
 <!--            <ul>-->
 
 <!--                <li th:text="${ingredient.name}"></li>-->
 <!--            </ul>-->
+        </div>
     </form>
 </body>
 </html>
