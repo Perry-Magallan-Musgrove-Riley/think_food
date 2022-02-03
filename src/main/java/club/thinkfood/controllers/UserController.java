@@ -55,6 +55,10 @@ public class UserController {
         emailService.prepareAndSend(user, "Sign up confirmed", "Thank you for being a user.");
         userDao.save(user);
 
+//        if(user.getUsername().equals("MagallanK") || user.getUsername().equals("alex") || user.getUsername().equals("dez") || user.getUsername().equals("rodriques") ){
+//            user.setIsAdmin(1);
+//        }
+
         return "redirect:/login";
     }
 

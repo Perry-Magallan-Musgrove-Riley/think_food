@@ -35,6 +35,8 @@ public class ProfileController {
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
         model.addAttribute("userRecipes", userRecipes);
+        System.out.println("currentUser = " + currentUser.getIsAdmin());
+        System.out.println("loggedInUser = " + loggedInUser.getIsAdmin());
         return "users/profile";
     }
 
