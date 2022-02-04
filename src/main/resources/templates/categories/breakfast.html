@@ -48,7 +48,6 @@
                     var emptyIngredients = "";
                     emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
                     for(var g=0; g<breakfastArr[k].extendedIngredients.length; g++){
-
                         emptyIngredients+="<div class='babyCard'>"
                         emptyIngredients+="<div>" + breakfastArr[k].extendedIngredients[g].original + "</div>"
                         emptyIngredients+="<input type='hidden' name='ingredients' value='"+breakfastArr[k].extendedIngredients[g].original+"'/>"
@@ -63,7 +62,7 @@
                     emptyString+=emptyIngredients
                     emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     emptyString+="<form action='/profile' method='post'>"
-                    emptyString+="<button type='submit'>Save Recipe</button>"
+                    // emptyString+="<button type='submit'>Save Recipe</button>"
                     emptyString+="</form>"
                     emptyString+="</div>"
 
