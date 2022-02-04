@@ -29,13 +29,12 @@
                 .then(response =>{
                     var veganArr = [];
                     var iterator = 0;
-                    do{
-                        // console.log(response.recipes[0].glutenFree);
-                        if(response.recipes[iterator].vegan === true){
+                    for(var i = 0; i < response.recipes.length; i++) {
+                        if (response.recipes[i].vegan) {
                             if (veganArr.includes(response.recipes[iterator]) === false) veganArr.push(response.recipes[iterator]);
                         }
                         iterator++;
-                    }while(veganArr.length < 20)
+                    }
                     console.log(veganArr);
                     var emptyString="";
                     for(var k=0; k <veganArr.length; k++){
@@ -56,9 +55,9 @@
                         emptyString+="<div class='card-body'><p>" + veganArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
                         emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
-                        emptyString+="<form action='/profile' method='post'>"
-                        emptyString+="<button type='submit'>Save Recipe</button>"
-                        emptyString+="</form>"
+                        // emptyString+="<form action='/profile' method='post'>"
+                        // emptyString+="<button type='submit'>Save Recipe</button>"
+                        // emptyString+="</form>"
                         emptyString+="</form>"
                         emptyString+="</div>"
 

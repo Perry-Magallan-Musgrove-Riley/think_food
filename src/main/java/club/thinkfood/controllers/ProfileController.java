@@ -1,7 +1,9 @@
 package club.thinkfood.controllers;
 
+import club.thinkfood.models.Image;
 import club.thinkfood.models.Recipe;
 import club.thinkfood.models.User;
+import club.thinkfood.repositories.ImageRepository;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,11 +18,13 @@ public class ProfileController {
 
     private final UserRepository userDao;
     private final RecipeRepository recipeDao;
+    private final ImageRepository imageDao;
 
-    public ProfileController(UserRepository userDao, RecipeRepository recipeDao) {
+    public ProfileController(UserRepository userDao, RecipeRepository recipeDao, ImageRepository imageDao) {
 
         this.userDao = userDao;
         this.recipeDao = recipeDao;
+        this.imageDao = imageDao;
     }
 
     @GetMapping("/profile")
@@ -35,8 +39,8 @@ public class ProfileController {
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
 
-//        model.addAttribute("recipes", recipes);
-
+//       model.addAttribute("recipes", recipes);
+//        System.out.println(recipes);
         model.addAttribute("userRecipes", userRecipes);
         System.out.println("currentUser = " + currentUser.getIsAdmin());
         System.out.println("loggedInUser = " + loggedInUser.getIsAdmin());
@@ -44,6 +48,35 @@ public class ProfileController {
         return "users/profile";
     }
 
+
+
+//    @GetMapping("/profile")
+//    public String saveRecipe(@RequestParam List<Recipe> recipes, Model model){
+//        System.out.println(recipes);
+//        model.addAttribute("recipes", recipes);
+//        return "users/profile";
+//    }
+
+    @PostMapping("/profile")
+    public String showProfile(@RequestParam (name="recipeId") Long recipeId){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userDao.findUserById(loggedInUser.getId());
+
+        System.out.println(recipeId);
+//        Image image = new Image();
+//        Recipe recipe = new Recipe();
+//        image.setImg_path(recipeImage);
+//        recipe.setTitle(title);
+//        recipe.setDescription(instructions);
+//        List<Recipe> savedRecipe = new List<Recipe>();
+
+//        currentUser.setMyRecipes(currentUser.getMyRecipes().add(recipe));
+//        imageDao.save(image);
+//        recipeDao.save(recipe);
+//        userDao.save(currentUser);
+//
+        return "redirect:/profile";
+    }
 
     @GetMapping("/recipes/create")
     public String viewCreatePost(Model model){

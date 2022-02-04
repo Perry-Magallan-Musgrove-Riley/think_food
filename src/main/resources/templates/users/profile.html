@@ -47,7 +47,7 @@
 				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a recipe">
 
 				<div class="savedRecipe" th:each="recipe : ${recipes}">
-					"<div class='card-title'><h3>" + popularArr[k].title + "</h3></div><br>"
+					"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"
 
 				</div>
 
@@ -98,7 +98,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
 

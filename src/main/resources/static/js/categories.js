@@ -59,9 +59,9 @@
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
                     emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
-                    emptyString+="<form action='/profile' method='post'>"
-                    emptyString+="<button type='submit'>Save Recipe</button>"
-                    emptyString+="</form>"
+                    // emptyString+="<form action='/profile' method='post'>"
+                    // emptyString+="<button type='submit'>Save Recipe</button>"
+                    // emptyString+="</form>"
                     emptyString+="</div>"
 
                 }
