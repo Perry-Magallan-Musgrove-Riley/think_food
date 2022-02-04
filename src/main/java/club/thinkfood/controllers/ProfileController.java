@@ -117,7 +117,7 @@ public class ProfileController {
 
         recipeDao.save(recipeToEdit);
 
-        return "redirect:/recipe";
+        return "redirect:/profile";
     }
 
     @PostMapping("recipes/delete/{id}")
@@ -126,6 +126,6 @@ public class ProfileController {
         long deleteRecipeId = id;
         recipeDao.deleteById(deleteRecipeId);
 
-        return "redirect:/recipe";
+        return "redirect:/profile";
     }
 }
