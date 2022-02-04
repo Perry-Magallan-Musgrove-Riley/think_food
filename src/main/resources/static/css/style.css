@@ -85,3 +85,59 @@
     display: flex;
     justify-content: center;
 }
+#rodPic{
+    border-radius: 100px;
+    border-style: outset;
+    border-width: thick;
+    border-color: #3d405b;
+    /*float: left;*/
+}
+
+#magPic{
+    border-radius: 100px;
+    border-style: outset;
+    border-width: thick;
+    border-color: #3d405b;
+    /*float: right;*/
+}
+
+#dezPic{
+    border-radius: 100px;
+    border-style: outset;
+    border-width: thick;
+    border-color: #3d405b;
+    /*float: left;*/
+}
+
+#alexPic{
+    border-radius: 100px;
+    border-style: outset;
+    border-width: thick;
+    border-color: #3d405b;
+    /*float: right;*/
+}
+
+.pic{
+    float: left;
+
+}
+
+.Rod-Section{
+    background-color: #f4f1de;
+    color: #e07a5f;
+}
+
+.Mag-Section{
+    background-color: #e07a5f;
+    color: #f4f1de;
+}
+
+.Dez-Section{
+    background-color: #f4f1de;
+    color: #e07a5f;
+}
+
+.Alex-Section{
+    background-color: #e07a5f;
+    color: #f4f1de;
+}
