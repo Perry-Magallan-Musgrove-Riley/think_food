@@ -9,7 +9,7 @@
   <div th:include="partials/navbar.html :: navbar"></div>
   <div id="homeHeader">
 
-    <form th:action="@{users/sign-up}" method="get" class="d-flex justify-content-center" id="signUpButton">
+    <form th:action="@{/sign-up}" method="get" class="d-flex justify-content-center" id="signUpButton">
       <h5>Create an Account Now!</h5>
       <button id="signUp">Sign Me Up!!</button>
     </form>
@@ -71,7 +71,6 @@
         </div>
       </div>
     </div>
-  </div>
 
 
   <script th:inline="javascript">const spoonkey = /*[[${spoonkey}]]*/ 'default';</script>
