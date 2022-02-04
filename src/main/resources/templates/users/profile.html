@@ -44,7 +44,10 @@
 		<!-- Recipe cards -->
 		<div class="card-deck row" th:each="recipe : ${userRecipes}">
 			<div class="card d-flex flex-column justify-content-between col-md-8">
-				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a recipe">
+				<th:block th:if="${recipeImg} == null">
+					<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
+				</th:block>
+				<img th:src="${recipeImg}" style="height: 150px;" alt="This is the picture of a recipe">
 
 				<div class="savedRecipe" th:each="recipe : ${recipes}">
 					"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"

@@ -10,36 +10,52 @@
 
 <div th:include="partials/navbar.html :: navbar"></div>
 
-<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}">
-	<h3>Create your own recipe with this form!</h3><br>
-	<label for="recipeTitle">Recipe title: </label>
-	<input type="text" id="recipeTitle" th:field="*{title}"required><br>
+	<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}">
+		<h3>Create your own recipe with this form!</h3><br>
+		<label for="recipeTitle">Recipe title: </label>
+		<input type="text" id="recipeTitle" th:field="*{title}"required><br>
 
-	<label for="recipeDescription">Recipe Description: </label>
-	<textarea  id="recipeDescription" th:field="*{description}"required></textarea><br>
+		<label for="recipeDescription">Recipe Description: </label>
+		<textarea  id="recipeDescription" th:field="*{description}"required></textarea><br>
 
-	<label for="recipePrepTime">Recipe Prep Time: </label>
-	<input type="number" id="recipePrepTime" th:field="*{prep_time}"required> minutes<br>
+		<label for="recipePrepTime">Recipe Prep Time: </label>
+		<input type="number" id="recipePrepTime" th:field="*{prep_time}"required> minutes<br>
 
-	<div class="file-field">
-		<div class="float-left">
-			<span>Upload picture of recipe here:</span>
-		</div>
-		<div class="file-path-wrapper">
-			<input class="file-path validate" type="file" placeholder="Upload recipe image">
-		</div>
-	</div>
 		<div class="file-field">
 			<div class="float-left">
-				<span>Paste video URL here:</span>
+				<span>Upload picture of recipe here:</span>
 			</div>
-			<div class="file-path-wrapper">
-				<input class="file-path validate" type="text" placeholder="Upload your file">
-			</div>
+			<div th:object="${image}">
+				<div class="btn btn-primary btn-sm float-left" id="recipePic">
+					<span>Choose file</span>
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" id="recipeImgPath" th:field="*{img_path}" type="text" placeholder="Upload your file">
+				</div>
+			</form>
 		</div>
-	<br>
-		<button type="submit"  class="btn btn-primary bg-success">Submit New Post Here</button>
-</form>
-<script th:src="@{/js/profile}"></script>
+		<br>
+			<button type="submit" class="btn btn-primary bg-success">Submit New Recipe</button>
+	</form>
+	<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		const filekey = /*[[${filestack}]]*/ 'default';
+		console.log(filekey);
+		const client = filestack.init(filekey);
+
+		document.getElementById("recipePic").addEventListener('click', () => {
+			client.picker({
+				accept: 'image/*',
+				onFileUploadFinished: function (file) {
+					let imgPath = document.getElementById("recipeImgPath");
+					imgPath.value = file.url;
+				}
+			}).open();});
+
+		/*]]>*/
+
+	</script>
+	<script th:src="@{/js/profile}"></script>
 </body>
 </html>
