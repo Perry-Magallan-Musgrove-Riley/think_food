@@ -6,6 +6,7 @@ import club.thinkfood.models.User;
 import club.thinkfood.repositories.ImageRepository;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,9 @@ import java.util.List;
 
 @Controller
 public class ProfileController {
+
+    @Value(("${filestack.api}"))
+    private String filestack;
 
     private final UserRepository userDao;
     private final RecipeRepository recipeDao;
@@ -34,6 +38,9 @@ public class ProfileController {
         User currentUser = userDao.findUserById(loggedInUser.getId());
 
         List<Recipe> userRecipes = userDao.findUserById(loggedInUser.getId()).getMyRecipes();
+        Recipe recipe = new Recipe();
+
+        System.out.println("userRecipes = " + userRecipes);
 
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
@@ -42,6 +49,9 @@ public class ProfileController {
 //       model.addAttribute("recipes", recipes);
 //        System.out.println(recipes);
         model.addAttribute("userRecipes", userRecipes);
+        model.addAttribute("recipeImg", imageDao.findImageByRecipeId(recipe.getId()));
+        System.out.println("imageDao.findImageByRecipeId(recipe.getId()) = " + imageDao.findImageByRecipeId(recipe.getId()));
+
         System.out.println("currentUser = " + currentUser.getIsAdmin());
         System.out.println("loggedInUser = " + loggedInUser.getIsAdmin());
 
@@ -80,18 +90,29 @@ public class ProfileController {
 
     @GetMapping("/recipes/create")
     public String viewCreatePost(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userDao.findByUsername(loggedInUser.getUsername());
 
+        model.addAttribute("filestack", filestack);
+        model.addAttribute("image", new Image());
         model.addAttribute("newRecipe", new Recipe());
 
         return "recipes/create";
     }
 
     @PostMapping("/recipes/create")
-    public String createPost(@ModelAttribute Recipe newRecipe){
+    public String createPost(@ModelAttribute Recipe newRecipe, @ModelAttribute Image image){
 
         User recipeCreator = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        newRecipe.setUser(recipeCreator);
 
+        String imgPath = image.getImg_path();
+        image.setImg_path(imgPath);
+        imageDao.save(image);
+
+
+
+        newRecipe.setUser(recipeCreator);
+        image.setRecipe(newRecipe);
         recipeDao.save(newRecipe);
 
         return "redirect:/profile";

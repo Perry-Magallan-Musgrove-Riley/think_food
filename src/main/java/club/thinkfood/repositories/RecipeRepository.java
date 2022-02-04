@@ -11,4 +11,5 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     List<Recipe> findRecipesByTitleContains(String title);
+    long findRecipeById(long id);
 }

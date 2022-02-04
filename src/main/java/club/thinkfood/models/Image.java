@@ -38,4 +38,20 @@ public class Image {
     public String getImg_path() {return img_path;}
 
     public void setImg_path(String img_path) {this.img_path = img_path;}
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
 }
