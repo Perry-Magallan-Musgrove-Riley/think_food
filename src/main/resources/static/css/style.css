@@ -4,7 +4,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
-    background-attachment: fixed;
+    /*background-attachment: fixed; with this out no longer have cutoff with navbar*/
     height: 70vh;
     min-width: 767px;
     z-index: 0;
@@ -21,9 +21,16 @@
 
 #signUpButton {
     padding-top: 150px;
-    position: fixed;
+    /*position: fixed; removed to align sign-up with center of page. adjustments (lower padding for higher placement, higher padding for lower placement*/
     z-index: 0;
 
+}
+
+.searchForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
 }
 
 .dish1{
