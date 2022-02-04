@@ -14,12 +14,11 @@ public class CartController {
 
     @GetMapping("/order")
     public String getOrder(@RequestParam List<String> ingredients, Model model){
-        System.out.println(ingredients.toString());
         model.addAttribute("ingredients", ingredients);
         //Now > can we turn it into a STATIC form with these ingredients that gets passed to this view
         //The view offers the user the form w/ ingredients to confirm > form sends a POST to /order and triggers methods below
         //Methods below will take in said-form and POST the ingredients now to DB?
-        return "/users/order";
+        return "users/order";
     }
 
 //    @PostMapping("/order")
