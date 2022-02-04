@@ -19,7 +19,7 @@
             }
             console.log(popularArr);
             for(var j=0; j <3; j++){
-                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "<div><p>"+ popularArr[j].instructions + "</p></div>");
+                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>"+"<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))
