@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+</head>
+<body>
+<div th:include="partials/navbar.html :: navbar"></div>
+<form th:action="@{/aboutUs}">
+    <div class="d-flex flex-column justify-content-between">
+        <div class="Rod-Section col-12">
+            <img class="pic" id="rodPic" src="/img/Rod.jpeg" style='height:300px; width:250px' alt="Rod_pic"><h2 class="developerName">Rodriques Perry</h2>
+            <p>This is where some kinds words about Rodriques will go</p>
+        </div>
+
+        <div class="Mag-Section col-12">
+            <img class="pic" id="magPic" src="img/Mag.jpg" style='height: 300px; width: 250px' alt="Mag_pic"><h2 class="developerName">Kapena Magallan</h2>
+            <p>This is where some kinds words about Mag will go</p>
+        </div>
+
+        <div class="Dez-Section col-12">
+            <img class="pic" id="dezPic" src="img/Dez.png" style='height:300px; width:325px' alt="Dez_pic"><h2 class="developerName">Dezmone Musgrove</h2>
+            <p>This is where some kinds words about Dez will go</p>
+        </div>
+
+        <div class="Alex-Section col-12">
+            <img class="pic" id="alexPic" src="img/Alex.jpg" style='height:300px; width:250px' alt="Alex_pic"><h2 class="developerName">Alex Riley</h2>
+            <p>This is where some kinds words about Alex will go</p>
+        </div>
+    </div>
+</form>
+</body>
+</html>
