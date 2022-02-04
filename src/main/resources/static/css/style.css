@@ -20,8 +20,11 @@
 }
 
 #signUpButton {
-    padding-top: 150px;
-    /*position: fixed; removed to align sign-up with center of page. adjustments (lower padding for higher placement, higher padding for lower placement*/
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding-top: 190px;
+    position: static;
     z-index: 0;
 
 }
