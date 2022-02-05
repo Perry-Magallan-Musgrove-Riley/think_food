@@ -57,9 +57,6 @@
                         <a class="nav-link" th:href="@{/aboutUs}">About Us</a>
                     </li>
 
-                    <li class="nav-item me-auto">
-                        <a class="nav-link" th:href="@{/login}">Login/Sign-Up</a>
-
                     <li class="nav-item me-auto" sec:authorize="isAnonymous()">
                         <a class="nav-link" th:href="@{/login}">Login</a>
 
