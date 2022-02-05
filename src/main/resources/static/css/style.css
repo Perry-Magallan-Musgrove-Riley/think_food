@@ -4,8 +4,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
-    /*background-attachment: fixed; with this out no longer have cutoff with navbar*/
-    height: 70vh;
+    background-attachment: inherit;
+    height: 72vh;
     min-width: 767px;
     z-index: 0;
 }
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-    padding-top: 190px;
+    padding-top: 200px;
     position: static;
     z-index: 0;
 
@@ -33,7 +33,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.randoForm{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -10px;
+}
+
+.homeRecipes{
+    margin: 30px;
 }
 
 .dish1{
