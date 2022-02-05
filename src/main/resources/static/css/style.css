@@ -47,6 +47,30 @@
     margin: 30px;
 }
 
+.loginH1{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.loginForm{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: 15px;
+}
+
+.forgotPass{
+    display: flex;
+    justify-content: center;
+    margin: -20px;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
 .dish1{
 
     height: 200px;
