@@ -65,8 +65,8 @@
 					<div>
 						<h6 class="card-comments mb-2 text-muted">Comments</h6>
 						<p class="card-text">Comments body: </p>
-						<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>
-						<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>
+						<span th:text="${recipe.ingredients}" th:name="${name}" class="card-link">s</span>
+<!--						<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>-->
 					</div>
 					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
 						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit Recipe</button>

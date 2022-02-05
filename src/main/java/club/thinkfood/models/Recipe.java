@@ -32,7 +32,8 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Image> images;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "recipes_ingredients", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {@JoinColumn(name = "ingredients_id")})
     private List<Ingredient> ingredients;
 
     @ManyToOne
@@ -45,6 +46,12 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
+    @Column(nullable = false)
+    private long quantity;
+
+    @Column(nullable = false)
+    private String measurement;
+
     public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, LocalDateTime timeStamp) {
         this.id = id;
         this.title = title;
@@ -56,11 +63,13 @@ public class Recipe {
         this.timeStamp = timeStamp;
     }
 
-    public Recipe(long id, String title, long prep_time, String description, long rating, List<Image> images) {
+    public Recipe(long id, String title, long prep_time, String description, long quantity, String measurement, long rating, List<Image> images) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
         this.description = description;
+        this.quantity = quantity;
+        this.measurement = measurement;
         this.rating = rating;
         this.images = images;
     }
@@ -145,5 +154,29 @@ public class Recipe {
     }
 
     public void setTimeStamp() {}
+
+    public long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(String measurement) {
+        this.measurement = measurement;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }
 

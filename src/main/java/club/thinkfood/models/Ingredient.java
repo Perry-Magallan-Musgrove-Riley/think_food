@@ -1,6 +1,7 @@
 package club.thinkfood.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ingredients")
@@ -13,22 +14,14 @@ public class Ingredient {
     @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(nullable = false)
-    private long quantity;
-
-    @Column(nullable = false)
-    private String measurement;
-
-    @ManyToOne
-    private Recipe recipe;
+    @ManyToMany
+    private List<Recipe> recipe;
 
     public Ingredient() {}
 
-    public Ingredient(long id, String name, long quantity, String measurement, Recipe recipe) {
+    public Ingredient(long id, String name, List<Recipe> recipe) {
         this.id = id;
         this.name = name;
-        this.quantity = quantity;
-        this.measurement = measurement;
         this.recipe = recipe;
     }
 
@@ -44,27 +37,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getMeasurement() {
-        return measurement;
-    }
-
-    public void setMeasurement(String measurement) {
-        this.measurement = measurement;
-    }
-
-    public Recipe getRecipe() {
+    public List<Recipe> getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(Recipe recipe) {
+    public void setRecipe(List<Recipe> recipe) {
         this.recipe = recipe;
     }
 
