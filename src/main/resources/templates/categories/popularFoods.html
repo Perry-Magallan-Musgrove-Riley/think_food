@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Popular Food</title>
 </head>
-<body>
+<body id="poppinPage">
     <div th:include="partials/navbar.html :: navbar"></div>
         <form th:action="@{/popularFoods}" method="post">
             <h4>Poppin Plates</h4>
@@ -12,10 +12,11 @@
             <button id="pop">Poppin Plates</button><br>
         </form>
     </form>
-    <div id="recipe-cards" class="d-flex flex-wrap">
+    <div class="container">
+        <div class="row justify-content-between" id="recipe-cards">
 
+        </div>
     </div>
-
 <!--    <form action="order" method="get">-->
 <!--        Test form is here-->
 <!--        <input name="test" id="test" type="hidden" value="test">-->
@@ -39,7 +40,9 @@
                     var iterator = 0;
                     for(var i = 0; i < response.recipes.length; i++){
                         if(response.recipes[iterator].veryPopular){
-                            popularArr.push(response.recipes[iterator])
+                            if('image' in response.recipes[iterator]) {
+                                popularArr.push(response.recipes[iterator])
+                            }
                         }
                         iterator++;
                     }
@@ -58,10 +61,10 @@
                         emptyString+="<div class='card col-4'>"
                         emptyString+="<div class='card-title' name='recipeTitle'><h3>" + popularArr[k].title + "</h3></div><br>"
                         emptyString+="<input type='hidden' name='recipeID' value='" + popularArr[k].id + "'/>"
-                        emptyString+="<div name='recipeImage'><img style='width: 325px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
+                        emptyString+="<div name='recipeImage'><img style='width: 250px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
                         emptyString+="<div class='card-body' name='recipeInstructions'><p>" + popularArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
-                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                        emptyString+="<button class='mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                         emptyString+="</div>"
 
                     }

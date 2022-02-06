@@ -35,7 +35,9 @@
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].vegetarian === true){
-                        if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                        if('image' in response.recipes[iterator]) {
+                            if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                        }
                     }
                     iterator++;
                 }while(vegArr.length < 20)
@@ -58,7 +60,7 @@
                     emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
-                    emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<button class='mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     // emptyString+="<form action='/profile' method='post'>"
                     // emptyString+="<button type='submit'>Save Recipe</button>"
                     // emptyString+="</form>"
