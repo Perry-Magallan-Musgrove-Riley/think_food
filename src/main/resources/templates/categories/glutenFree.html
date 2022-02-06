@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>No Gluten</title>
 </head>
-<body>
+<body id="noGlute">
 <div th:include="partials/navbar.html :: navbar"></div>
     <form th:action="@{/glutenFree}" method="post">
         <h4>EHHHH GLUTEN!!!</h4>
@@ -12,9 +12,12 @@
             <button id="glutenFree">Give me Gluten Free!</button><br>
         </form>
 </form>
-<div id="recipe-cards" class="d-flex flex-wrap">
+<div class="container">
+    <div class="row justify-content-between" id="recipe-cards">
 
+    </div>
 </div>
+
 <script th:inline="javascript">
     const spoonkey = /*[[${spoonkey}]]*/ 'default';
     console.log(spoonkey);
@@ -31,7 +34,9 @@
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].glutenFree === true){
-                        if (glutenFreeArr.includes(response.recipes[iterator]) === false) glutenFreeArr.push(response.recipes[iterator]);
+                        if('image' in response.recipes[iterator]) {
+                            if (glutenFreeArr.includes(response.recipes[iterator]) === false) glutenFreeArr.push(response.recipes[iterator]);
+                        }
                     }
                     iterator++;
                 }while(glutenFreeArr.length < 20)
@@ -51,10 +56,10 @@
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title'><h3>" + glutenFreeArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ glutenFreeArr[k].image +"></div>"
+                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ glutenFreeArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + glutenFreeArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
-                    emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<button class='mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     // emptyString+="<form action='/profile' method='post'>"
                     // emptyString+="<button type='submit'>Save Recipe</button>"
                     // emptyString+="</form>"

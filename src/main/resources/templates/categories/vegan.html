@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Vegan</title>
 </head>
-<body>
+<body id="veg">
     <div th:include="partials/navbar.html :: navbar"></div>
         <form th:action="@{/vegan}" method="post">
             <h4>The True Veggie Lovers</h4>
@@ -12,8 +12,10 @@
                 <button id="vegan">Vegan Variety</button><br>
             </form>
         </form>
-    <div id="recipe-cards" class="d-flex flex-wrap">
+    <div class="container">
+        <div class="row justify-content-between" id="recipe-cards">
 
+        </div>
     </div>
 
     <script th:inline="javascript">
@@ -31,7 +33,9 @@
                     var iterator = 0;
                     for(var i = 0; i < response.recipes.length; i++) {
                         if (response.recipes[i].vegan) {
-                            if (veganArr.includes(response.recipes[iterator]) === false) veganArr.push(response.recipes[iterator]);
+                            if('image' in response.recipes[i]) {
+                                if (veganArr.includes(response.recipes[i]) === false) veganArr.push(response.recipes[i]);
+                            }
                         }
                         iterator++;
                     }
@@ -51,10 +55,10 @@
 
                         emptyString+="<div class='card col-4'>"
                         emptyString+="<div class='card-title'><h3>" + veganArr[k].title + "</h3></div><br>"
-                        emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ veganArr[k].image +"></div>"
+                        emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ veganArr[k].image +"></div>"
                         emptyString+="<div class='card-body'><p>" + veganArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
-                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                        emptyString+="<button class='mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                         // emptyString+="<form action='/profile' method='post'>"
                         // emptyString+="<button type='submit'>Save Recipe</button>"
                         // emptyString+="</form>"
