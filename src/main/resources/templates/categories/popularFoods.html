@@ -6,22 +6,30 @@
 </head>
 <body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/popularFoods}" method="post">
-            <h4>Poppin Plates</h4>
-        <form action="">
-            <button id="pop">Poppin Plates</button><br>
-        </form>
-    </form>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/popular-foods.jpeg" alt="Popular foods image of a hamburger" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-1 mb-2 catTitle">Poppin Plates</h4>
+                    What is the most popular dish?
+                    <br>
+                    According to data from Grubhub, the spicy chicken sandwich was the most popular dish in 2020. And, while chicken nugget sales have reportedly dropped in recent years, Americans still ate around 2.3 billion servings of them in restaurants in 2018            <br>
+                    <form th:action="@{/popularFoods}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="pop">Poppin Plates</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-between" id="recipe-cards">
 
         </div>
     </div>
-<!--    <form action="order" method="get">-->
-<!--        Test form is here-->
-<!--        <input name="test" id="test" type="hidden" value="test">-->
-<!--        <button type="submit">submit</button>-->
-<!--    </form>-->
 
 
     <script th:inline="javascript">
