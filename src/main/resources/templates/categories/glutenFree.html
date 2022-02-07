@@ -6,12 +6,40 @@
 </head>
 <body class="pageBgColor">
 <div th:include="partials/navbar.html :: navbar"></div>
-    <form th:action="@{/glutenFree}" method="post">
-        <h4>EHHHH GLUTEN!!!</h4>
-        <form action="">
-            <button id="glutenFree">Give me Gluten Free!</button><br>
-        </form>
-</form>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="../img/gluten-free.jpeg" alt="Vegetarian Diet Image" class="img-fluid">
+            </div>
+            <div class="col text-center whatIs">
+                <h4 class="mt-2 mb-4">EHHHH GLUTEN!!!</h4>
+                What is gluten free?
+                <br>
+                A gluten-free diet excludes any foods that contain gluten, which is a protein found in wheat and several other grains. It means eating only whole foods that don't contain gluten, such as fruits, vegetables, meat and eggs, as well as processed gluten-free foods like gluten-free bread or pasta.                <br>
+                <br>
+                <form th:action="@{/glutenFree}" method="post">
+
+                </form>
+                <form action="">
+                    <button class="btn btn-warning pageBtn mt-3" id="veggie">Give me Gluten Free!</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--    <form th:action="@{/glutenFree}" method="post">-->
+<!--        <h4>EHHHH GLUTEN!!!</h4>-->
+<!--        <form action="">-->
+<!--            <button id="glutenFree">Give me Gluten Free!</button><br>-->
+<!--        </form>-->
+<!--</form>-->
 <div class="container">
     <div class="row justify-content-between" id="recipe-cards">
 
