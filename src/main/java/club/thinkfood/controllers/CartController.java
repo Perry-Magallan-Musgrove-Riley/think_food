@@ -1,9 +1,14 @@
 package club.thinkfood.controllers;
 
 
+import club.thinkfood.models.User;
+import club.thinkfood.repositories.UserRepository;
+import club.thinkfood.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,9 +16,16 @@ import java.util.List;
 
 @Controller
 public class CartController {
+    private final UserRepository userDao;
+    private final EmailService emailService;
+
+    public CartController(UserRepository userDao, EmailService emailService) {
+        this.userDao = userDao;
+        this.emailService = emailService;
+    }
 
     @GetMapping("/order")
-    public String getOrder(@RequestParam List<String> ingredients, Model model){
+    public String getOrder(@RequestParam List<String> ingredients, Model model) {
         model.addAttribute("ingredients", ingredients);
         //Now > can we turn it into a STATIC form with these ingredients that gets passed to this view
         //The view offers the user the form w/ ingredients to confirm > form sends a POST to /order and triggers methods below
@@ -29,11 +41,30 @@ public class CartController {
 //    }
 
     @PostMapping("/order")
-    public String Order(@RequestParam List<String> ingredients){
-        System.out.println(ingredients);
+    public String Order(@RequestParam(name = "ingredient") List<String> ingredients, @ModelAttribute User user) {
+        User user1 = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        return "redirect:/order";
+        System.out.println("ingredient = " + ingredients);
+        String list = String.join(" ", ingredients);
+        System.out.println("ingredient = " + list);
+
+        User user2 = userDao.findUserById(user1.getId());
+
+
+//        String list = arrayOfStrings(ingredients);
+        emailService.prepareAndSend(user2, "Shopping List", list);
+
+        return "redirect:/profile";
 
     }
 
+//    public String arrayOfStrings(List<String> ingredients) {
+//            String stringArray[] = (String[]) ingredients.toArray();
+//            StringBuffer sb = new StringBuffer();
+//            for(int i = 0; i < stringArray.length; i++) {
+//                sb.append(stringArray[i]);
+//            }
+//            String str = sb.toString();
+//            return str;
+//    }
 }
