@@ -5,24 +5,31 @@
     <title>Dairy Free Page</title>
 </head>
 <body class="pageBgColor">
-
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/dairyFree}" method="post">
-            <h4>Dairy Free Diet!</h4>
-            <form action="">
-                <button id="dairy">Denounce Dairy!</button><br>
-            </form>
-        </form>
-    <div class="container">
-    <div class="row justify-content-between" id="recipe-cards">
-<!--        <div class="row justify-content-between">-->
-<!--            <div id="recipe-cards col-4">-->
 
-<!--            </div>-->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/dairy-free.jpeg" alt="Dairy Free Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-2 mb-4 catTitle">Dairy Free Diet!</h4>
+                    What is a dairy-free diet?
+                    <br>
+                    A dairy-free diet includes avoiding all or most dairy products including milk, butter, yoghurt, cheese, cream and ice cream. Unlike a vegan or plant-based diet, a dairy-free still includes other animal products, such as meat, fish and eggs.                    <br>
+                    <br>
+                    <form th:action="@{/dairyFree}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="dairy">Denounce Dairy!</button><br>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-<!--    d-flex flex-wrap col-6 col-offset-2-->
+    <div class="container">
+    <div class="row justify-content-between" id="recipe-cards"></div>
+
 
     <script th:inline="javascript">
         /*<![CDATA[*/

@@ -49,7 +49,6 @@ nav {
 
 .card-title {
     font-family: 'Montserrat', sans-serif;
-    color: red;
 }
 
 #signUpButton {
@@ -86,6 +85,10 @@ nav {
     z-index: 0;
 }
 
+.aboutMeParagraph{
+    margin-left: 270px;
+}
+
 #home {
     background-color: var(--main-bg-color);
 }
@@ -94,6 +97,10 @@ nav {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
 
+}
+
+#signUpPage{
+    background-color: #f5ecbc;
 }
 
 #orderPage {
@@ -299,24 +306,12 @@ nav {
     }
 }
 
-.container {
-    /*justify-content: space-between;*/
-    /*flex-flow: column wrap;*/
-}
-
-/*#recipe-cards{*/
-/*    margin-left:25px;*/
-
-
-/*}*/
-
 #profile {
     background-color: var(--main-bg-color);
 }
 
 #profileImgBox {
     height: 150px;
-
 }
 
 #profileImg {
@@ -330,14 +325,24 @@ nav {
     justify-content: center;
 }
 
-.createRecipe {
-    margin-left: 25px;
+.createAndEdit {
+    margin-left: 35px;
 }
 
 .whatIs {
     margin-top: 50px;
 }
 
+textarea#editBio {
+    border-radius: 2%;
+    width: 100vh;
+}
+
+.catTitle {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
 
 .button {
     background-color: #d4a373;
