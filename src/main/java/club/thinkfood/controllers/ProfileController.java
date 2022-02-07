@@ -129,12 +129,13 @@ public class ProfileController {
     }
 
     @PostMapping("/recipes/edit")
-    public String saveEditRecipe(@RequestParam(name = "recipeTitle") String recipeTitle, @RequestParam(name = "recipeDescription") String recipeDescription, @RequestParam(name = "recipePrepTime") long recipePrepTime, @RequestParam(name = "recipeId") long id) {
+    public String saveEditRecipe(@RequestParam(name = "recipeTitle") String recipeTitle, @RequestParam(name = "recipeDescription") String recipeDescription, @RequestParam(name = "recipePrepTime") long recipePrepTime, @RequestParam(name = "ingredientName") String name, @RequestParam(name = "recipeId") long id) {
 
         Recipe recipeToEdit = recipeDao.getById(id);
         recipeToEdit.setTitle(recipeTitle);
         recipeToEdit.setDescription(recipeDescription);
         recipeToEdit.setPrep_time(recipePrepTime);
+        recipeToEdit.setIngredient(name);
 
         recipeDao.save(recipeToEdit);
 

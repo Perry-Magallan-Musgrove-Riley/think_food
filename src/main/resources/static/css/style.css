@@ -332,6 +332,16 @@ textarea#editBio {
 }
 
 
+.button{
+    background-color: #d4a373;
+    opacity: initial;
+    color: #f5ecbc;
+    padding: 2px;
+    border-radius: 50px;
+    border: solid #d4a373;
+    font-weight: bold;
+}
+
 /*.card:after, .card:before{*/
 /*    mix-blend-mode:multiply;*/
 /*    filter:none;*/

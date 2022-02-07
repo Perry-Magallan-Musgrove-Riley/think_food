@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Edit</title>
 </head>
-<body class="pageBgColor">
 
+<body class="pageBgColor">
 <nav th:include="partials/navbar.html :: navbar"></nav>
 <div class="container-fluid createAndEdit">
     <form class="mt-2 editForm" th:action="@{/recipes/edit}" method="post">
@@ -19,6 +19,7 @@
         <label for="recipePrepTime">Prep Time of Recipe</label>
         <input id="recipePrepTime" name="recipePrepTime" th:value="${recipeToEdit.getPrep_time()}" required>Hold info about recipe Prep Time
 
+
         <!--Div to edit photos of created recipes-->
         <div>
             <div class="btn btn-primary btn-sm float-left" id="recipePic">
@@ -27,14 +28,17 @@
             <div class="file-path-wrapper">
                 <input class="file-path validate" id="recipeImgPath" type="text" placeholder="Upload your file">
             </div>
-        </div>
 
-        <input type="hidden" name="recipeId" th:value="${recipeToEdit.getId()}">
+    <label for="recipeDescription">Body of Recipe</label>
+    <input id="recipeDescription" name="recipeDescription" th:value="${recipeToEdit.getDescription()}"required>Hold info about recipe Description
+    <br>
+    <label for="recipePrepTime">Prep Time of Recipe</label>
+    <input id="recipePrepTime" name="recipePrepTime" th:value="${recipeToEdit.getPrep_time()}" required>Hold info about recipe Prep Time
+    <br>
 
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg">Submit edit</button>
-    </form>
-</div>
+    <label for="ingredientName">Ingredients of Recipe:</label>
+    <input id="ingredientName" name="ingredientName" th:value="${recipeToEdit.getIngredient}"required>Hold info about recipe INGREDIENTS
+    <br>
 
 </body>
 </html>
