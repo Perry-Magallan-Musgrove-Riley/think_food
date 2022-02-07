@@ -9,7 +9,7 @@
 <!--All comments below: Trying to implement to the save feature to profile after new Recipe is created.-->
 
 <div th:include="partials/navbar.html :: navbar"></div>
-<div class="container-fluid createRecipe">
+<div class="container-fluid createAndEdit">
 	<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}">
 		<h3>Create your own recipe with this form!</h3><br>
 		<label for="recipeTitle">Recipe title: </label>

@@ -49,7 +49,6 @@ nav {
 
 .card-title {
     font-family: 'Montserrat', sans-serif;
-    color: red;
 }
 
 #signUpButton {
@@ -294,23 +293,12 @@ nav {
         }
 }
 
-.container{
-    /*justify-content: space-between;*/
-    /*flex-flow: column wrap;*/
-}
-/*#recipe-cards{*/
-/*    margin-left:25px;*/
-
-
-/*}*/
-
 #profile {
     background-color: var(--main-bg-color);
 }
 
 #profileImgBox {
     height: 150px;
-
 }
 
 #profileImg {
@@ -324,14 +312,24 @@ nav {
     justify-content: center;
 }
 
-.createRecipe {
-    margin-left: 25px;
+.createAndEdit {
+    margin-left: 35px;
 }
 
 .whatIs {
     margin-top: 50px;
 }
 
+textarea#editBio {
+    border-radius: 2%;
+    width: 100vh;
+}
+
+.catTitle {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
 
 
 /*.card:after, .card:before{*/
