@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <title>Vegan</title>
 </head>
-<body id="veg">
+<body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/vegan}" method="post">
-            <h4>The True Veggie Lovers</h4>
-            <form action="">
-                <button id="vegan">Vegan Variety</button><br>
-            </form>
-        </form>
-    <div class="container">
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/vegan.jpeg" alt="Vegetarian Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center">
+                    <h4 class="mb-3">The True Veggie Lovers</h4>
+                    What is a vegan?
+                    <br>
+                    A vegan (strict vegetarian) does not consume meat, dairy products, eggs, honey, or any product derived from an animal. A vegan diet can (and should) be full of a wide variety of delicious, nutritious foods, including vegetables, grains, nuts, legumes, seeds, and fruits. Vegans don’t wear leather, fur, silk, or wool. Many refuse to use products that are made with animal ingredients, products that are filtered using animal parts (such as some wines, beers, and white sugars), and products that have been tested on animals.
+                    <br>
+                    <form th:action="@{/vegan}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="veggie">Vegan Variety!</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!--        <form th:action="@{}" method="post">-->
+<!--                <button id="vegan"></button><br>-->
+<!--        </form>-->
+<!--    <div class="container">-->
         <div class="row justify-content-between" id="recipe-cards">
 
         </div>

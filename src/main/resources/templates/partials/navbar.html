@@ -61,9 +61,9 @@
                         <a class="nav-link" th:href="@{/login}">Login</a>
 
                     </li>
-                    <li sec:authorize="isAuthenticated()">
+                    <li class="nav-item me-auto" sec:authorize="isAuthenticated()">
                         <form th:action="@{/logout}" th:method="post">
-                            <button class="btn-link btn">Logout</button>
+                            <button class="btn-link btn logout">Logout</button>
                         </form>
                     </li>
                 </ul>
