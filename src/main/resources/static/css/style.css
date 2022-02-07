@@ -88,6 +88,9 @@ nav {
 .aboutMeParagraph{
     margin-left: 270px;
 }
+.aboutMeParagraph2{
+    margin-left: 325px;
+}
 
 #home {
     background-color: var(--main-bg-color);
