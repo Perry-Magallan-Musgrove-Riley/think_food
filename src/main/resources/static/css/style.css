@@ -1,3 +1,8 @@
+:root {
+    --main-bg-color: #f5ecbc;
+    --main-border-color: #d4a373;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -6,6 +11,32 @@ nav {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
     font-size: 1.3rem;
+}
+
+#navbar{
+    opacity: 70%;
+}
+
+.dish-row{
+    padding-top: 250px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    /*width: 300px; height: 200px;*/
+    /*background-color: #ffb703;*/
+    /*background-color: #fff3b0;*/
+    /*background-color: #9ff5e8;*/
+    position: relative;
+    /*box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);*/
+    border-style: outset;
+    border-width: thick;
+    border-color: var(--main-border-color);
+    box-shadow: 4px 4px 8px #000000;
+    margin-right: -75px;
+    margin-bottom: 105px;
+    margin-top: 10px;
 }
 
 .card-title {
@@ -27,7 +58,6 @@ nav {
 .pageBtn {
     color: #fff;
     font-weight: 600;
-
 }
 
 #signUp {
@@ -49,7 +79,7 @@ nav {
 }
 
 #home{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 .recipeCard {
@@ -123,7 +153,6 @@ nav {
     height: 200px;
     width: 200px;
     /*z-index: 0;*/
-
 }
 
 .dish2{
@@ -139,10 +168,6 @@ nav {
     /*z-index: -1;*/
 }
 
-.profile-body{
-    background-color: darkorange;
-
-}
 
 .rotate-border>div {
     border-top: 3px solid black;
@@ -150,12 +175,6 @@ nav {
     margin: auto;
 }
 
-.dish-row{
-    padding-top: 250px;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
 .container-fluid{
     position: fixed;
 
@@ -262,6 +281,7 @@ nav {
     color:#BBBBBB;
    border-color:#BBBBBB;
 }
+
 @media all and (max-width:30em){
     a.button2{
         display:block;
@@ -279,79 +299,82 @@ nav {
 
 /*}*/
 
-.card{
-    /*width: 300px; height: 200px;*/
-    /*background-color: #ffb703;*/
-    /*background-color: #fff3b0;*/
-    /*background-color: #9ff5e8;*/
-    position: relative;
-    /*box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);*/
-    border-style: outset;
-    border-width: thick;
-    border-color: #d4a373;
-    box-shadow: 4px 4px 8px #000000;
-    margin-right: -75px;
-    margin-bottom: 105px;
-    margin-top: 10px;
+#profile {
+    background-color: var(--main-bg-color);
 }
 
+#profileImgBox {
+    height: 150px;
+
+}
+
+#profileImg {
+    height: 100%;
+    border: 10px solid var(--main-border-color);
+    border-radius: 50%;
+}
+
+.userRecipeCards {
+    display: flex;
+    justify-content: center;
+}
+
+
 #breakfast{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #dairyFree{
     /*background-color: #219ebc;*/
     /*background-color: #e09f3e;*/
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #healthy{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #lunchPage{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #fishPage{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #poppinPage{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #veg{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #singleRando{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #noGlute{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #vegLovers{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #primalPage{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #dinnerDive{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
 #loginPage{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
 }
 
-#navbar{
-    opacity: 70%;
-}
+
 
 /*.card:after, .card:before{*/
 /*    mix-blend-mode:multiply;*/
