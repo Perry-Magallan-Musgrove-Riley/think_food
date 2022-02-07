@@ -17,6 +17,10 @@ nav {
     opacity: 70%;
 }
 
+.logout {
+    font-size: 1.3rem;
+}
+
 .dish-row{
     padding-top: 250px;
     justify-content: space-evenly;
