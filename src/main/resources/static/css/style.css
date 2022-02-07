@@ -85,7 +85,6 @@ nav {
     z-index: 0;
 }
 
-
 .aboutMeParagraph{
     margin-left: 270px;
 }
@@ -93,7 +92,7 @@ nav {
     margin-left: 325px;
 }
 
-#home{
+#home {
     background-color: var(--main-bg-color);
 }
 
@@ -103,12 +102,11 @@ nav {
 
 }
 
-
 #signUpPage{
     background-color: #f5ecbc;
 }
 
-#orderPage{
+#orderPage {
     background-image: url("../img/Cart-background.png");
     background-size: cover;
     background-repeat: no-repeat;
