@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <title>Veggie Lovers Page</title>
 </head>
-<body id="vegLovers">
+<body class="pageBgColor">
 <div th:include="partials/navbar.html :: navbar"></div>
-    <form th:action="@{/vegetarian}" method="post">
-        <h4>Veggie Lovers Delight</h4>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/vegetarian-diet-plan.jpeg" alt="Vegetarian Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-2 mb-4">Veggie Lovers Delight</h4>
+                    What is a vegetarian?
+                    <br>
+                    Vegetarians don’t eat fish, meat or chicken but can include fruits, vegetables, Grains and pulses..
+                    <br>
+                    <br>
+                    <form th:action="@{/vegetarian}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="veggie">Give me some veggies!</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </form>
-    <form action="">
-        <button id="veggie">Give me some veggies!</button><br>
-    </form>
 <div class="container">
     <div class="row justify-content-between" id="recipe-cards">
 

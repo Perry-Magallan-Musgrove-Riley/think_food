@@ -18,7 +18,7 @@ $(url).load(function(e){
             console.log(popularArr);
             console.log(popularArr[0].image);
             for(var j=0; j <3; j++){
-            $(".card-body"+[j]).innerHTML("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "></div>"+"<div><p>"+ popularArr[j].instructions + "</p></div>");
+            $(".card-body"+[j]).innerHTML("<div class='d-flex justify-content-center card-title'><h3>" + popularArr[j].title + "</h3></div><br>" + "></div>"+"<div><p>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))

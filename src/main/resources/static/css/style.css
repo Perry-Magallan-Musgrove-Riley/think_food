@@ -1,3 +1,79 @@
+:root {
+    --main-bg-color: #f5ecbc;
+    --main-border-color: #d4a373;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.pageBgColor {
+    background-color: var(--main-bg-color);
+}
+
+nav {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+#navbar{
+    opacity: 70%;
+}
+
+.logout {
+    font-size: 1.3rem;
+}
+
+.dish-row{
+    padding-top: 250px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    /*width: 300px; height: 200px;*/
+    /*background-color: #ffb703;*/
+    /*background-color: #fff3b0;*/
+    /*background-color: #9ff5e8;*/
+    position: relative;
+    /*box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);*/
+    border-style: outset;
+    border-width: thick;
+    border-color: var(--main-border-color);
+    box-shadow: 4px 4px 8px #000000;
+    margin-right: -75px;
+    margin-bottom: 105px;
+    margin-top: 10px;
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+}
+
+#signUpButton {
+    margin-bottom: 2rem;
+}
+
+#createAccount {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.pageBtn {
+    color: #fff;
+    font-weight: 600;
+}
+
+#signUp {
+    font-size: 1.3rem;
+    width: 60%;
+    margin-left: 3.8rem;
+
+}
 
 #homeHeader {
     background-image: url("../img/Banner2.png");
@@ -11,7 +87,13 @@
 }
 
 #home{
-    background-color: #f5ecbc;
+    background-color: var(--main-bg-color);
+}
+
+.recipeCard {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+
 }
 
 #orderPage{
@@ -79,7 +161,6 @@
     height: 200px;
     width: 200px;
     /*z-index: 0;*/
-
 }
 
 .dish2{
@@ -95,10 +176,6 @@
     /*z-index: -1;*/
 }
 
-.profile-body{
-    background-color: darkorange;
-
-}
 
 .rotate-border>div {
     border-top: 3px solid black;
@@ -106,12 +183,6 @@
     margin: auto;
 }
 
-.dish-row{
-    padding-top: 250px;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
 .container-fluid{
     position: fixed;
 
@@ -168,13 +239,10 @@
     border-width: thick;
     border-color: #3d405b;
     box-shadow: 2px 2px 4px #000000;
-
-    /*float: right;*/
 }
 
 .pic{
     float: left;
-
 }
 
 .Rod-Section{
@@ -218,6 +286,7 @@
     color:#BBBBBB;
    border-color:#BBBBBB;
 }
+
 @media all and (max-width:30em){
     a.button2{
         display:block;
@@ -235,79 +304,35 @@
 
 /*}*/
 
-.card{
-    /*width: 300px; height: 200px;*/
-    /*background-color: #ffb703;*/
-    /*background-color: #fff3b0;*/
-    /*background-color: #9ff5e8;*/
-    position: relative;
-    /*box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);*/
-    border-style: outset;
-    border-width: thick;
-    border-color: #d4a373;
-    box-shadow: 4px 4px 8px #000000;
-    margin-right: -75px;
-    margin-bottom: 105px;
-    margin-top: 10px;
+#profile {
+    background-color: var(--main-bg-color);
 }
 
-#breakfast{
-    background-color: #f5ecbc;
+#profileImgBox {
+    height: 150px;
+
 }
 
-#dairyFree{
-    /*background-color: #219ebc;*/
-    /*background-color: #e09f3e;*/
-    background-color: #f5ecbc;
+#profileImg {
+    height: 100%;
+    border: 10px solid var(--main-border-color);
+    border-radius: 50%;
 }
 
-#healthy{
-    background-color: #f5ecbc;
+.userRecipeCards {
+    display: flex;
+    justify-content: center;
 }
 
-#lunchPage{
-    background-color: #f5ecbc;
+.createRecipe {
+    margin-left: 25px;
 }
 
-#fishPage{
-    background-color: #f5ecbc;
+.whatIs {
+    margin-top: 50px;
 }
 
-#poppinPage{
-    background-color: #f5ecbc;
-}
 
-#veg{
-    background-color: #f5ecbc;
-}
-
-#singleRando{
-    background-color: #f5ecbc;
-}
-
-#noGlute{
-    background-color: #f5ecbc;
-}
-
-#vegLovers{
-    background-color: #f5ecbc;
-}
-
-#primalPage{
-    background-color: #f5ecbc;
-}
-
-#dinnerDive{
-    background-color: #f5ecbc;
-}
-
-#loginPage{
-    background-color: #f5ecbc;
-}
-
-#navbar{
-    opacity: 70%;
-}
 
 .button{
     background-color: #d4a373;
