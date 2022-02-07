@@ -85,6 +85,10 @@ nav {
     z-index: 0;
 }
 
+.shoppingCart{
+    margin-left: 20px;
+}
+
 .aboutMeParagraph{
     margin-left: 270px;
 }
