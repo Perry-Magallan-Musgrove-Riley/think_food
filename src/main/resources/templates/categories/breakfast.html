@@ -6,12 +6,27 @@
 </head>
 <body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/breakfast}" method="post">
-            <h4>Breakfast</h4>
-    </form>
-    <form action="">
-        <button id="breakfastButton">Breakfast Button</button><br>
-    </form>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/breakfast.jpeg" alt="Breakfast Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mb-4 catTitle">Everyone Loves Breakfast</h4>
+                    Lorem ipsum dolor sit amet?
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at aut consectetur corporis cum, distinctio doloribus eos exercitationem facere illum minima numquam odit quaerat quasi quibusdam quis reprehenderit. Ab, mollitia?
+                    <br>
+                    <br>
+                    <form th:action="@{/breakfast}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="breakfast">Breakfast Button</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-between" id="recipe-cards">
 
