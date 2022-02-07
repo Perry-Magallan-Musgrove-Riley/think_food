@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit Bio</title>
 </head>
-<body>
+<body th:style="'background-color : #f5ecbc'">
 <div th:include="partials/navbar.html :: navbar"></div>
 <form th:action="@{/edit-bio}" method="post" th:object="${user}">
     <label name="userAboutMe">About Me:</label>
