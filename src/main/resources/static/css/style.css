@@ -10,7 +10,15 @@
     z-index: 0;
 }
 
+.aboutMeParagraph{
+    margin-left: 270px;
+}
+
 #home{
+    background-color: #f5ecbc;
+}
+
+#signUpPage{
     background-color: #f5ecbc;
 }
 
