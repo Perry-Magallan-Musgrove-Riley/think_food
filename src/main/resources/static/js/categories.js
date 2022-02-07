@@ -19,7 +19,7 @@
             }
             console.log(popularArr);
             for(var j=0; j <3; j++){
-                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "<div><p>"+ popularArr[j].instructions + "</p></div>");
+                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>"+"<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))
@@ -35,7 +35,9 @@
                 do{
                     // console.log(response.recipes[0].glutenFree);
                     if(response.recipes[iterator].vegetarian === true){
-                        if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                        if('image' in response.recipes[iterator]) {
+                            if (vegArr.includes(response.recipes[iterator]) === false) vegArr.push(response.recipes[iterator]);
+                        }
                     }
                     iterator++;
                 }while(vegArr.length < 20)
@@ -55,13 +57,13 @@
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
+                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
-                    emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
-                    emptyString+="<form action='/profile' method='post'>"
-                    emptyString+="<button type='submit'>Save Recipe</button>"
-                    emptyString+="</form>"
+                    emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    // emptyString+="<form action='/profile' method='post'>"
+                    // emptyString+="<button type='submit'>Save Recipe</button>"
+                    // emptyString+="</form>"
                     emptyString+="</div>"
 
                 }

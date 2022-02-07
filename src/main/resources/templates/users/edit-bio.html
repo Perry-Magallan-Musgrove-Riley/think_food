@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Edit Bio</title>
 </head>
-<body>
-<div th:include="partials/navbar.html :: navbar"></div>
-<form th:action="@{/edit-bio}" method="post" th:object="${user}">
-    <label name="userAboutMe">About Me:</label>
-    <textarea th:filed="*{bio}" name="bio" placeholder="Edit your About Me"></textarea>
-    <button type="submit">Submit Bio</button>
-</form>
-
-
+<body class="pageBgColor">
+    <div th:include="partials/navbar.html :: navbar"></div>
+    <div class="container-fluid createAndEdit">
+        <form th:action="@{/edit-bio}" method="post" th:object="${user}">
+            <label for="editBio" name="userAboutMe">About Me:</label>
+            <div class="form-group">
+                <textarea th:filed="*{bio}" id="editBio" name="bio" rows="8" placeholder="Edit your About Me"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit Bio</button>
+        </form>
+    </div>
 </body>
 </html>

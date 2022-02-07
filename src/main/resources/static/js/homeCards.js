@@ -1,5 +1,4 @@
 const spoonkey = /*[[${spoonkey}]]*/ 'default';
-console.log(spoonkey);
 const url = "https://api.spoonacular.com/recipes/random?number=100&apiKey=" + spoonkey;
 const options = {
     method: "GET",
@@ -17,8 +16,9 @@ $(url).load(function(e){
                 iterator++;
             }
             console.log(popularArr);
+            console.log(popularArr[0].image);
             for(var j=0; j <3; j++){
-            $(".card-body"+[i]).innerHTML("<div><h3>" + popularArr[j].title + "</h3></div><br>" + "<div><p>"+ popularArr[j].instructions + "</p></div>");
+            $(".card-body"+[j]).innerHTML("<div class='d-flex justify-content-center card-title'><h3>" + popularArr[j].title + "</h3></div><br>" + "></div>"+"<div><p>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))

@@ -44,14 +44,14 @@ public class HomeController {
         return "recipe-search";
     }
 
-    @GetMapping("/questionnaire")
+    @GetMapping("/aboutUs")
     public String getQuestionnaire(){
-        return "questionnaire";
+        return "aboutUs";
     }
 
-    @PostMapping("/questionnaire")
+    @PostMapping("/aboutUs")
     public String Questionnaire(){
-        return "redirect:/questionnaire";
+        return "redirect:/aboutUs";
     }
 
 }

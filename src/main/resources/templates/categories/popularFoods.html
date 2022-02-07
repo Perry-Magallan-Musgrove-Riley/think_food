@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <title>Popular Food</title>
 </head>
-<body>
+<body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/popularFoods}" method="post">
-            <h4>Poppin Plates</h4>
-        <form action="">
-            <button id="pop">Poppin Plates</button><br>
-        </form>
-    </form>
-    <div id="recipe-cards" class="d-flex flex-wrap">
-
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/popular-foods.jpeg" alt="Popular foods image of a hamburger" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-1 mb-2 catTitle">Poppin Plates</h4>
+                    What is the most popular dish?
+                    <br>
+                    According to data from Grubhub, the spicy chicken sandwich was the most popular dish in 2020. And, while chicken nugget sales have reportedly dropped in recent years, Americans still ate around 2.3 billion servings of them in restaurants in 2018            <br>
+                    <form th:action="@{/popularFoods}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="pop">Poppin Plates</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
-<!--    <form action="order" method="get">-->
-<!--        Test form is here-->
-<!--        <input name="test" id="test" type="hidden" value="test">-->
-<!--        <button type="submit">submit</button>-->
-<!--    </form>-->
+    <div class="container">
+        <div class="row justify-content-between" id="recipe-cards">
+
+        </div>
+    </div>
 
 
     <script th:inline="javascript">
@@ -39,34 +48,31 @@
                     var iterator = 0;
                     for(var i = 0; i < response.recipes.length; i++){
                         if(response.recipes[iterator].veryPopular){
-                            popularArr.push(response.recipes[iterator])
+                            if('image' in response.recipes[iterator]) {
+                                popularArr.push(response.recipes[iterator])
+                            }
                         }
                         iterator++;
                     }
                     console.log(popularArr);
-
-
                     var emptyString="";
                     for(var k=0; k <popularArr.length; k++){
                         var emptyIngredients = "";
                         emptyIngredients+="<form action='/order' method='get' id='ingredients"+k+"'/>"
                             for(var j=0; j<popularArr[k].extendedIngredients.length; j++){
-
                                 emptyIngredients+="<div class='babyCard'>"
                                 emptyIngredients+="<div>" + popularArr[k].extendedIngredients[j].original + "</div>"
                                 emptyIngredients+="<input type='hidden' name='ingredients' value='"+popularArr[k].extendedIngredients[j].original+"'/>"
                                 emptyIngredients+="</div>"
                             }
                         emptyIngredients+="</form>"
-                        emptyString+="<form action='/profile' method='get' id='recipes"+ k+"'/>"
                         emptyString+="<div class='card col-4'>"
-                        emptyString+="<div class='card-title'><h3>" + popularArr[k].title + "</h3></div><br>"
-                        emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
-                        emptyString+="<div class='card-body'><p>" + popularArr[k].instructions + "</p></div>"
+                        emptyString+="<div class='card-title' name='recipeTitle'><h3>" + popularArr[k].title + "</h3></div><br>"
+                        emptyString+="<input type='hidden' name='recipeID' value='" + popularArr[k].id + "'/>"
+                        emptyString+="<div name='recipeImage'><img style='width: 250px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
+                        emptyString+="<div class='card-body' name='recipeInstructions'><p>" + popularArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
-                        emptyString+="</form>"
-                        emptyString+="<button type='submit' form='ingredients" + k + "'>Add to cart</button>"
-                        emptyString+="<button type='submit' form='recipes" + k + "'>Save Recipe</button>"
+                        emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                         emptyString+="</div>"
 
                     }

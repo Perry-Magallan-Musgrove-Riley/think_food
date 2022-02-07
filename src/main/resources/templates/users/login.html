@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Login</title>
 </head>
-<body>
+<body class="pageBgColor">
 <div th:include="partials/navbar.html :: navbar"></div>
 <div id="homeHeader"></div>
 
 
-<h1>Log In</h1>
+<h1 class="loginH1">Log In</h1>
 <div th:if="${param.error}">
 	Invalid Username and Password.
 </div>
@@ -17,20 +17,20 @@
 	You have been logged out.
 </div>
 
-<form th:action="@{/login}" method="post">
+<form th:action="@{/login}" method="post" class="loginForm">
 	<label for="username">Username: </label>
 	<input id="username" name="username" type="text"/>
 	<label for="password">Password: </label>
 	<input id="password" name="password" type="password"/>
-	<input type="submit" value="Log In"/>
+	<input type="submit" class="btn btn-outline-primary" value="Log In"/>
 </form>
 <br>
-<form th:action="@{/resetPassword}" method="post">
-	<a href="resetPassword">Forgot Password?</a>
+<form th:action="@{/resetPassword}" method="post" class="forgotPass">
+	<a href="resetPassword" class="btn btn-outline-secondary">Forgot Password?</a>
 </form>
 <br>
-<form th:action="@{/sign-up}" method="post">
-	<a href="sign-up">New User? Register Here</a>
+<form th:action="@{/sign-up}" method="post" class="register">
+	<a href="sign-up" class="btn btn-info">New User? Register Here</a>
 </form>
 
 </body>

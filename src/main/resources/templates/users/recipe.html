@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Recipes Page</title>
 </head>
-<body th:style="'background-color : orange'">
-
+<body class="pageBgColor">
 <nav th:include="partials/navbar.html :: navbar"></nav>
 
 <div class="container">
 	<div class="row justify-content-md-center">
+<!--		<h1 style="'color: #d4a373', 'text-align: center'">Thoughtful Recipes</h1><br>-->
 		<div class="card-deck col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${recipes}">
 			<div class="card d-flex flex-column justify-content-between col-md-8">
-				<img src="filePathForApiRecipe" style="height: 150px;" alt="This is the picture of a recipe" th:text="${recipe.image}">
+				<img src="filePathForApiRecipe" style="height: 150px" alt="This is the picture of a recipe" th:text="${recipe.image}">
 				<h5>Name of Dish: </h5>
 				<span class="card-title" th:text="${recipe.title}"></span>
 				<h6>Rating: </h6>
@@ -26,16 +26,18 @@
 					<br>
 					<h6 class="card-comments mb-2 text-muted">Comments</h6>
 					<p class="card-text">Comments body: </p>
-					<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>
-					<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>
+					<h6>Ingredients: </h6>
+					<span th:text="${recipe.ingredient}"></span>
+<!--					<a th:href="@{/ingredients}" class="card-link">Link to Ingredients</a>-->
+<!--					<a href="https://www.youtube.com/watch?v=EQoqBJUp6mc&ab_channel=PreppyKitchen" class="card-link" target="_blank">Link for video of recipe</a>-->
 					<br>
 					<div sec:authorize="isAuthenticated()">
 						<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get" ><span th:if="${user.getIsAdmin() == 1}">
-						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit</button></span>
+						<button class="button d-grid gap-2 col-6 mx-auto disabled" role="button" aria-disabled="true">Edit</button></span>
 						</form>
 
 						<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post" ><span th:if="${user.getIsAdmin() == 1}">
-						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Delete</button></span>
+						<button class="button d-grid gap-2 col-6 mx-auto disabled" role="button" aria-disabled="true">Delete</button></span>
 						</form>
 					</div>
 					<div class="card-footer">

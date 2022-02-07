@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <title>User Shopping Cart</title>
 </head>
-<body id="orderPage">
+<body id="orderPage" th:style="'background-color : #f5ecbc'">
 <div th:include="partials/navbar.html :: navbar"></div>
-    <form th:action="@{/order}" method="post">
-        <h4>Shopping Cart</h4>
+    <form id="ingredients" th:action="@{/order}" method="post">
+        <h4>Shopping List</h4>
         <div class="shoppingCart" th:each="ingredient : ${ingredients}">
-            <input type="checkbox" name="ingredient" th:id="ingredient" th:value="ingredient"><span th:text="${ingredient}"></span>
+            <input type="checkbox" name="ingredient" th:id="ingredient" th:value="${ingredient}"><span th:text="${ingredient}"></span>
 <!--            <label th:for="ingredient1" th:each="recipe : ${recipes}"></label>-->
 <!--            <ul>-->
 
 <!--                <li th:text="${ingredient.name}"></li>-->
 <!--            </ul>-->
         </div>
+        <button type="submit" form="ingredients">Email Me Ingredients</button>
     </form>
+
 </body>
 </html>

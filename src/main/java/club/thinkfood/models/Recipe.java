@@ -26,6 +26,9 @@ public class Recipe {
     @Column
     private long rating;
 
+    @Column
+    private String ingredient;
+
     @CreationTimestamp
     private LocalDateTime timeStamp;
 
@@ -45,7 +48,7 @@ public class Recipe {
     @ManyToMany(mappedBy = "recipes")
     private List<User> chefs;
 
-    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, LocalDateTime timeStamp) {
+    public Recipe(long id, String title, long prep_time, List<Image> images, String description, User chef, long rating, LocalDateTime timeStamp, String ingredient) {
         this.id = id;
         this.title = title;
         this.prep_time = prep_time;
@@ -54,6 +57,7 @@ public class Recipe {
         this.chef = chef;
         this.rating = rating;
         this.timeStamp = timeStamp;
+        this.ingredient = ingredient;
     }
 
     public Recipe(long id, String title, long prep_time, String description, long rating, List<Image> images) {
@@ -145,5 +149,13 @@ public class Recipe {
     }
 
     public void setTimeStamp() {}
+
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
+    }
 }
 

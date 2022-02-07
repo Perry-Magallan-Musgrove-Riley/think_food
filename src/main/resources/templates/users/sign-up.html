@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>Sign up</title>
 </head>
-<body>
+
+
+<body class="pageBgColor">
+
 <div th:include="partials/navbar.html :: navbar"></div>
 
   <div class="container">
@@ -12,23 +15,23 @@
       <h1>Create an account</h1>
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" th:field="*{username}">
+        <input type="text" class="form-control" id="username" th:field="*{username}" required>
       </div>
       <div class="form-group">
         <label for="first_name">First Name</label>
-        <input type="text" class="form-control" id="first_name" th:field="*{first_name}">
+        <input type="text" class="form-control" id="first_name" th:field="*{first_name}" required>
       </div>
       <div class="form-group">
         <label for="last_name">Last Name</label>
-        <input type="text" class="form-control" id="last_name" th:field="*{last_name}">
+        <input type="text" class="form-control" id="last_name" th:field="*{last_name}" required>
       </div>
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" th:field="*{email}">
+        <input type="email" class="form-control" id="email" th:field="*{email}" required>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" th:field="*{password}">
+        <input type="password" class="form-control" id="password" th:field="*{password}" required>
       </div>
       <h5>Sign up, and we'll get you started by logging in once more and then head over to your new profile!</h5>
       <button type="submit" class="btn btn-primary">Sign me up!</button>

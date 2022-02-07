@@ -5,75 +5,54 @@
     <title>Food For Thought</title>
 
 </head>
-<body>
+<body id="home">
   <div th:include="partials/navbar.html :: navbar"></div>
   <div id="homeHeader">
 
-    <form th:action="@{users/sign-up}" method="get" class="d-flex justify-content-center" id="signUpButton">
-      <h5>Create an Account Now!</h5>
-      <button id="signUp">Sign Me Up!!</button>
+    <form th:action="@{/sign-up}" method="get" id="signUpButton">
+      <div class="form-group" id="createAccount">
+        <h3>Create an Account Now!</h3>
+        <button id="signUp" class="btn btn-warning pageBtn text-center">Sign Me Up!!</button>
+      </div>
     </form>
   </div>
 
-
-<!--  <div class="recipeBody container">-->
-<!--    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">-->
-<!--      <input type="text" name="search" id="search" th:value="${search}"/>-->
-<!--      <input type="submit" id="submitSearch" value="search"/>-->
-<!--      <div th:if="${not #lists.isEmpty(search)}">-->
-<!--      </div>-->
-<!--    </form>-->
-<!--    </div>-->
-
   <div class="searchForm container">
-    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}">
+    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}" class="input-group d-flex justify-content-center mt-3">
       <input type="text" name="search" id="search" th:value="${search}"/>
-      <input type="submit" id="submitSearch" value="search"/>
+      <input class="btn btn-warning pageBtn" type="submit" id="submitSearch" value="search"/>
       <div th:if="${not #lists.isEmpty(search)}">
       </div>
     </form>
   </div>
 
-  <form th:action="@{singleRecipe}" th:method="get">
-    <button id="rando">Randomize a recipe for me :)</button><br>
+  <form th:action="@{singleRecipe}" th:method="get" class="randoForm">
+
+    <button class="button2" id="rando">Randomize a recipe for me :)</button><br>
+
+
+    
   </form>
-    <form th:action="@{questionnaire}" method="get">
-      <h5>Don't know what to eat? Let us help you decide</h5>
-      <button id="questionnaire">Help me decide what to eat!</button>
-    </form>
-    <div class="card-deck">
-      <div class="card">
-        <div class="card-body0">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+
+
+  <div class="card-deck homeRecipes">
+    <div class="card col-4">
+      <div class="card-body0 recipeCard">
+      </div>
+    </div>
+      <div class="card col-4">
+        <div class="card-body1 recipeCard">
         </div>
       </div>
-      <div class="card">
-        <div class="card-body1">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body2">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a th:href="@{/login}" th:method="post" class="card-link">Card link</a>
-          <a th:href="@{/login}" th:method="post" class="card-link">Another link</a>
+      <div class="card col-4">
+        <div class="card-body2 recipeCard">
         </div>
       </div>
     </div>
-  </div>
 
 
   <script th:inline="javascript">const spoonkey = /*[[${spoonkey}]]*/ 'default';</script>
+
 
 </body>
 </html>
