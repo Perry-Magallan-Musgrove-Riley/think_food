@@ -32,6 +32,7 @@ public class CartController {
     public String Order(@RequestParam List<String> ingredients){
         System.out.println(ingredients);
 
+//        String emailSubject = ingredients.getUser().getUsername() + ", your post has been created!";
         return "redirect:/order";
 
     }

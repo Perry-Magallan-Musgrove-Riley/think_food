@@ -85,6 +85,10 @@ nav {
     z-index: 0;
 }
 
+.aboutMeParagraph{
+    margin-left: 270px;
+}
+
 #home{
     background-color: var(--main-bg-color);
 }
@@ -93,6 +97,10 @@ nav {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
 
+}
+
+#signUpPage{
+    background-color: #f5ecbc;
 }
 
 #orderPage{
