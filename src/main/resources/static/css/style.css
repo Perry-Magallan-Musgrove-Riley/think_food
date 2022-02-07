@@ -327,6 +327,10 @@ nav {
     margin-left: 25px;
 }
 
+#recipePage {
+    background-color: var(--main-bg-color);
+}
+
 
 #breakfast{
     background-color: var(--main-bg-color);
