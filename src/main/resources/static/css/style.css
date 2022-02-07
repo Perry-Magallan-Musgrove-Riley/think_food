@@ -150,9 +150,11 @@ nav {
 
 .loginForm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     margin: 15px;
+    text-align: center;
 }
 
 .forgotPass {
