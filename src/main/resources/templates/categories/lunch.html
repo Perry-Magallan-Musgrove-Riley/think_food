@@ -3,21 +3,32 @@
 <head th:include="partials/head.html :: head">
     <meta charset="UTF-8">
     <title>Lunch</title>
-<!--    <style>-->
-<!--        .card{-->
-
-<!--        }-->
-<!--    </style>-->
 </head>
 <body class="pageBgColor">
-
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/lunch}" method="post">
-            <h4>Lunch Lounge</h4>
-    </form>
-    <form action="">
-        <button id="lunch">Launch Lunches</button><br>
-    </form>
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/lunch.jpeg" alt="Lunch Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mb-4 catTitle">Lunch Lounge</h4>
+                    Lorem ipsum dolor sit amet?
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at aut consectetur corporis cum, distinctio doloribus eos exercitationem facere illum minima numquam odit quaerat quasi quibusdam quis reprehenderit. Ab, mollitia?
+                    <br>
+                    <br>
+                    <form th:action="@{/lunch}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="lunch">Launch Lunches</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-between" id="recipe-cards">
 
