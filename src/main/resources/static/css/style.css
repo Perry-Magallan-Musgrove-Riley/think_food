@@ -7,6 +7,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.pageBgColor {
+    background-color: var(--main-bg-color);
+}
+
 nav {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
@@ -323,71 +327,8 @@ nav {
     justify-content: center;
 }
 
-#create {
-    background-color: var(--main-bg-color);
-}
-
 .createRecipe {
     margin-left: 25px;
-}
-
-#recipePage {
-    background-color: var(--main-bg-color);
-}
-
-
-#breakfast{
-    background-color: var(--main-bg-color);
-}
-
-#dairyFree{
-    /*background-color: #219ebc;*/
-    /*background-color: #e09f3e;*/
-    background-color: var(--main-bg-color);
-}
-
-#healthy{
-    background-color: var(--main-bg-color);
-}
-
-#lunchPage{
-    background-color: var(--main-bg-color);
-}
-
-#fishPage{
-    background-color: var(--main-bg-color);
-}
-
-#poppinPage{
-    background-color: var(--main-bg-color);
-}
-
-#veg{
-    background-color: var(--main-bg-color);
-}
-
-#singleRando{
-    background-color: var(--main-bg-color);
-}
-
-#noGlute{
-    background-color: var(--main-bg-color);
-}
-
-#vegLovers{
-    background-color: var(--main-bg-color);
-}
-
-#primalPage{
-    background-color: var(--main-bg-color);
-}
-
-#dinnerDive{
-    background-color: var(--main-bg-color);
-}
-
-#loginPage{
-    background-color: var(--main-bg-color);
 }
 
 
