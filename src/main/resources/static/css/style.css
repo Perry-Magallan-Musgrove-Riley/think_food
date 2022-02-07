@@ -1,6 +1,11 @@
 body {
     font-family: 'Poppins', sans-serif;
+}
 
+nav {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .card-title {
@@ -19,12 +24,16 @@ body {
     font-weight: 600;
 }
 
-#signUp {
+.pageBtn {
     color: #fff;
+    font-weight: 600;
+
+}
+
+#signUp {
     font-size: 1.3rem;
     width: 60%;
     margin-left: 3.8rem;
-    font-weight: 600;
 
 }
 
@@ -41,6 +50,12 @@ body {
 
 #home{
     background-color: #f5ecbc;
+}
+
+.recipeCard {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+
 }
 
 #orderPage{
