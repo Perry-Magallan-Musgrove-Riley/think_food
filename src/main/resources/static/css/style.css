@@ -239,13 +239,10 @@ nav {
     border-width: thick;
     border-color: #3d405b;
     box-shadow: 2px 2px 4px #000000;
-
-    /*float: right;*/
 }
 
 .pic{
     float: left;
-
 }
 
 .Rod-Section{
@@ -329,6 +326,10 @@ nav {
 
 .createRecipe {
     margin-left: 25px;
+}
+
+.whatIs {
+    margin-top: 50px;
 }
 
 
