@@ -57,10 +57,10 @@
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 325px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
+                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
-                    emptyString+="<button class='mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     // emptyString+="<form action='/profile' method='post'>"
                     // emptyString+="<button type='submit'>Save Recipe</button>"
                     // emptyString+="</form>"
