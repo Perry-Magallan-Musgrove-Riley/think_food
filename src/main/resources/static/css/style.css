@@ -319,8 +319,12 @@ nav {
     justify-content: center;
 }
 
-#recipeCreate {
+#create {
     background-color: var(--main-bg-color);
+}
+
+.createRecipe {
+    margin-left: 25px;
 }
 
 
