@@ -56,6 +56,7 @@ public class CartController {
 
         return "redirect:/profile";
 
+
     }
 
 //    public String arrayOfStrings(List<String> ingredients) {
