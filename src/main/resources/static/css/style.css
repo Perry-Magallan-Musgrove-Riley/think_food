@@ -17,7 +17,7 @@ nav {
     font-size: 1.3rem;
 }
 
-#navbar{
+#navbar {
     opacity: 70%;
 }
 
@@ -25,13 +25,13 @@ nav {
     font-size: 1.3rem;
 }
 
-.dish-row{
+.dish-row {
     padding-top: 250px;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.card{
+.card {
     /*width: 300px; height: 200px;*/
     /*background-color: #ffb703;*/
     /*background-color: #fff3b0;*/
@@ -86,7 +86,7 @@ nav {
     z-index: 0;
 }
 
-#home{
+#home {
     background-color: var(--main-bg-color);
 }
 
@@ -96,7 +96,7 @@ nav {
 
 }
 
-#orderPage{
+#orderPage {
     background-image: url("../img/Cart-background.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -114,7 +114,7 @@ nav {
 
 }
 
-.searchForm{
+.searchForm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,73 +122,74 @@ nav {
     margin-top: 20px;
 }
 
-.randoForm{
+.randoForm {
     display: flex;
     justify-content: center;
     margin-bottom: -10px;
 }
 
-.homeRecipes{
+.homeRecipes {
     margin: 30px;
 }
 
-.loginH1{
+.loginH1 {
     display: flex;
     justify-content: center;
     margin: 20px;
 }
-.loginForm{
+
+.loginForm {
     display: flex;
     justify-content: center;
     align-items: baseline;
     margin: 15px;
 }
 
-.forgotPass{
+.forgotPass {
     display: flex;
     justify-content: center;
     margin: -20px;
 }
 
-.register{
+.register {
     display: flex;
     justify-content: center;
     margin: 10px;
 }
 
-.dish1{
+.dish1 {
 
     height: 200px;
     width: 200px;
     /*z-index: 0;*/
 }
 
-.dish2{
+.dish2 {
     height: 200px;
     width: 200px;
     z-index: 0;
 
 }
 
-.dish3{
+.dish3 {
     height: 200px;
     width: 200px;
     /*z-index: -1;*/
 }
 
 
-.rotate-border>div {
+.rotate-border > div {
     border-top: 3px solid black;
     position: absolute;
     margin: auto;
 }
 
-.container-fluid{
+.container-fluid {
     position: fixed;
 
 }
 
-.recipeBody{
+.recipeBody {
     z-index: 100;
 }
 
@@ -197,7 +198,8 @@ nav {
     display: flex;
     justify-content: center;
 }
-#rodPic{
+
+#rodPic {
     border-radius: 100px;
     border-style: outset;
     border-width: thick;
@@ -207,7 +209,7 @@ nav {
     /*float: left;*/
 }
 
-#magPic{
+#magPic {
     border-radius: 100px;
     border-style: outset;
     border-width: thick;
@@ -217,7 +219,7 @@ nav {
     /*float: right;*/
 }
 
-#dezPic{
+#dezPic {
     border-radius: 100px;
     border-style: outset;
     border-width: thick;
@@ -226,14 +228,14 @@ nav {
     /*float: left;*/
 }
 
-.dezBorder{
+.dezBorder {
     border-radius: 100px;
     border-style: outset;
     border-width: thick;
     border-color: #3d405b;
 }
 
-#alexPic{
+#alexPic {
     border-radius: 100px;
     border-style: outset;
     border-width: thick;
@@ -241,63 +243,67 @@ nav {
     box-shadow: 2px 2px 4px #000000;
 }
 
-.pic{
+.pic {
     float: left;
 }
 
-.Rod-Section{
+.Rod-Section {
     background-color: #f4f1de;
     color: #e07a5f;
 }
 
-.Mag-Section{
+.Mag-Section {
     background-color: #e07a5f;
     color: #f4f1de;
 }
 
-.Dez-Section{
+.Dez-Section {
     background-color: #f4f1de;
     color: #e07a5f;
 }
 
-.Alex-Section{
+.Alex-Section {
     background-color: #e07a5f;
     color: #f4f1de;
 }
-.button2{
-    display:inline-block;
-    padding:0.5em 3em;
-    border:0.16em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
+
+.button2 {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.16em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
     box-sizing: border-box;
-    text-decoration:none;
-    text-transform:uppercase;
-    font-family:'Roboto',sans-serif;
-    font-weight:400;
-    color:#FFFFFF;
-    text-align:center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: center;
     transition: all 0.15s;
 }
-.button2:hover{
+
+.button2:hover {
     color: #575050;
     border-color: #b29a9a;
 }
-.button2:active{
-    color:#BBBBBB;
-   border-color:#BBBBBB;
+
+.button2:active {
+    color: #BBBBBB;
+    border-color: #BBBBBB;
 }
 
-@media all and (max-width:30em){
-    a.button2{
-        display:block;
-        margin:0.4em auto;
-        }
+@media all and (max-width: 30em) {
+    a.button2 {
+        display: block;
+        margin: 0.4em auto;
+    }
 }
 
-.container{
+.container {
     /*justify-content: space-between;*/
     /*flex-flow: column wrap;*/
 }
+
 /*#recipe-cards{*/
 /*    margin-left:25px;*/
 
@@ -333,8 +339,7 @@ nav {
 }
 
 
-
-.button{
+.button {
     background-color: #d4a373;
     opacity: initial;
     color: #f5ecbc;
@@ -343,6 +348,67 @@ nav {
     border: solid #d4a373;
     font-weight: bold;
 }
+
+/*.rating {*/
+/*    color: #FFF;*/
+/*    font-weight: 500;*/
+/*    padding: 30px;*/
+/*    text-shadow: 0 3px 3px #2b3c4e;*/
+/*}*/
+
+/*.star {*/
+/*    display: none;*/
+/*}*/
+
+/*.stars {*/
+/*    cursor: pointer;*/
+/*    font-size: 40px;*/
+/*    color: yellow;*/
+/*    display: block;*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    line-height: 60px;*/
+/*    text-align: center;*/
+/*    float: left;*/
+/*    -moz-transition: all 0.2s;*/
+/*    -o-transition: all 0.2s;*/
+/*    -webkit-transition: all 0.2s;*/
+/*    transition: all 0.2s;*/
+/*    text-shadow: 0 3px 3px #2b3c4e;*/
+/*}*/
+/*.stars:hover {*/
+/*    font-size: 50px;*/
+/*    color: #FFF;*/
+/*    text-shadow: 0 0 5px #b9c9d8;*/
+/*}*/
+/*.stars:before {*/
+/*    display: inline;*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    line-height: normal;*/
+/*    vertical-align: baseline;*/
+/*    margin-top: 0;*/
+/*    font-family: FontAwesome;*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*    text-decoration: inherit;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    content: "\f005";*/
+/*}*/
+
+/*.star:checked + .stars ~ .stars:before {*/
+/*    content: "\f006";*/
+/*}*/
+
+/*#wrapper {*/
+/*    display: inline-block;*/
+/*}*/
+/*#wrapper:hover .stars:before {*/
+/*    content: "\f005";*/
+/*}*/
+/*#wrapper:hover .stars:hover ~ .stars:before {*/
+/*    content: "\f006";*/
+/*}*/
 
 /*.card:after, .card:before{*/
 /*    mix-blend-mode:multiply;*/
