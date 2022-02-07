@@ -4,22 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Edit Profile Picture</title>
 </head>
-<body th:style="'background-color : #f5ecbc'">
+<body class="pageBgColor">
 <div th:include="partials/navbar.html :: navbar"></div>
-
-<h1>Edit Page</h1>
-
-	<form class="md-form" th:action="@{/edit-picture}" method="post" th:object="${image}">
+<div class="container-fluid createAndEdit">
+	<label for="imgPath">Edit User Photo</label>
+	<form th:action="@{/edit-picture}" method="post" th:object="${image}">
 		<div class="file-field">
 			<div class="btn btn-primary btn-sm float-left" id="profilePic">
 				<span>Choose file</span>
 			</div>
 			<div class="file-path-wrapper">
-				<input class="file-path validate" id="imgPath" th:field="*{img_path}" type="text" placeholder="Upload your file">
+				<input class="file-path validate" id="imgPath" th:field="*{img_path}" type="text" placeholder="Upload your photo">
 			</div>
 		</div>
+		<br>
 		<button type="submit">Submit edit</button>
 	</form>
+</div>
 
 
 <!--	<input type="hidden" th:value="${userToEdit.getId()}">-->
