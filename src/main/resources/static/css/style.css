@@ -1,3 +1,32 @@
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+}
+
+#signUpButton {
+    margin-bottom: 2rem;
+}
+
+#createAccount {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+#signUp {
+    color: #fff;
+    font-size: 1.3rem;
+    width: 60%;
+    margin-left: 3.8rem;
+    font-weight: 600;
+
+}
 
 #homeHeader {
     background-image: url("../img/Banner2.png");
