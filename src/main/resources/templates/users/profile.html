@@ -4,101 +4,116 @@
 	<meta charset="UTF-8">
 	<title>Profile</title>
 </head>
-<body class="profile-body">
+<body id="profile">
 	<div th:include="partials/navbar.html :: navbar"></div>
 
 	<div class="container">
-		<!-- Profile pic -->
-		<h1 class="my-3">Hello, <span th:text="${username}"></span> here is your profile!</h1>
-		<div class="row my-4">
-			<div id="profileImg" class="d-flex flex-column justify-content-between col-md-2">
-				<img th:src="${profileImg}"
-					 style="height: 150px; border-radius: 50%; border: 10px solid navajowhite;"
-					 alt="This is the user profile picture"
-				/>
-				<a href="/edit-picture" class="link text-center">Edit Profile Image</a>
-			</div>
-			<!-- Bio -->
-			<div id="aboutMe" class="card col">
-				<div class="card-body">
-					<h5 class="card-title text-center">About Me</h5>
-					<p th:text="${bio}">Add in the pathing to grab about me info from edit page.</p>
+			<div class="profileHeader">
+				<!-- Profile pic -->
+				<h1 class="my-3">Hello <span id="username" th:text="${username}"></span>, welcome to your profile!</h1>
+				<div class="row my-4">
+					<div id="profileImgBox" class="d-flex flex-column col-md-2 my-3">
+						<img id="profileImg" th:src="${profileImg}"
+							 alt="This is the user profile picture"
+						/>
+						<div class="mt-3">
+							<a href="/edit-picture" class="link text-center">Edit Profile Image</a>
+						</div>
+					</div>
+					<!-- Bio -->
+					<div id="aboutMe" class="col-sm aboutMe">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title text-center">About Me</h5>
+								<p class="text-center" th:text="${bio}">Add in the pathing to grab about me info from edit page.</p>
+							</div>
+							<a href="/edit-bio" class="link text-center">Edit About Me</a>
+						</div>
+					</div>
 				</div>
-				<a href="/edit-bio" class="link text-center">Edit About Me</a>
 			</div>
-		</div>
+
+
+
 		<!-- Recipe buttons -->
 		<div class="row mb-4">
 			<div class="col d-flex justify-content-center mt-5">
 				<form th:action="@{/recipe}" method="get">
-					<button type="submit" >I want to see all the recipes!</button>
+
+					<button class="btn btn-secondary" type="submit" >I want to see all the recipes!</button>
+
 				</form>
 			</div>
 
 			<div class="col d-flex justify-content-center mt-5">
 				<form th:action="@{/recipes/create}" method="get">
-					<button type="submit" >I want to make my own Recipe!</button>
+
+					<button class="btn btn-warning pageBtn" type="submit" >I want to make my own Recipe!</button>
+
 				</form>
 			</div>
 		</div>
 		<!-- Recipe cards -->
-		<div class="card-deck row" th:each="recipe : ${userRecipes}">
-			<div class="card d-flex flex-column justify-content-between col-md-8">
-				<th:block th:if="${recipeImg} == null">
-					<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
-				</th:block>
-				<img th:src="${recipeImg}" style="height: 150px;" alt="This is the picture of a recipe">
+		<div class="row justify-content-md-center">
+			<div class="card-deck  col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${userRecipes}">
+				<div class="card d-flex flex-column justify-content-center col-lg-8">
+					<th:block th:if="${recipeImg} == null">
+						<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
+					</th:block>
+					<img th:src="${recipeImg}" style="height: 150px" alt="This is the picture of a recipe">
 
-				<div class="savedRecipe" th:each="recipe : ${recipes}">
-					"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"
+					<div class="savedRecipe" th:each="recipe : ${recipes}">
+						"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"
+					</div>
 
-				</div>
-
-				<h5 class="card-title" th:text="${recipe.title}">Name of Dish: </h5>
-				<h6 class="card-subtitle mb-2 text-muted" th:text="${recipe.rating}">Rating: </h6>
-				<br>
-				<div>
+					<h5 class="card-title" th:text="${recipe.title}">Name of Dish: </h5>
+					<h6 class="card-subtitle mb-2 text-muted" th:text="${recipe.rating}">Rating: </h6>
+					<br>
+					<div>
 					<h5>Description: </h5>
 					<span th:text="${recipe.description}"></span>
 					<h5>Prep Time: </h5>
 					<span th:text="${recipe.prep_time}"></span> minutes
 					<br>
 
-				<div class="card-body">
-					<div>
-						<h6 class="card-comments mb-2 text-muted">Comments</h6>
-						<p class="card-text">Comments body: </p>
+						<div class="card-body ">
+							<div>
+								<h6 class="card-comments mb-2 text-muted">Comments</h6>
+								<p class="card-text">Comments body: </p>
+								<h6>Ingredients</h6>
+								<span th:text="${recipe.ingredient}"></span>
+							</div>
+							<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
+								<button style="width: 200px" class="button d-grid gap-2 col-6 mx-auto px-2 disabled" role="button" aria-disabled="true">Edit Recipe</button>
+							</form>
+
+							<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
+								<button class="button d-grid gap-2 col-6 mx-auto  px-2 disabled" role="button" aria-disabled="true">Delete Recipe</button>
+							</form>
 						</div>
-					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
-						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit Recipe</button>
-					</form>
+					</div>
+					<!--			<div class="card">-->
+					<!--				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a 2nd recipe">-->
+					<!--				<h5 class="card-title">Name of Dish</h5>-->
+					<!--				<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>-->
+					<!--				<div class="card-body rotate-border">-->
+					<!--					<div>-->
+					<!--						<h6 class="card-comments mb-2 text-muted">Comments</h6>-->
+					<!--						<p class="card-text">Comments body: </p>-->
+					<!--						<a th:href="@{/ingredients}" class="card-link">Link to ingredients</a>-->
+					<!--						<a href="https://www.youtube.com/watch?v=5h974fXFFHE&ab_channel=SAMTHECOOKINGGUY" class="card-link" target="_blank">Link for video of recipe</a>-->
+					<!--					</div>-->
+					<!--					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">-->
+					<!--						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit Recipe</button>-->
+					<!--					</form>-->
 
-					<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
-						<button class="btn btn-danger btn-lg disabled" role="button" aria-disabled="true">Delete Recipe</button>
-					</form>
-				</div>
-			</div>
-<!--			<div class="card">-->
-<!--				<img src="filePathForApi" style="height: 150px;" alt="This is the picture of a 2nd recipe">-->
-<!--				<h5 class="card-title">Name of Dish</h5>-->
-<!--				<h6 class="card-subtitle mb-2 text-muted">Rating: </h6>-->
-<!--				<div class="card-body rotate-border">-->
-<!--					<div>-->
-<!--						<h6 class="card-comments mb-2 text-muted">Comments</h6>-->
-<!--						<p class="card-text">Comments body: </p>-->
-<!--						<a th:href="@{/ingredients}" class="card-link">Link to ingredients</a>-->
-<!--						<a href="https://www.youtube.com/watch?v=5h974fXFFHE&ab_channel=SAMTHECOOKINGGUY" class="card-link" target="_blank">Link for video of recipe</a>-->
-<!--					</div>-->
-<!--					<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">-->
-<!--						<button class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Edit Recipe</button>-->
-<!--					</form>-->
-
-<!--					<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">-->
-<!--						<button class="btn btn-danger btn-lg disabled" role="button" aria-disabled="true">Delete Recipe</button>-->
-<!--					</form>-->
+					<!--					<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">-->
+					<!--						<button class="btn btn-danger btn-lg disabled" role="button" aria-disabled="true">Delete Recipe</button>-->
+					<!--					</form>-->
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
 

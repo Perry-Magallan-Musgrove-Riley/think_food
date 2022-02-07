@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <title>Pescatarian</title>
 </head>
-<body id="fishPage">
+<body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/pesce}" method="post">
-            <h4>Pesky Pescatarian</h4>
-            <form action="">
-                <button id="pesce">Push Por Pesca!</button><br>
-            </form>
-        </form>
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/pescatarian.jpeg" alt="Pescatarian Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-1 mb-2 catTitle">Pesky Pescatarian</h4>
+                    Can you eat eggs if you are a pescatarian?
+                    <br>
+
+                    Pescatarians have a lot in common with vegetarians. They eat fruits, veggies, nuts, seeds, whole grains, beans, eggs, and dairy, and stay away from meat and poultry.                    <form th:action="@{/pesce}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="pesce">Push Por Pesca!</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--        <form th:action="@{/pesce}" method="post">-->
+<!--            <h4>Pesky Pescatarian</h4>-->
+<!--            <form action="">-->
+<!--                <button id="pesce">Push Por Pesca!</button><br>-->
+<!--            </form>-->
+<!--        </form>-->
     <div class="container">
         <div class="row justify-content-between" id="recipe-cards">
 

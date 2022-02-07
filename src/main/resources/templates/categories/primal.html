@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <title>Primal</title>
 </head>
-<body id="primalPage">
-
+<body class="pageBgColor">
     <div th:include="partials/navbar.html :: navbar"></div>
-        <form th:action="@{/primal}" method="post">
-            <h4>Primal Foodie!</h4>
-            <form action="">
-                <button id="primal">Let's Get Primal</button><br>
-            </form>
-    </form>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/primal.png" alt="Primal Diet Image" class="img-fluid">
+                </div>
+                <div class="col text-center whatIs">
+                    <h4 class="mt-2 mb-4 catTitle">Primal Foodie!</h4>
+                    Primal What?
+                    <br>
+                    The Primal Diet recommends whole foods like meat and vegetables alongside moderate amounts of organic, raw dairy. You should limit or avoid all grains, processed foods, processed oils, and high sugar foods and beverages.
+                    <br>
+                    <form th:action="@{/primal}" method="post">
+                        <button class="btn btn-warning pageBtn mt-3" id="dairy">Let's Get Primal</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--        <form th:action="@{/primal}" method="post">-->
+<!--            <h4>Primal Foodie!</h4>-->
+<!--            <form action="">-->
+<!--                <button id="primal">Let's Get Primal</button><br>-->
+<!--            </form>-->
+<!--    </form>-->
     <div class="container">
         <div class="row justify-content-between" id="recipe-cards">
 
