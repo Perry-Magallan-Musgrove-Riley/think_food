@@ -48,7 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/",
                         "/login",
-                        "/sign-up") // anyone can see the home login and sign-up page
+                        "/sign-up",
+                        "/static/favicon_io/favicon.ico") // anyone can see the home login and sign-up page
                 .permitAll()
                 /* Pages that require authentication */
                 .and()
