@@ -7,7 +7,7 @@
 <body id="orderPage" th:style="'background-color : #f5ecbc'">
 <div th:include="partials/navbar.html :: navbar"></div>
     <form id="ingredients" th:action="@{/order}" method="post">
-        <h4>Shopping Cart</h4>
+        <h4>Shopping List</h4>
         <div class="shoppingCart" th:each="ingredient : ${ingredients}">
             <input type="checkbox" name="ingredient" th:id="ingredient" th:value="${ingredient}"><span th:text="${ingredient}"></span>
 <!--            <label th:for="ingredient1" th:each="recipe : ${recipes}"></label>-->

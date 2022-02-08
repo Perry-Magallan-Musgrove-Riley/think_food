@@ -19,7 +19,7 @@
             }
             console.log(popularArr);
             for(var j=0; j <3; j++){
-                $(".card-body"+[j]).html("<div><h3>" + popularArr[j].title + "</h3></div><br>"+"<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p>"+ popularArr[j].instructions + "</p></div>");
+                $(".card-body"+[j]).html("<div class='text-center'><h3>" + popularArr[j].title + "</h3></div><br>"+"<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p class='text-center'>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))
@@ -56,9 +56,9 @@
                     emptyIngredients+="</form>"
 
                     emptyString+="<div class='card col-4'>"
-                    emptyString+="<div class='card-title'><h3>" + vegArr[k].title + "</h3></div><br>"
+                    emptyString+="<div class='card-title text-center'><h3>" + vegArr[k].title + "</h3></div><br>"
                     emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
-                    emptyString+="<div class='card-body'><p>" + vegArr[k].instructions + "</p></div>"
+                    emptyString+="<div class='card-body text-center'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
                     emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     // emptyString+="<form action='/profile' method='post'>"
@@ -91,7 +91,7 @@
                     iterator++;
                 }while(glutenFreeArr.length < 20)
                 for(var k=0; k <glutenFreeArr.length; k++){
-                    $(".card-body"+[k]).html("<div><h3>" + glutenFreeArr[k].title + "</h3></div><br>" + "<div><p>"+ glutenFreeArr[k].instructions + "</p></div>");
+                    $(".card-body"+[k]).html("<div><h3 class='text-center'>" + glutenFreeArr[k].title + "</h3></div><br>" + "<div><p class='text-center'>"+ glutenFreeArr[k].instructions + "</p></div>");
                 }
                 return glutenFreeArr;
 

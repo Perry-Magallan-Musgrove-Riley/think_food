@@ -85,6 +85,10 @@ nav {
     z-index: 0;
 }
 
+.shoppingCart{
+    margin-left: 20px;
+}
+
 .aboutMeParagraph{
     margin-left: 270px;
 }
@@ -94,6 +98,14 @@ nav {
 
 #home {
     background-color: var(--main-bg-color);
+}
+
+.profileCards {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 0;
 }
 
 .recipeCard {
@@ -150,9 +162,11 @@ nav {
 
 .loginForm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     margin: 15px;
+    text-align: center;
 }
 
 .forgotPass {
