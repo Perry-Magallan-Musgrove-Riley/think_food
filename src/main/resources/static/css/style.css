@@ -100,6 +100,14 @@ nav {
     background-color: var(--main-bg-color);
 }
 
+.profileCards {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 0;
+}
+
 .recipeCard {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
