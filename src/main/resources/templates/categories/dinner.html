@@ -77,7 +77,7 @@
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title text-center'><h3>" + dinnerArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ dinnerArr[k].image +"></div>"
+                    emptyString+="<div class='recipeImage'><img style='width: 275px' alt='recipeImg' src="+ dinnerArr[k].image +"></div>"
                     emptyString+="<div class='card-body text-center'><p>" + dinnerArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
                     emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"

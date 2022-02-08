@@ -19,7 +19,7 @@
             }
             console.log(popularArr);
             for(var j=0; j <3; j++){
-                $(".card-body"+[j]).html("<div class='text-center'><h3>" + popularArr[j].title + "</h3></div><br>"+"<div><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p class='text-center'>"+ popularArr[j].instructions + "</p></div>");
+                $(".card-body"+[j]).html("<div class='text-center'><h3>" + popularArr[j].title + "</h3></div><br>"+"<div class='recipeImage'><img style='width: 325px' alt='recipeImg' src="+ popularArr[j].image + "></div><p class='text-center'>"+ popularArr[j].instructions + "</p></div>");
             }
         })
         .then(response => console.log(response))
@@ -57,7 +57,7 @@
 
                     emptyString+="<div class='card col-4'>"
                     emptyString+="<div class='card-title text-center'><h3>" + vegArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
+                    emptyString+="<div class='recipeImage'><img style='width: 275px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body text-center'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
                     emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"

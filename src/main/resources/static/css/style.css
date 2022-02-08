@@ -318,7 +318,7 @@ nav {
 }
 
 #profileImgBox {
-    height: 150px;
+    height: 185px;
 }
 
 #profileImg {
@@ -343,6 +343,10 @@ nav {
 textarea#editBio {
     border-radius: 2%;
     width: 100vh;
+}
+
+.recipeImage{
+    padding-left: 25px;
 }
 
 .catTitle {
