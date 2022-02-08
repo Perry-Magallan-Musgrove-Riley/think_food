@@ -55,9 +55,9 @@
 			</div>
 		</div>
 		<!-- Recipe cards -->
-		<div class="row justify-content-md-center">
-			<div class="card-deck  col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${userRecipes}">
-				<div class="card d-flex flex-column justify-content-center col-lg-8">
+		<div class="row justify-content-lg-center">
+			<div class="card-deck  col-lg-6 col-md-6 mb-3 mt-3 rounded profileCards" th:each="recipe : ${userRecipes}">
+				<div class="card d-flex flex-column justify-content-center col-lg-6 ">
 					<th:block th:if="${recipeImg} == null">
 						<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
 					</th:block>
@@ -100,11 +100,11 @@
 								<span th:text="${recipe.ingredient}"></span>
 							</div>
 							<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
-								<button style="width: 200px" class="button d-grid gap-2 col-6 mx-auto px-2 disabled" role="button" aria-disabled="true">Edit Recipe</button>
+								<button style="width: 200px" class="text-align-center button d-grid gap-2 col-8 mx-auto disabled" role="button" aria-disabled="true">Edit Recipe</button>
 							</form>
 
 							<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
-								<button class="button d-grid gap-2 col-6 mx-auto  px-2 disabled" role="button" aria-disabled="true">Delete Recipe</button>
+								<button style="width: 200px " class="text-align-center button d-grid gap-2 col-8 mx-auto disabled" role="button" aria-disabled="true">Delete Recipe</button>
 							</form>
 						</div>
 					</div>
