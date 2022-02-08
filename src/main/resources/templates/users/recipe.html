@@ -12,7 +12,7 @@
 <!--		<h1 style="'color: #d4a373', 'text-align: center'">Thoughtful Recipes</h1><br>-->
 		<div class="card-deck col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${recipes}">
 			<div class="card d-flex flex-column justify-content-between col-md-8">
-				<img src="filePathForApiRecipe" style="height: 150px" alt="This is the picture of a recipe" th:text="${recipe.image}">
+				<img th:src="${recipe.getImage()}" style="height: 150px" alt="This is the picture of a recipe" th:text="${recipe.getImage()}">
 				<h5>Name of Dish: </h5>
 				<span class="card-title" th:text="${recipe.title}"></span>
 				<h6>Rating: </h6>
