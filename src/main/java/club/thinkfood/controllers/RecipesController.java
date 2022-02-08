@@ -1,7 +1,9 @@
 package club.thinkfood.controllers;
 
+import club.thinkfood.models.Image;
 import club.thinkfood.models.Recipe;
 import club.thinkfood.models.User;
+import club.thinkfood.repositories.ImageRepository;
 import club.thinkfood.repositories.RecipeRepository;
 import club.thinkfood.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,14 +24,16 @@ public class RecipesController {
 
     private RecipeRepository recipeDao;
     private UserRepository userDao;
+    private ImageRepository imageDao;
 
-    public RecipesController(RecipeRepository recipeDao, UserRepository userDao) {
+    public RecipesController(RecipeRepository recipeDao, UserRepository userDao, ImageRepository imageDao) {
         this.recipeDao = recipeDao;
         this.userDao = userDao;
+        this.imageDao = imageDao;
     }
 
     @GetMapping("/recipe")
-    public String AllRecipes(Model model){
+    public String AllRecipes(Model model) {
 
         List<Recipe> recipes = recipeDao.findAll();
 
