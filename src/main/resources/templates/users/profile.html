@@ -79,13 +79,15 @@
 								<h6>Ingredients</h6>
 								<span th:text="${recipe.ingredient}"></span>
 							</div>
-							<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
-								<button style="width: 200px" class="text-align-center button d-grid gap-2 col-8 mx-auto disabled" role="button" aria-disabled="true">Edit Recipe</button>
-							</form>
+							<div class="recipeBtn">
+								<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
+									<button class="btn btn-warning pageBtn">Edit Recipe</button>
+								</form>
 
-							<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
-								<button style="width: 200px " class="text-align-center button d-grid gap-2 col-8 mx-auto disabled" role="button" aria-disabled="true">Delete Recipe</button>
-							</form>
+								<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
+									<button class="btn btn-danger">Delete Recipe</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

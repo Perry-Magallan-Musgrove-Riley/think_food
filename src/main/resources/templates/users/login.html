@@ -22,16 +22,18 @@
 	<input id="username" name="username" type="text"/>
 	<label for="password">Password: </label>
 	<input id="password" name="password" type="password"/>
-	<input type="submit" class="btn btn-outline-primary" value="Log In"/>
+	<div class="loginBtn">
+	<input type="submit" class="btn btn-outline-primary" value="Log In"/></div>
 </form>
-<br>
-<form th:action="@{/resetPassword}" method="post" class="forgotPass">
-	<a href="resetPassword" class="btn btn-outline-secondary">Forgot Password?</a>
-</form>
-<br>
+
 <form th:action="@{/sign-up}" method="post" class="register">
 	<a href="sign-up" class="btn btn-info">New User? Register Here</a>
 </form>
 
 </body>
 </html>
+
+<!--<br>-->
+<!--<form th:action="@{/resetPassword}" method="post" class="forgotPass">-->
+<!--	<a href="resetPassword" class="btn btn-outline-secondary">Forgot Password?</a>-->
+<!--</form>-->
