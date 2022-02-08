@@ -55,22 +55,22 @@
 			</div>
 		</div>
 		<!-- Recipe cards -->
-		<div class="row justify-content-md-center">
-			<div class="card-deck  col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${userRecipes}">
-				<div class="card d-flex flex-column justify-content-center col-lg-8">
+		<div class="row row-cols-1 row-cols-md-2">
+			<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${userRecipes}">
+				<div class="card width d-flex justify-content-center text-center p-3">
 					<th:block th:if="${recipeImg} == null">
-						<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
+						<img class="pic" src="../img/dish-1.png" style="width: 325px;" alt="This is the picture of a recipe">
 					</th:block>
 					<th:block th:unless="${recipeImg} == null">
 						<img th:src="${recipeImg}" style="height: 150px" alt="This is the picture of a recipe">
 					</th:block>
 
 					<div class="savedRecipe" th:each="recipe : ${recipes}">
-						"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"
+<!--						"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"-->
 
 					</div>
 
-					<h5 class="card-title" th:text="${recipe.title}">Name of Dish: </h5>
+					<h2 class="card-title user-recipe-title" th:text="${recipe.title}">Name of Dish: </h2>
 <!--					<div id="wrapper">-->
 <!--						<input type="radio" id="star1" name="star" class="star" />-->
 <!--						<label for="star1" class="stars"></label>-->

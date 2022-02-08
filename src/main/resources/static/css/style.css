@@ -357,6 +357,20 @@ textarea#editBio {
     font-weight: bold;
 }
 
+.width{
+    min-width: 425px;
+}
+
+.pic{
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.user-recipe-title{
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+}
 /*.rating {*/
 /*    color: #FFF;*/
 /*    font-weight: 500;*/

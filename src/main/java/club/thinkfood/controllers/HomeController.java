@@ -44,6 +44,12 @@ public class HomeController {
         return "recipe-search";
     }
 
+    @PostMapping("/recipe-search/{search}")
+    public String getSearch(@RequestParam(name = "search") String search){
+
+        return "redirect:/recipe-search/" + search;
+    }
+
     @GetMapping("/aboutUs")
     public String getQuestionnaire(){
         return "aboutUs";
