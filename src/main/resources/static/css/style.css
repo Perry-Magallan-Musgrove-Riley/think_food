@@ -389,6 +389,16 @@ textarea#editBio {
 .words{
     text-align: center;
 }
+
+.editRecipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+}
 /*.rating {*/
 /*    color: #FFF;*/
 /*    font-weight: 500;*/
