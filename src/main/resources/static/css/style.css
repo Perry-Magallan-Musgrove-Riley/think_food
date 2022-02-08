@@ -371,6 +371,10 @@ textarea#editBio {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
 }
+
+.words{
+    text-align: center;
+}
 /*.rating {*/
 /*    color: #FFF;*/
 /*    font-weight: 500;*/
