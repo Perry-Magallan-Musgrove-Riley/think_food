@@ -12,7 +12,7 @@
 	<div class="row row-cols-1 row-cols-md-2">
 		<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${recipes}">
 			<div class="card width d-flex justify-content-center text-center p-3">
-				<img class="pic" src="filePathForApiRecipe" style="width: 325px" alt="This is the picture of a recipe" th:text="${recipe.image}">
+				<img class="pic" th:src="${recipe.image}" style="width: 325px" alt="This is the picture of a recipe">
 				<h5>Name of Dish: </h5>
 				<span class="card-title" th:text="${recipe.title}"></span>
 				<h6>Rating: </h6>

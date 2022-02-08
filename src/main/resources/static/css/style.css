@@ -372,7 +372,7 @@ textarea#editBio {
 }
 
 .width{
-    min-width: 425px;
+    width: 450px;
 }
 
 .pic{
