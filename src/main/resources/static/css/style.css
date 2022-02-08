@@ -328,7 +328,7 @@ nav {
 }
 
 #profileImgBox {
-    height: 150px;
+    height: 185px;
 }
 
 #profileImg {
@@ -361,6 +361,10 @@ textarea#editBio {
     width: 100vh;
 }
 
+.recipeImage{
+    padding-left: 25px;
+}
+
 .catTitle {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
@@ -368,7 +372,7 @@ textarea#editBio {
 }
 
 .width{
-    min-width: 425px;
+    width: 450px;
 }
 
 .pic{

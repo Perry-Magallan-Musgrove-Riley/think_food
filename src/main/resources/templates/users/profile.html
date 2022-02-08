@@ -34,8 +34,6 @@
 				</div>
 			</div>
 
-
-
 		<!-- Recipe buttons -->
 		<div class="row mb-4">
 			<div class="col d-flex justify-content-center mt-5">
@@ -54,26 +52,19 @@
 				</form>
 			</div>
 		</div>
-		<!-- Recipe cards -->
 
+		<!-- Recipe cards -->
 		<div class="row row-cols-1 row-cols-md-2">
 			<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${userRecipes}">
 				<div class="card width d-flex justify-content-center text-center p-3">
-					<th:block th:if="${recipeImg} == null">
+					<th:block th:if="${recipe.getImage().get(0).getImg_path()} == null">
 						<img class="pic" src="../img/dish-1.png" style="width: 325px;" alt="This is the picture of a recipe">
 					</th:block>
-					<th:block th:unless="${recipeImg} == null">
-						<img th:src="${recipeImg}" style="height: 150px" alt="This is the picture of a recipe">
+					<th:block th:unless="${recipe.getImage().get(0).getImg_path()} == null">
+						<img id="recipeImg" th:src="${recipe.getImage().get(0).getImg_path()}" style="height: 150px" alt="This is the picture of a recipe">
 					</th:block>
 
-					<div class="savedRecipe" th:each="recipe : ${recipes}">
-<!--						"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"-->
-
-					</div>
-
 					<h2 class="card-title user-recipe-title" th:text="${recipe.title}">Name of Dish: </h2>
-
-
 					<br>
 					<div>
 					<h5>Description: </h5>
@@ -81,7 +72,6 @@
 					<h5>Prep Time: </h5>
 					<span th:text="${recipe.prep_time}"></span> minutes
 					<br>
-
 						<div class="card-body ">
 							<div>
 								<h6 class="card-comments mb-2 text-muted">Comments</h6>
