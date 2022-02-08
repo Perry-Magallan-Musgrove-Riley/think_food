@@ -6,39 +6,38 @@
 </head>
 
 <body class="pageBgColor">
-<!--All comments below: Trying to implement to the save feature to profile after new Recipe is created.-->
 
 <div th:include="partials/navbar.html :: navbar"></div>
-<div class="container-fluid createAndEdit">
-	<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}">
-		<h3>Create your own recipe with this form!</h3><br>
-		<label for="recipeTitle">Recipe title: </label>
-		<input type="text" id="recipeTitle" th:field="*{title}"required><br>
+<div class="container-fluid">
+	<form th:action="@{/recipes/create}" th:method="post" th:object="${newRecipe}" class="createAndEdit">
+		<h2>Create your own recipe with this form!</h2><br>
+		<label for="recipeTitle">Name of Recipe: </label>
+		<input type="text" id="recipeTitle" th:field="*{title}" required><br>
 
-		<label for="recipeDescription">Recipe Description: </label>
-		<textarea  id="recipeDescription" th:field="*{description}"required></textarea><br>
+		<label for="recipeDescription">Recipe Steps/Description: </label>
+		<textarea  id="recipeDescription" th:field="*{description}" required></textarea><br>
 
-		<label for="recipePrepTime">Recipe Prep Time: </label>
-		<input type="number" id="recipePrepTime" th:field="*{prep_time}"required> minutes<br>
+		<label for="recipePrepTime">Recipe Prep Time in Minutes: </label>
+		<input type="number" id="recipePrepTime" th:field="*{prep_time}" required><br>
 
 		<label for="ingredientName">Recipe Ingredients: </label>
-		<textarea  id="ingredientName" th:field="*{ingredient}"required></textarea><br>
+		<textarea  id="ingredientName" th:field="*{ingredient}" required></textarea><br>
 
 		<div class="file-field">
 			<div class="float-left">
-				<span>Upload picture of recipe here:</span>
+				<h5>Upload a picture of your recipe here:</h5>
 			</div>
 			<div th:object="${image}">
-				<div class="btn btn-primary btn-sm float-left" id="recipePic">
+				<div class="file-path-wrapper">
+				<div class="btn btn-primary btn-sm" id="recipePic">
 					<span>Choose file</span>
 				</div>
-				<div class="file-path-wrapper">
 					<input class="file-path validate" id="recipeImgPath" th:field="*{img_path}" type="text" placeholder="Upload your file">
 				</div>
 			</div>
 		</div>
 		<br>
-		<button type="submit" class="btn btn-primary bg-success">Submit New Recipe</button>
+		<button type="submit" class="btn btn-primary btn-lg">Submit Recipe</button>
 	</form>
 </div>
 
