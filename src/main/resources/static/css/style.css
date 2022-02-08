@@ -343,7 +343,13 @@ nav {
 }
 
 .createAndEdit {
-    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
 }
 
 .whatIs {

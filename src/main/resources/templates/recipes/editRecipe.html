@@ -10,7 +10,7 @@
 
 
 <form th:action="@{/recipes/edit}" method="post" class="editRecipe">
-    <h2>Need to make adjustments to your recipe?</h2>
+    <h2>Want to make adjustments to your recipe?</h2>
     <label for="recipeTitle">Different name?  </label>
     <input id="recipeTitle" name="recipeTitle" th:value="${recipeToEdit.getTitle()}" required>
     <br>
@@ -26,7 +26,7 @@
     <h5>Want to change the picture?</h5>
     <div>
         <div class="file-path-wrapper">
-        <div class="btn btn-primary btn-sm float-left" id="recipePic">
+        <div class="btn btn-primary btn-sm" id="recipePic">
             <span>Choose file</span>
         </div>
             <input class="file-path validate" id="recipeImgPath" type="text" placeholder="Upload your file">
