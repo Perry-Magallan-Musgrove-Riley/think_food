@@ -60,7 +60,7 @@
                     emptyString+="<div class='recipeImage'><img style='width: 275px' alt='recipeImg' src="+ vegArr[k].image +"></div>"
                     emptyString+="<div class='card-body text-center'><p>" + vegArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
-                    emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
+                    emptyString+="<button class='btn btn-success mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     // emptyString+="<form action='/profile' method='post'>"
                     // emptyString+="<button type='submit'>Save Recipe</button>"
                     // emptyString+="</form>"
