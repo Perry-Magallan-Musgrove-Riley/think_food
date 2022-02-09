@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <title>Edit</title>
 </head>
+<body th:style="'background-color : #f5ecbc'">
 
-<body class="pageBgColor">
 <nav th:include="partials/navbar.html :: navbar"></nav>
-<div class="container-fluid createAndEdit">
-    <form class="mt-2 editForm" th:action="@{/recipes/edit}" method="post">
-        <label for="recipeTitle">Title of Recipe:</label>
-        <input id="recipeTitle" name="recipeTitle" th:value="${recipeToEdit.getTitle()}"required>Hold info about recipe TITLE
-        <br>
-
-        <label for="recipeDescription">Body of Recipe</label>
-        <input id="recipeDescription" name="recipeDescription" th:value="${recipeToEdit.getDescription()}"required>Hold info about recipe Description
-        <br>
-        <label for="recipePrepTime">Prep Time of Recipe</label>
-        <input id="recipePrepTime" name="recipePrepTime" th:value="${recipeToEdit.getPrep_time()}" required>Hold info about recipe Prep Time
 
 
-        <!--Div to edit photos of created recipes-->
-        <div>
-            <div class="btn btn-primary btn-sm float-left" id="recipePic">
-                <span>Choose file</span>
-            </div>
-            <div class="file-path-wrapper">
-                <input class="file-path validate" id="recipeImgPath" type="text" placeholder="Upload your file">
-            </div>
+<form th:action="@{/recipes/edit}" method="post" class="editRecipe">
+    <h2>Want to make adjustments to your recipe?</h2>
+    <label for="recipeTitle">Different name?  </label>
+    <input id="recipeTitle" name="recipeTitle" th:value="${recipeToEdit.getTitle()}" required>
+    <br>
+    <label for="recipeDescription">Different Steps/Description? </label>
+    <input id="recipeDescription" name="recipeDescription" th:value="${recipeToEdit.getDescription()}" required>
+    <br>
+    <label for="recipePrepTime">More/Less Prep Time in Minutes: </label>
+    <input id="recipePrepTime" name="recipePrepTime" type="number" th:value="${recipeToEdit.getPrep_time()}" required>
+    <br>
 
 
+<!--Div to edit photos of created recipes-->
+    <h5>Want to change the picture?</h5>
+    <div>
+        <div class="file-path-wrapper">
+        <div class="btn btn-primary btn-sm" id="recipePic">
+            <span>Choose file</span>
+        </div>
+            <input class="file-path validate" id="recipeImgPath" type="text" placeholder="Upload your file">
+        </div>
+    </div>
+
+    <input type="hidden" name="recipeId" th:value="${recipeToEdit.getId()}">
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg">Submit edit</button>
+</form>
 </body>
 </html>

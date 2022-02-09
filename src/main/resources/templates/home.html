@@ -18,9 +18,9 @@
   </div>
 
   <div class="searchForm container">
-    <form th:action="@{/recipe-search/}" th:method="get" th:object="${recipe}" class="input-group d-flex justify-content-center mt-3">
+    <form th:action="@{/recipe-search/{search}}" th:method="post" class="input-group d-flex justify-content-center mt-3">
       <input type="text" name="search" id="search" th:value="${search}"/>
-      <input class="btn btn-warning pageBtn" type="submit" id="submitSearch" value="search"/>
+      <input class="btn btn-warning pageBtn" type="submit" value="search"/>
       <div th:if="${not #lists.isEmpty(search)}">
       </div>
     </form>
@@ -28,7 +28,7 @@
 
   <form th:action="@{singleRecipe}" th:method="get" class="randoForm">
 
-    <button class="button2" id="rando">Randomize a recipe for me :)</button><br>
+    <button class="button2 btn btn-success" id="rando">Randomize a recipe for me :)</button><br>
 
 
     

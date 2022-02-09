@@ -38,7 +38,6 @@ public class ProfileController {
         User currentUser = userDao.findUserById(loggedInUser.getId());
 
         List<Recipe> userRecipes = userDao.findUserById(loggedInUser.getId()).getMyRecipes();
-        Recipe recipe = new Recipe();
 
         System.out.println("userRecipes = " + userRecipes);
 
@@ -46,11 +45,7 @@ public class ProfileController {
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
 
-//       model.addAttribute("recipes", recipes);
-//        System.out.println(recipes);
         model.addAttribute("userRecipes", userRecipes);
-        model.addAttribute("recipeImg", imageDao.findImageByRecipeId(recipe.getId()));
-        System.out.println("imageDao.findImageByRecipeId(recipe.getId()) = " + imageDao.findImageByRecipeId(recipe.getId()));
 
         System.out.println("currentUser = " + currentUser.getIsAdmin());
         System.out.println("loggedInUser = " + loggedInUser.getIsAdmin());

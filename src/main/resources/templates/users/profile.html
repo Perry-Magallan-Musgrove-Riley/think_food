@@ -11,7 +11,7 @@
 	<div class="container">
 			<div class="profileHeader">
 				<!-- Profile pic -->
-				<h1 class="my-3">Hello <span id="username" th:text="${username}"></span>, welcome to your profile!</h1>
+				<h1 class="words my-3">Hello <span id="username" th:text="${username}"></span>, welcome to your profile!</h1>
 				<div class="row my-4">
 					<div id="profileImgBox" class="d-flex flex-column col-md-2 my-3">
 						<img id="profileImg" th:src="${profileImg}"
@@ -34,8 +34,6 @@
 				</div>
 			</div>
 
-
-
 		<!-- Recipe buttons -->
 		<div class="row mb-4">
 			<div class="col d-flex justify-content-center mt-5">
@@ -54,36 +52,19 @@
 				</form>
 			</div>
 		</div>
+
 		<!-- Recipe cards -->
-		<div class="row justify-content-md-center">
-			<div class="card-deck  col-lg-4 col-md-6 mb-3 mt-3 rounded" th:each="recipe : ${userRecipes}">
-				<div class="card d-flex flex-column justify-content-center col-lg-8">
-					<th:block th:if="${recipeImg} == null">
-						<img src="../img/dish-1.png" style="height: 150px;" alt="This is the picture of a recipe">
+		<div class="row row-cols-1 row-cols-md-2">
+			<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${userRecipes}">
+				<div class="card width d-flex justify-content-center text-center p-3">
+					<th:block th:if="${recipe.getImage().get(0).getImg_path()} == null">
+						<img class="pic" src="../img/dish-1.png" style="width: 325px;" alt="This is the picture of a recipe">
 					</th:block>
-					<th:block th:unless="${recipeImg} == null">
-						<img th:src="${recipeImg}" style="height: 150px" alt="This is the picture of a recipe">
+					<th:block th:unless="${recipe.getImage().get(0).getImg_path()} == null">
+						<img id="recipeImg" th:src="${recipe.getImage().get(0).getImg_path()}" style="height: 150px" alt="This is the picture of a recipe">
 					</th:block>
 
-					<div class="savedRecipe" th:each="recipe : ${recipes}">
-						"<div class='card-title'><h3>" + ${recipe.title} + "</h3></div><br>"
-
-					</div>
-
-					<h5 class="card-title" th:text="${recipe.title}">Name of Dish: </h5>
-<!--					<div id="wrapper">-->
-<!--						<input type="radio" id="star1" name="star" class="star" />-->
-<!--						<label for="star1" class="stars"></label>-->
-<!--						<input type="radio" id="star2" name="star" class="star"/>-->
-<!--						<label for="star2" class="stars"></label>-->
-<!--						<input type="radio" id="star3" name="star" class="star" checked="checked"/>-->
-<!--						<label for="star3" class="stars"></label>-->
-<!--						<input type="radio" id="star4" name="star" class="star"/>-->
-<!--						<label for="star4" class="stars"></label>-->
-<!--						<input type="radio" id="star5" name="star" class="star"/>-->
-<!--						<label for="star5" class="stars"></label>-->
-<!--					</div>-->
-
+					<h2 class="card-title user-recipe-title" th:text="${recipe.title}">Name of Dish: </h2>
 					<br>
 					<div>
 					<h5>Description: </h5>
@@ -91,7 +72,6 @@
 					<h5>Prep Time: </h5>
 					<span th:text="${recipe.prep_time}"></span> minutes
 					<br>
-
 						<div class="card-body ">
 							<div>
 								<h6 class="card-comments mb-2 text-muted">Comments</h6>
@@ -99,13 +79,15 @@
 								<h6>Ingredients</h6>
 								<span th:text="${recipe.ingredient}"></span>
 							</div>
-							<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
-								<button style="width: 200px" class="button d-grid gap-2 col-6 mx-auto px-2 disabled" role="button" aria-disabled="true">Edit Recipe</button>
-							</form>
+							<div class="recipeBtn">
+								<form th:action="@{'/recipes/edit/' + ${recipe.getId()}}" method="get">
+									<button class="btn btn-warning pageBtn">Edit Recipe</button>
+								</form>
 
-							<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
-								<button class="button d-grid gap-2 col-6 mx-auto  px-2 disabled" role="button" aria-disabled="true">Delete Recipe</button>
-							</form>
+								<form th:action="@{'/recipes/delete/' + ${recipe.getId()}}"  method="post">
+									<button class="btn btn-danger">Delete Recipe</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

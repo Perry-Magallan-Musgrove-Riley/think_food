@@ -75,9 +75,9 @@
                     emptyIngredients+="</form>"
 
                     emptyString+="<div class='card col-4'>"
-                    emptyString+="<div class='card-title'><h3>" + breakfastArr[k].title + "</h3></div><br>"
-                    emptyString+="<div><img style='width: 250px' alt='recipeImg' src="+ breakfastArr[k].image +"></div>"
-                    emptyString+="<div class='card-body'><p>" + breakfastArr[k].instructions + "</p></div>"
+                    emptyString+="<div class='card-title text-center'><h3>" + breakfastArr[k].title + "</h3></div><br>"
+                    emptyString+="<div class='recipeImage'><img style='width: 275px' alt='recipeImg' src="+ breakfastArr[k].image +"></div>"
+                    emptyString+="<div class='card-body text-center'><p>" + breakfastArr[k].instructions + "</p></div>"
                     emptyString+=emptyIngredients
                     // emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                     emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"

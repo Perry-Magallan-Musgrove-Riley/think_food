@@ -67,10 +67,10 @@
                             }
                         emptyIngredients+="</form>"
                         emptyString+="<div class='card col-4'>"
-                        emptyString+="<div class='card-title' name='recipeTitle'><h3>" + popularArr[k].title + "</h3></div><br>"
+                        emptyString+="<div class='card-title text-center' name='recipeTitle'><h3>" + popularArr[k].title + "</h3></div><br>"
                         emptyString+="<input type='hidden' name='recipeID' value='" + popularArr[k].id + "'/>"
-                        emptyString+="<div name='recipeImage'><img style='width: 250px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
-                        emptyString+="<div class='card-body' name='recipeInstructions'><p>" + popularArr[k].instructions + "</p></div>"
+                        emptyString+="<div class='recipeImage'><img style='width: 275px' alt='recipeImg' src="+ popularArr[k].image +"></div>"
+                        emptyString+="<div class='card-body text-center' name='recipeInstructions'><p>" + popularArr[k].instructions + "</p></div>"
                         emptyString+=emptyIngredients
                         emptyString+="<button class='button2 mb-2' type='submit' form='ingredients" + k + "'>Add to cart</button>"
                         emptyString+="</div>"
