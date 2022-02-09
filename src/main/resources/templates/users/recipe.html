@@ -12,16 +12,14 @@
 	<div class="row row-cols-1 row-cols-md-2">
 		<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${recipes}">
 			<div class="card width d-flex justify-content-center align-items-center mx-auto text-center p-3">
-
 				<img class="pic" th:src="${recipe.getImage().get(0).getImg_path()}" alt="This is the picture of a recipe">
-
-				<h5>Name of Dish: </h5>
+				<h5>Name of Dish:</h5>
 				<span class="card-title" th:text="${recipe.title}"></span>
-				<h6>Rating: </h6>
+				<h6>Rating:</h6>
 				<span class="card-subtitle mb-2 text-muted" th:text="${recipe.rating}"></span>
 				<br>
 				<div>
-					<h5>Description: </h5>
+					<h5>Description:</h5>
 					<span th:text="${recipe.description}"></span>
 					<h5>Prep Time: </h5>
 					<span th:text="${recipe.prep_time}"></span> minutes
