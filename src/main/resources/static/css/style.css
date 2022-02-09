@@ -100,7 +100,7 @@ nav {
     margin-left: 270px;
 }
 .aboutMeParagraph2{
-    margin-left: 325px;
+    margin-left: 270px;
 }
 
 #home {
@@ -218,6 +218,10 @@ nav {
 .container-fluid {
     position: fixed;
 
+}
+
+.links{
+    margin-left: 10px;
 }
 
 .recipeBody {
