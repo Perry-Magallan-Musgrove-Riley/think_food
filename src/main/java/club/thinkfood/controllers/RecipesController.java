@@ -40,6 +40,7 @@ public class RecipesController {
         model.addAttribute("recipes", recipes);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("user.getUsername() = " + user.getUsername());
+        System.out.println("recipes.get(0).getImage().get(0).getImg_path() = " + recipes.get(0).getImage().get(0).getImg_path());
 //        User currentUser = userDao.findUserById(id);
         model.addAttribute("user", user);
         System.out.println("user.getIsAdmin() = " + user.getIsAdmin());
