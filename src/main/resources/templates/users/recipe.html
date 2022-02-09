@@ -12,10 +12,10 @@
 	<div class="row row-cols-1 row-cols-md-2">
 		<div class="col mb-3 mt-3 d-flex justify-content-center" th:each="recipe : ${recipes}">
 			<div class="card width d-flex justify-content-center align-items-center mx-auto text-center p-3">
-				<th:block th:if="${recipe.getImage().get(0).getImg_path()} == null">
-					<img class="pic" src="../img/dish-1.png" style="width: 325px;" alt="This is the picture of a recipe">
+				<th:block th:if="${recipe.getImage().get(0).getImg_path() == null or recipe.getImage().get(0).getImg_path().isEmpty()}">
+					<img class="pic" th:src="@{https://cdn.filestackcontent.com/YbnIKrNBSbaTVxEdXEV0}" style="width: 325px;" alt="This is the default picture of a recipe">
 				</th:block>
-				<th:block th:unless="${recipe.getImage().get(0).getImg_path()} == null">
+				<th:block th:unless="${recipe.getImage().get(0).getImg_path().isEmpty()}">
 					<img class="pic" th:src="${recipe.getImage().get(0).getImg_path()}" alt="This is the picture of a recipe">
 				</th:block>
 				<h5>Name of Dish:</h5>
