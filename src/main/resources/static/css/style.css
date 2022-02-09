@@ -178,7 +178,7 @@ nav {
 .register {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 2rem;
 }
 
 .dish1 {
@@ -328,7 +328,7 @@ nav {
 }
 
 #profileImgBox {
-    height: 150px;
+    height: 185px;
 }
 
 #profileImg {
@@ -343,7 +343,13 @@ nav {
 }
 
 .createAndEdit {
-    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
 }
 
 .whatIs {
@@ -355,20 +361,14 @@ textarea#editBio {
     width: 100vh;
 }
 
+.recipeImage{
+    padding-left: 25px;
+}
+
 .catTitle {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
     font-size: 2.5rem;
-}
-
-.button {
-    background-color: #d4a373;
-    opacity: initial;
-    color: #f5ecbc;
-    padding: 2px;
-    border-radius: 50px;
-    border: solid #d4a373;
-    font-weight: bold;
 }
 
 .width{
@@ -388,6 +388,20 @@ textarea#editBio {
 
 .words{
     text-align: center;
+}
+
+.editRecipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+}
+
+.recipeBtn > form > .btn {
+    width: 200px;
 }
 /*.rating {*/
 /*    color: #FFF;*/
