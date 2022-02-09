@@ -11,24 +11,24 @@
 
     <form th:action="@{/sign-up}" method="get" id="signUpButton">
       <div class="form-group" id="createAccount">
-        <h3 id="createAccountText">Create an Account Now!</h3>
+        <h3 class="textBackground">Create an Account Now!</h3>
         <button id="signUp" class="btn btn-warning pageBtn text-center">Sign Me Up!!</button>
       </div>
     </form>
   </div>
 
-  <div class="searchForm">
-<<<<<<< HEAD
-    <form th:action="@{/recipe-search}" th:method="get" class="input-group d-flex justify-content-center mt-3">
-=======
-    <form th:action="@{/recipe-search/{search}}" th:method="post" class="input-group d-flex justify-content-center mt-3">
->>>>>>> 156a5345dd6879ceccbf25b3f54d52af489beadd
-      <input type="text" name="search" id="search" th:value="${search}"/>
-      <input class="btn btn-warning pageBtn" type="submit" value="search"/>
-      <div th:if="${not #lists.isEmpty(search)}">
-      </div>
-    </form>
-  </div>
+<!--  <div class="searchForm">-->
+<!--<<<<<<< HEAD-->
+<!--    <form th:action="@{/recipe-search}" th:method="get" class="input-group d-flex justify-content-center mt-3">-->
+<!--=======-->
+<!--    <form th:action="@{/recipe-search/{search}}" th:method="post" class="input-group d-flex justify-content-center mt-3">-->
+<!--&gt;>>>>>> 156a5345dd6879ceccbf25b3f54d52af489beadd-->
+<!--      <input type="text" name="search" id="search" th:value="${search}"/>-->
+<!--      <input class="btn btn-warning pageBtn" type="submit" value="search"/>-->
+<!--      <div th:if="${not #lists.isEmpty(search)}">-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
 
   <form th:action="@{singleRecipe}" th:method="get" class="randoForm">
 
