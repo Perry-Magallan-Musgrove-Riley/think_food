@@ -21,13 +21,13 @@
             <th>Rating</th>
         </tr>
         <tr th:each="search : ${recipes}">
-            <td th:text="${search.getId}"><a href="/recipe/${recipe.recipe_id}">Recipe ID</a></td>
+            <td th:text="${search.getId()}"><a href="/recipe/${recipe.recipe_id}">Recipe ID</a></td>
             <td th:text="${search.getTitle()}">Title</td>
-            <td th:text="${search.getPrep_time}">Prep Time</td>
-            <td th:text="${search.getImage}">Image</td>
-            <td th:text="${search.getDescription}">Description</td>
-            <td th:text="${search.getUsername}">Chef</td>
-            <td th:text="${search.getRating}">Rating</td>
+            <td th:text="${search.getPrep_time()}">Prep Time</td>
+            <td th:text="${search.getImage().get(0).getImg_path()}">Image</td>
+            <td th:text="${search.getDescription()}">Description</td>
+            <td th:text="${search.getChef().getUsername()}">Chef</td>
+            <td th:text="${search.getRating()}">Rating</td>
         </tr>
     </table>
 </div>
