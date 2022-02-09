@@ -100,6 +100,14 @@ nav {
     background-color: var(--main-bg-color);
 }
 
+.profileCards {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 0;
+}
+
 .recipeCard {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
@@ -154,9 +162,11 @@ nav {
 
 .loginForm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     margin: 15px;
+    text-align: center;
 }
 
 .forgotPass {
@@ -168,7 +178,7 @@ nav {
 .register {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin-bottom: 2rem;
 }
 
 .dish1 {
@@ -333,7 +343,13 @@ nav {
 }
 
 .createAndEdit {
-    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
 }
 
 .whatIs {
@@ -355,14 +371,60 @@ textarea#editBio {
     font-size: 2.5rem;
 }
 
-.button {
-    background-color: #d4a373;
-    opacity: initial;
-    color: #f5ecbc;
-    padding: 2px;
-    border-radius: 50px;
-    border: solid #d4a373;
-    font-weight: bold;
+.width{
+    width: 450px;
+}
+
+.pic{
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.user-recipe-title{
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+}
+
+.words{
+    text-align: center;
+}
+
+.editRecipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+}
+
+.recipeBtn > form > .btn {
+    width: 200px;
+}
+
+#email-confirm{
+    background-image:url("../img/BANNER-IMG.png");
+    /*background-image: url("../img/Cart-background.png");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: inherit;
+    height: 72vh;
+    /*height: 82vh*/
+    min-width: 767px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /*justify-content: none;*/
+    align-items: center;
+    align-content: flex-start;
+    /*align-items: flex-start;*/
+    text-align: center;
+    margin: 2.5rem;
+    padding: 3.5em;
 }
 
 /*.rating {*/

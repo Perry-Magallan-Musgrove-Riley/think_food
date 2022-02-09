@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="partials/head.html :: head">
+	<meta charset="UTF-8">
+
+	<title>Email Confirm Page</title>
+</head>
+<body class="pageBgColor">
+<nav th:include="partials/navbar.html :: navbar"></nav>
+
+	<div id="email-confirm">
+		<h2>An email has been sent to you with the ingredients</h2>
+		<br>
+		<h5>Thank you for choosing Food For Thought!</h5><br>
+		<form th:action="@{/profile}" method="get">
+			<button class="pageBtn btn btn-primary">My Profile</button>
+		</form>
+		<br>
+		<form th:action="@{/recipe}">
+			<button class="pageBtn btn btn-success">All recipes</button>
+		</form>
+		<br>
+		<form th:action="@{/aboutUs}">
+			<button class="pageBtn btn btn-warning">About us</button>
+		</form>
+
+	</div>
+</body>
+</html>

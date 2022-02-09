@@ -33,6 +33,11 @@ public class CartController {
         return "users/order";
     }
 
+    @GetMapping("/email-confirm")
+    public String confirmEmail(){
+        return "recipes/email-confirm";
+    }
+
 //    @PostMapping("/order")
 //    public String Order(@RequestParam List<String> ingredients){
 //        System.out.println(ingredients);
@@ -54,7 +59,7 @@ public class CartController {
 //        String list = arrayOfStrings(ingredients);
         emailService.prepareAndSend(user2, "Shopping List", list);
 
-        return "redirect:/profile";
+        return "redirect:/email-confirm";
 
 
     }
