@@ -48,7 +48,7 @@ public class RecipesController {
 
     @PostMapping("/recipe")
     public String ShowIngredients(){
-        return "redirect:/users/ingredients";
+        return "redirect:users/ingredients";
     }
 
     @GetMapping("/vegetarian")
