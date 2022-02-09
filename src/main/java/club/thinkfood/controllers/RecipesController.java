@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -47,12 +48,12 @@ public class RecipesController {
     }
 
     @PostMapping("/recipe")
-    public String ShowIngredients(){
+    public String ShowIngredients() {
         return "redirect:/users/ingredients";
     }
 
     @GetMapping("/vegetarian")
-    public String getVeggies(Model model){
+    public String getVeggies(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -60,7 +61,7 @@ public class RecipesController {
     }
 
     @PostMapping("/vegetarian")
-    public String veggiesPage(){
+    public String veggiesPage() {
         return "redirect: categories/vegetarian";
     }
 
@@ -73,12 +74,12 @@ public class RecipesController {
     }
 
     @PostMapping("/glutenFree")
-    public String noGlutenPage(){
+    public String noGlutenPage() {
         return "redirect: categories/glutenFree";
     }
 
     @GetMapping("/healthFoods")
-    public String healthyHelper(Model model){
+    public String healthyHelper(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -86,12 +87,12 @@ public class RecipesController {
     }
 
     @PostMapping("/healthFoods")
-    public String homeOfHealth(){
+    public String homeOfHealth() {
         return "redirect: categories/healthFoods";
     }
 
     @GetMapping("/breakfast")
-    public String breakfastBar(Model model){
+    public String breakfastBar(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -99,12 +100,12 @@ public class RecipesController {
     }
 
     @PostMapping("/breakfast")
-    public String bringTheBreakfast(){
+    public String bringTheBreakfast() {
         return "redirect: categories/breakfast";
     }
 
     @GetMapping("/vegan")
-    public String vegans(Model model){
+    public String vegans(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -112,12 +113,12 @@ public class RecipesController {
     }
 
     @PostMapping("/vegan")
-    public String trueVegan(){
+    public String trueVegan() {
         return "redirect: categories/vegan";
     }
 
     @GetMapping("/popularFoods")
-    public String cheap(Model model){
+    public String cheap(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -125,12 +126,12 @@ public class RecipesController {
     }
 
     @PostMapping("/popularFoods")
-    public String cheapFood(){
+    public String cheapFood() {
         return "redirect: categories/popularFoods";
     }
 
     @GetMapping("/pesce")
-    public String peskyPesce(Model model){
+    public String peskyPesce(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -139,12 +140,12 @@ public class RecipesController {
 
 
     @PostMapping("/pesce")
-    public String pescePeople(){
+    public String pescePeople() {
         return "redirect: categories/pesce";
     }
 
     @GetMapping("/dairyFree")
-    public String dairyDonts(Model model){
+    public String dairyDonts(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -152,12 +153,12 @@ public class RecipesController {
     }
 
     @PostMapping("/dairyFree")
-    public String dairy(){
+    public String dairy() {
         return "redirect: categories/dairyFree";
     }
 
     @GetMapping("/primal")
-    public String primalFood(Model model){
+    public String primalFood(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -165,12 +166,12 @@ public class RecipesController {
     }
 
     @PostMapping("/primal")
-    public String primalFoodie(){
+    public String primalFoodie() {
         return "redirect: categories/primal";
     }
 
     @GetMapping("/lunch")
-    public String lunchLounge(Model model){
+    public String lunchLounge(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -178,13 +179,13 @@ public class RecipesController {
     }
 
     @PostMapping("/lunch")
-    public String lunchLauncher(){
+    public String lunchLauncher() {
         return "redirect: categories/lunch";
     }
 
 
     @GetMapping("/dinner")
-    public String dinnerDiner(Model model){
+    public String dinnerDiner(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -192,13 +193,13 @@ public class RecipesController {
     }
 
     @PostMapping("/dinner")
-    public String dinnerLauncher(){
+    public String dinnerLauncher() {
         return "redirect: categories/dinner";
     }
 
 
     @GetMapping("/singleRecipe")
-    public String singleDish(Model model){
+    public String singleDish(Model model) {
 
         model.addAttribute("spoonkey", spoonacularApiKey);
 
@@ -206,9 +207,19 @@ public class RecipesController {
     }
 
     @PostMapping("/singleRecipe")
-    public String singlePlate(){
+    public String singlePlate() {
         return "redirect: /singleRecipe";
     }
 
+    @GetMapping("/search-results/")
+    public String showSearchResults(Model model) {
+        model.addAttribute("spoonkey", spoonacularApiKey);
+        return "search-results";
+    }
 
+    @PostMapping("/search-results")
+public String searchResults(@RequestParam(name="search") List<String> search){
+        System.out.println("search= " + search);
+        return "redirect:search-results";
+    }
 }
