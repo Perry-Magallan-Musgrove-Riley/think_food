@@ -42,8 +42,6 @@ public class ProfileController {
         System.out.println("userRecipes = " + userRecipes);
 //        System.out.println("recipes.get(recipes.size() -1).getImage().get(0).getImg_path() = " + recipes.get(recipes.size() -1).getImage().get(0).getImg_path().isEmpty());
 
-        System.out.println("userRecipes.get(userRecipes.size() - 1).getImage().get(0) = " + userRecipes.get(userRecipes.size() - 1).getImage().get(0).getImg_path());
-
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("bio", currentUser.getBio());
         model.addAttribute("profileImg", currentUser.getImg().getImg_path());
