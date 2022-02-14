@@ -19,6 +19,6 @@ public class LoginController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
             return "users/login";
         }
-        return "redirect:/profile";
+        return "redirect:users/profile";
     }
 }
